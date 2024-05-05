@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+  
+  <AnimationDef>
+    <defName>MeatLanternSpasm</defName>
+    <animationParts>
+      <li>
+        <key>Head</key>
+        <value>
+          <workerClass>MeatLantern.AnimationWorker_MeatLanternSpasm</workerClass>
+        </value>
+      </li>
+    </animationParts>
+  </AnimationDef>
+
+  <AnimationDef>
+    <defName>MeatLanternHypnotise</defName>
+    <durationTicks>6</durationTicks>
+    <animationParts>
+      <li>
+        <key>Head</key>
+        <value>
+          <workerClass>MeatLantern.AnimationWorker_MeatLanternHypnotise</workerClass>
+          <keyframes>
+            <li>
+              <tick>0</tick>
+              <offset>(0.02,0,0)</offset>
+            </li>
+            <li>
+              <tick>3</tick>
+              <offset>(-0.02,0,0)</offset>
+            </li>
+            <li>
+              <tick>6</tick>
+              <offset>(0.02,0,0)</offset>
+            </li>
+          </keyframes>
+        </value>
+      </li>
+    </animationParts>
+  </AnimationDef>
+  
+</Defs>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="EtherealThingBase">
+    <defName>DyingMeatLantern</defName>
+    <selectable>false</selectable>
+    <tickerType>Normal</tickerType>
+    <thingClass>MeatLantern.DyingMeatLantern</thingClass>
+    <drawOffscreen>true</drawOffscreen>
+  </ThingDef>
+
+  <ThingDef ParentName="EtherealThingBase">
+    <defName>EscapingMeatLantern</defName>
+    <selectable>false</selectable>
+    <tickerType>Normal</tickerType>
+    <thingClass>MeatLantern.EscapingMeatLantern</thingClass>
+    <drawOffscreen>true</drawOffscreen>
+  </ThingDef>
+  
+</Defs>

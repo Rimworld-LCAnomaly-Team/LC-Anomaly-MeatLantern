@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThinkTreeDef>
+    <defName>MeatLanternContained</defName>
+    <thinkRoot Class="ThinkNode_Priority">
+      <subNodes>
+        <!-- Despawned -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>Despawned</treeDef>
+        </li>
+
+        <!-- Downed -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>Downed</treeDef>
+        </li>
+
+        <!-- Wait -->
+        <li Class="MeatLantern.ThinkNode_ConditionalMeatLanternState">
+          <state>Wait</state>
+          <subNodes>
+            <li Class="MeatLantern.JobGiver_MeatLanternWait" />
+          </subNodes>
+        </li>
+
+        <!-- Attack -->
+        <li Class="MeatLantern.ThinkNode_ConditionalMeatLanternState">
+          <state>Attack</state>
+          <subNodes>
+            <li Class="MeatLantern.JobGiver_MeatLanternAttack" />
+          </subNodes>
+        </li>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+
+  <ThinkTreeDef>
+    <defName>MeatLanternConstant</defName>
+    <thinkRoot Class="ThinkNode_Priority">
+      <subNodes>
+        <!-- Despawned -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>Despawned</treeDef>
+        </li>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+  
+</Defs>

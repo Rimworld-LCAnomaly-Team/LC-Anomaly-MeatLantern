@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <SoundDef>
+    <defName>MeatLantern_Eat</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>MeatLantern_Eat</clipPath>
+          </li>
+        </grains>
+        <volumeRange>25~35</volumeRange>
+        <pitchRange>0.9311764~1.068824</pitchRange>
+        <distRange>0~70</distRange>
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>MeatLantern_Escape</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>MeatLantern_Escape</clipPath>
+          </li>
+        </grains>
+        <volumeRange>25~35</volumeRange>
+        <pitchRange>0.9311764~1.068824</pitchRange>
+        <distRange>0~70</distRange>
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>MeatLantern_Defeated</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>MeatLantern_Defeated</clipPath>
+          </li>
+        </grains>
+        <volumeRange>25~35</volumeRange>
+        <pitchRange>0.9311764~1.068824</pitchRange>
+        <distRange>0~70</distRange>
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+</Defs>

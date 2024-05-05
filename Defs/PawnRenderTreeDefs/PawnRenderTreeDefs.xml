@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- MeatLantern -->
+
+  <PawnRenderTreeDef>
+    <defName>MeatLanternContained</defName>
+    <root Class="PawnRenderNodeProperties_Parent">
+      <debugLabel>Root</debugLabel>
+      <tagDef>Root</tagDef>
+      <children>
+        <li>
+          <debugLabel>Body</debugLabel>
+          <tagDef>Body</tagDef>
+          <useRottenColor>true</useRottenColor>
+          <nodeClass>PawnRenderNode_AnimalPart</nodeClass>
+          <children>
+            <li Class="PawnRenderNodeProperties_Spastic">
+              <debugLabel>LanternT</debugLabel>
+              <linkedBodyPartsGroup>TopLantern</linkedBodyPartsGroup>
+              <texPath>Things/Pawn/MeatLantern/Lantern/Attachments/MeatLantern_Contained_TopLantern</texPath>
+              <rotDrawMode>Fresh, Rotting</rotDrawMode>
+              <rotateFacing>false</rotateFacing>
+              <rotationRange>-10~5</rotationRange>
+              <durationTicksRange>30~60</durationTicksRange>
+              <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+              <drawSize>1.4</drawSize>
+              <baseLayer>10</baseLayer>
+              <useRottenColor>true</useRottenColor>
+              <drawData>
+                <dataWest>
+                  <flip>true</flip>
+                </dataWest>
+              </drawData>
+            </li>
+            <li>
+              <debugLabel>Wounds</debugLabel>
+              <nodeClass>PawnRenderNode_AnimalPart</nodeClass>
+              <workerClass>PawnRenderNodeWorker_OverlayWounds</workerClass>
+              <overlayLayer>Body</overlayLayer>
+              <useGraphic>false</useGraphic>
+              <baseLayer>10</baseLayer>
+            </li>
+            <li>
+              <debugLabel>Firefoam</debugLabel>
+              <nodeClass>PawnRenderNode_AnimalPart</nodeClass>
+              <workerClass>PawnRenderNodeWorker_OverlayFirefoam</workerClass>
+              <overlayLayer>Body</overlayLayer>
+              <useGraphic>false</useGraphic>
+              <baseLayer>20</baseLayer>
+            </li>
+          </children>
+        </li>
+        <li Class="PawnRenderNodeProperties_Carried">
+          <debugLabel>Carried thing</debugLabel>
+          <workerClass>PawnRenderNodeWorker_Carried</workerClass>
+        </li>
+      </children>
+    </root>
+  </PawnRenderTreeDef>
+
+  <PawnRenderTreeDef>
+    <defName>MeatLanternEscaped</defName>
+    <root Class="PawnRenderNodeProperties_Parent">
+      <debugLabel>Root</debugLabel>
+      <tagDef>Root</tagDef>
+      <children>
+        <li>
+          <debugLabel>Body</debugLabel>
+          <tagDef>Body</tagDef>
+          <useRottenColor>true</useRottenColor>
+          <nodeClass>PawnRenderNode_AnimalPart</nodeClass>
+          <children>
+            <li Class="PawnRenderNodeProperties_Spastic">
+              <debugLabel>LanternT</debugLabel>
+              <linkedBodyPartsGroup>TopLantern</linkedBodyPartsGroup>
+              <texPath>Things/Pawn/MeatLantern/Lantern/Attachments/MeatLantern_Escaped_TopLantern</texPath>
+              <rotDrawMode>Fresh, Rotting</rotDrawMode>
+              <rotateFacing>false</rotateFacing>
+              <rotationRange>-10~5</rotationRange>
+              <durationTicksRange>30~60</durationTicksRange>
+              <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
+              <drawSize>1.4</drawSize>
+              <baseLayer>10</baseLayer>
+              <useRottenColor>true</useRottenColor>
+              <drawData>
+                <dataWest>
+                  <flip>true</flip>
+                </dataWest>
+              </drawData>
+            </li>
+            <li>
+              <debugLabel>Wounds</debugLabel>
+              <nodeClass>PawnRenderNode_AnimalPart</nodeClass>
+              <workerClass>PawnRenderNodeWorker_OverlayWounds</workerClass>
+              <overlayLayer>Body</overlayLayer>
+              <useGraphic>false</useGraphic>
+              <baseLayer>10</baseLayer>
+            </li>
+            <li>
+              <debugLabel>Firefoam</debugLabel>
+              <nodeClass>PawnRenderNode_AnimalPart</nodeClass>
+              <workerClass>PawnRenderNodeWorker_OverlayFirefoam</workerClass>
+              <overlayLayer>Body</overlayLayer>
+              <useGraphic>false</useGraphic>
+              <baseLayer>20</baseLayer>
+            </li>
+          </children>
+        </li>
+        <li Class="PawnRenderNodeProperties_Carried">
+          <debugLabel>Carried thing</debugLabel>
+          <workerClass>PawnRenderNodeWorker_Carried</workerClass>
+        </li>
+      </children>
+    </root>
+  </PawnRenderTreeDef>
+
+</Defs>

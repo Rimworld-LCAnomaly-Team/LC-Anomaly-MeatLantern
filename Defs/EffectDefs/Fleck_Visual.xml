@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>MeatLantern_Escaped_Mouth_Eat</defName>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <fadeInTime>0.05</fadeInTime>
+    <solidTime>0.5</solidTime>
+    <fadeOutTime>0.05</fadeOutTime>
+    <growthRate>-0.2</growthRate>
+    <graphicData>
+      <graphicClass>Graphic_FleckPulse</graphicClass>
+      <shaderType>TransparentAnimated</shaderType>
+      <texPath>Fleck/MeatLantern_Escaped_Mouth_Eat</texPath>
+      <drawSize>(4, 4)</drawSize>
+      <shaderParameters>
+        <_NumFrames>18</_NumFrames>        <!--一共几帧-->
+        <_FramesPerSec>30</_FramesPerSec>        <!--一秒几帧-->
+      </shaderParameters>
+    </graphicData>
+  </FleckDef>
+
+</Defs>

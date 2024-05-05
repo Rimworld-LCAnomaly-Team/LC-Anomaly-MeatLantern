@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>MeatLantern</name>
+	<author>DarthCY</author>
+	<packageId>DarthCY.LC.MeatLantern</packageId>
+	<supportedVersions>
+		<li>1.5</li>
+	</supportedVersions>
+	<description>O-04-84</description>
+	<loadAfter>
+		<li>Ludeon.RimWorld</li>
+		<li>Ludeon.RimWorld.Anomaly</li>
+	</loadAfter>
+</ModMetaData>

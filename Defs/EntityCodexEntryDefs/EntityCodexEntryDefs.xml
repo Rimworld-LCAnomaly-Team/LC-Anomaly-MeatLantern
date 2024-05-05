@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Basic -->
+  <EntityCodexEntryDef>
+  	<defName>MeatLantern</defName>
+    <label>meat lantern</label>
+    <description>Meat Lantern.</description>
+    <uiIconPath>UI/CodexEntries/MeatLantern</uiIconPath>
+    <category>TETH</category>
+    <discoveryType>BecameVisible</discoveryType>
+    <linkedThings>
+      <li>MeatLanternContained</li>
+      <li>MeatLanternEscaped</li>
+    </linkedThings>
+    <discoveredResearchProjects>
+      <li>RevenantInvisibility</li>
+      <li>Brainwipe</li>
+    </discoveredResearchProjects>
+    <!-- <provocationIncidents>
+      <li>MeatLantern</li>
+    </provocationIncidents> -->
+    <orderInCategory>800</orderInCategory>
+  </EntityCodexEntryDef>
+
+</Defs>
+

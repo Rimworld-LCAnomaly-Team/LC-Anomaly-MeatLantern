@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <PawnKindDef Name="BaseMeatLanternKind" Abstract="True">
+    <defaultFactionType>Entities</defaultFactionType>
+    <overrideDebugActionCategory>Entity</overrideDebugActionCategory>
+    <meleeAttackInfectionPathways>
+      <li>EntityAttacked</li>
+    </meleeAttackInfectionPathways>
+    <forceDeathOnDowned>true</forceDeathOnDowned>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="BaseMeatLanternKind">
+    <defName>MeatLanternContained</defName>
+    <label>meatlantern contained</label>
+    <race>MeatLanternContained</race>
+    <combatPower>20</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/MeatLantern/MeatLantern_Contained</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>2</drawSize>
+        </bodyGraphicData>
+        <silhouetteGraphicData>
+          <texPath>UI/CodexEntries/MeatLantern_Contained_MenuIcon</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>2</drawSize>
+        </silhouetteGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="BaseMeatLanternKind">
+    <defName>MeatLanternEscaped</defName>
+    <label>meatlantern escaped</label>
+    <race>MeatLanternEscaped</race>
+    <combatPower>20</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/MeatLantern/MeatLantern_Escape</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>2</drawSize>
+        </bodyGraphicData>
+        <silhouetteGraphicData>
+          <texPath>UI/CodexEntries/MeatLantern_Escaped_MenuIcon</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>2</drawSize>
+        </silhouetteGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+</Defs>

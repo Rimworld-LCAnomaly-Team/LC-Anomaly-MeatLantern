@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  
+  <ThingDef ParentName="ResourceBase">
+    <defName>MeatLanternEgg</defName>
+    <label>meat lantern egg</label>
+    <description>meat lantern egg.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Special/MeatLanternEgg</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Rare</tickerType>
+    <stackLimit>1</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <genericMarketSellable>false</genericMarketSellable>
+    <statBases>
+      <MaxHitPoints>30</MaxHitPoints>
+      <MarketValue>1000</MarketValue>
+      <Mass>5</Mass>
+      <Flammability>0.2</Flammability>
+      <MinimumContainmentStrength>40</MinimumContainmentStrength> <!-- Must match MeatLantern's minimum containment strength value -->
+    </statBases>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <hiddenWhileUndiscovered>true</hiddenWhileUndiscovered>
+    <comps>
+      <li Class="CompProperties_HoldingPlatformTarget">
+        <heldPawnKind>MeatLanternContained</heldPawnKind>
+        <capturedLetterLabel>Meatlantern preformed</capturedLetterLabel>
+        <capturedLetterText>After {PAWN_nameDef} chained the meatlantern egg to a holding platform.</capturedLetterText>
+      </li>
+      <li Class="CompProperties_AttachPoints">
+        <points>
+          <li>
+            <offset>(-.25, 0, .25)</offset>
+            <type>PlatformRestraint0</type>
+          </li>
+          <li>
+            <offset>(.25, 0, .25)</offset>
+            <type>PlatformRestraint1</type>
+          </li>
+          <li>
+            <offset>(.25, 0, -.25)</offset>
+            <type>PlatformRestraint2</type>
+          </li>
+          <li>
+            <offset>(-.25, 0, -.25)</offset>
+            <type>PlatformRestraint3</type>
+          </li>
+        </points>
+      </li>
+      <li Class="MeatLantern.CompProperties_SpawnsMeatLantern"/>
+      <li Class="CompProperties_Usable">
+        <useJob>SmashThing</useJob>
+        <useLabel>Smash {0_label}</useLabel>
+        <useMessage>{PAWN_nameDef} smashed the meatlantern egg. It dissolved to reveal a shard of dark archotechnology.</useMessage>
+        <useDuration>300</useDuration>
+      </li>
+      <li Class="CompProperties_UseEffectPlaySound">
+        <soundOnUsed>RevenantSpineSmash</soundOnUsed>
+      </li>
+      <li Class="CompProperties_UseEffectDestroySelf">
+        <leavings>
+          <Shard>1</Shard>
+        </leavings>
+      </li>
+      <li Class="CompProperties_BiosignatureOwner"/>
+      <li Class="CompProperties_Interactable">
+        <compClass>MeatLantern.CompMeatLanternEgg</compClass>
+        <ticksToActivate>0</ticksToActivate>
+        <activateTexPath>UI/Commands/SmashMeatLanternEgg</activateTexPath>
+        <activateLabelString>Smash...</activateLabelString>
+        <activateDescString>Smash the meatlantern egg to prevent it reforming into a new meatlantern.</activateDescString>
+        <activatingStringPending>smashing meatlantern egg</activatingStringPending>
+        <guiLabelString>Choose who should do this</guiLabelString>
+        <showMustBeActivatedByColonist>false</showMustBeActivatedByColonist>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

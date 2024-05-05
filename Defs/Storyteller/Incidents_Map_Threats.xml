@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <IncidentDef ParentName="AnomalyIncidentBase">
+    <defName>MeatLantern</defName>
+    <label>meatlantern</label>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>MeatLantern.IncidentWorker_MeatLantern</workerClass>
+    <baseChance>1</baseChance>
+    <minAnomalyThreatLevel>1</minAnomalyThreatLevel>
+    <minPopulation>4</minPopulation>
+    <minThreatPoints>300</minThreatPoints>
+    <earliestDay>30</earliestDay>
+    <category>ThreatBig</category>
+    <minRefireDays>20</minRefireDays>
+    <hidden>true</hidden>
+  </IncidentDef>
+
+</Defs>

@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="BasePawn" Name="BaseMeatLantern" Abstract="True">
+
+    <!--没发现的时候隐藏-->
+    <hiddenWhileUndiscovered>true</hiddenWhileUndiscovered>
+
+    <statBases>
+      <!--移动速度-->
+      <MoveSpeed>0</MoveSpeed>
+      <!--可燃性-->
+      <Flammability>0</Flammability>
+      <!--适应温度-->
+      <ComfyTemperatureMin>-100</ComfyTemperatureMin>
+      <ComfyTemperatureMax>100</ComfyTemperatureMax>
+      <!--心灵敏感度-->
+      <PsychicSensitivity>0</PsychicSensitivity>
+      <!--收容最低强度-->
+      <MinimumContainmentStrength>40</MinimumContainmentStrength>
+      <!--？？？-->
+      <StaggerDurationFactor>0</StaggerDurationFactor>
+      <!--毒素抗性-->
+      <ToxicResistance>1</ToxicResistance>
+    </statBases>
+
+    <!--是否可交易-->
+    <tradeability>None</tradeability>
+    <!--隐藏状态？？？-->
+    <hideStats>true</hideStats>
+    <!--？？？-->
+    <onlyShowInspectString>true</onlyShowInspectString>
+    <!--？？？-->
+    <hideMainDesc>true</hideMainDesc>
+
+    <race>
+      <!--？？？-->
+      <body>MeatLantern</body>
+      <!--基础体型-->
+      <baseBodySize>1</baseBodySize>
+      <!--？？？-->
+      <baseHealthScale>12</baseHealthScale>
+      <!--？？？-->
+      <intelligence>ToolUser</intelligence>
+      <!--是否有睡眠需求-->
+      <needsRest>false</needsRest>
+      <!--是否有性别区分-->
+      <hasGenders>false</hasGenders>
+      <!--？？？-->
+      <fleshType>EntityMechanical</fleshType>
+      <!--食物类型-->
+      <foodType>None</foodType>
+      <!--是否有尸体-->
+      <hasCorpse>false</hasCorpse>
+      <!--？？？-->
+      <lifeExpectancy>1000</lifeExpectancy>
+      <!--近战声音文件-->
+      <soundMeleeDodge>Pawn_MeleeDodge</soundMeleeDodge>
+      <!--？？？-->
+      <startingAnimation>MeatLanternSpasm</startingAnimation>
+      <!--？？？-->
+      <soundCallIntervalRange>120~240</soundCallIntervalRange>
+      <!--？？？-->
+      <disableIgniteVerb>true</disableIgniteVerb>
+      <!--？？？-->
+      <trainability>None</trainability>
+      <lifeStageAges>
+        <li>
+          <!--？？？-->
+          <def>EntityFullyFormed</def>
+          <!--？？？-->
+          <soundCall>Pawn_MeatLantern_Call</soundCall>
+          <!--受伤声音-->
+          <soundWounded>Pawn_MeatLantern_Wounded</soundWounded>
+          <!--死亡声音-->
+          <soundDeath>Pawn_MeatLantern_Death</soundDeath>
+        </li>
+      </lifeStageAges>
+      <!--？？？-->
+      <hediffGiverSets>
+        <li>AnomalyEntity</li>
+      </hediffGiverSets>
+    </race>
+
+    <comps>
+      <!--收容强度-->
+      <li Class="CompProperties_HoldingPlatformTarget">
+        <baseEscapeIntervalMtbDays>45</baseEscapeIntervalMtbDays>
+        <lookForTargetOnEscape>false</lookForTargetOnEscape>
+      </li>
+      <!--收容束缚的点位-->
+      <li Class="CompProperties_AttachPoints">
+        <points>
+          <li>
+            <offset>(-.35, 0, .35)</offset>
+            <type>PlatformRestraint0</type>
+          </li>
+          <li>
+            <offset>(.35, 0, .35)</offset>
+            <type>PlatformRestraint1</type>
+          </li>
+          <li>
+            <offset>(.2, 0, -.71)</offset>
+            <type>PlatformRestraint2</type>
+          </li>
+          <li>
+            <offset>(-.2, 0, -.71)</offset>
+            <type>PlatformRestraint3</type>
+          </li>
+        </points>
+      </li>
+      <!--灵铁产量-->
+      <li Class="CompProperties_ProducesBioferrite">
+        <bioferriteDensity>4</bioferriteDensity>
+      </li>
+      <!--研究学习-->
+      <li Class="CompProperties_Studiable">
+        <!--学习间隔-->
+        <frequencyTicks>120000</frequencyTicks>
+        <!--知识等级-->
+        <knowledgeCategory>Basic</knowledgeCategory>
+        <!--知识点数-->
+        <anomalyKnowledge>3</anomalyKnowledge>
+        <!--？？？-->
+        <minMonolithLevelForStudy>1</minMonolithLevelForStudy>
+        <!--需要收容平台-->
+        <requiresHoldingPlatform>true</requiresHoldingPlatform>
+      </li>
+    </comps>
+
+    <!-- Never actually used - MeatLantern doesn't attack -->
+    <tools>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>3</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+
+  </ThingDef>
+
+  <!--陆生鮟鱇 收容形态-->
+  <ThingDef ParentName="BaseMeatLantern">
+    <!--def名称-->
+    <defName>MeatLanternContained</defName>
+    <!--显示名称-->
+    <label>MeatLanternContained</label>
+    <!--简介-->
+    <description>A spindly figure of desiccated skin stretched over an impossibly tall humanoid frame. The MeatLantern's name comes from its pattern of returning to hypnotize new people each night.\n\nOutlander folklore describes an invisible spectre that captures the minds of sinners, placing them in a living hell. In the story, the victims can only be returned to life by hunting the creature as it sleeps and killing it.\n\nA hidden MeatLantern can be revealed with disruptor flares, explosives, EMP, firefoam, or by being lit on fire.</description>
+    <!--UI图标路径-->
+    <uiIconPath>UI/CodexEntries/MeatLantern_Contained_MenuIcon</uiIconPath>
+    <race>
+      <!--渲染树-->
+      <renderTree>MeatLanternContained</renderTree>
+      <!--主行为树-->
+      <thinkTreeMain>MeatLanternContained</thinkTreeMain>
+      <!--？？？-->
+      <thinkTreeConstant>MeatLanternConstant</thinkTreeConstant>
+    </race>
+
+    <comps>
+      <li>
+        <!--？？？-->
+        <compClass>MeatLantern.CompMeatLantern</compClass>
+      </li>
+    </comps>
+
+  </ThingDef>
+
+  <!--陆生鮟鱇 出逃形态-->
+  <ThingDef ParentName="BaseMeatLantern">
+    <!--def名称-->
+    <defName>MeatLanternEscaped</defName>
+    <!--显示名称-->
+    <label>MeatLanternEscaped</label>
+    <!--简介-->
+    <description>A spindly figure of desiccated skin stretched over an impossibly tall humanoid frame. The MeatLantern's name comes from its pattern of returning to hypnotize new people each night.\n\nOutlander folklore describes an invisible spectre that captures the minds of sinners, placing them in a living hell. In the story, the victims can only be returned to life by hunting the creature as it sleeps and killing it.\n\nA hidden MeatLantern can be revealed with disruptor flares, explosives, EMP, firefoam, or by being lit on fire.</description>
+    <!--UI图标路径-->
+    <uiIconPath>UI/CodexEntries/MeatLantern_Escaped_MenuIcon</uiIconPath>
+
+    <race>
+      <!--渲染树-->
+      <renderTree>MeatLanternEscaped</renderTree>
+      <!--主行为树-->
+      <thinkTreeMain>MeatLanternContained</thinkTreeMain>
+      <!--？？？-->
+      <thinkTreeConstant>MeatLanternConstant</thinkTreeConstant>
+    </race>
+
+    <comps>
+      <li>
+        <!--？？？-->
+        <compClass>MeatLantern.CompMeatLantern</compClass>
+      </li>
+    </comps>
+
+  </ThingDef>
+
+</Defs>
