@@ -32,7 +32,7 @@ namespace MeatLantern
         public void Complete()
         {
             //生成逃脱收容的肉食提灯，传递生物特征，销毁未出逃的提灯和自己
-            Pawn pawn = PawnGenerator.GeneratePawn(KindDef.MeatLanternEscaped, Faction.OfEntities);
+            Pawn pawn = PawnGenerator.GeneratePawn(KindDefOf.MeatLanternEscaped, Faction.OfEntities);
             GenSpawn.Spawn(pawn, base.PositionHeld, base.MapHeld);
             CompMeatLantern compMeatLantern = pawn.TryGetComp<CompMeatLantern>();
 

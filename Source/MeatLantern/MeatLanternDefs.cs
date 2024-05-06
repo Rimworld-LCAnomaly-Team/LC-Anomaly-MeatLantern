@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using Verse;
+using LCAnomalyLibrary.Defs;
 
 namespace MeatLantern
 {
@@ -12,10 +13,10 @@ namespace MeatLantern
     }
 
     [DefOf]
-    public static class KindDef
+    public static class KindDefOf
     {
-        public static PawnKindDef MeatLanternEscaped;
-        public static PawnKindDef MeatLanternContained;
+        public static LC_EggedEntityDef MeatLanternEscaped;
+        public static LC_EggedEntityDef MeatLanternContained;
     }
 
     [DefOf]

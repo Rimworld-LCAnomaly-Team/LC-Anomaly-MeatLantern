@@ -15,7 +15,7 @@ namespace MeatLantern
             }
 
             Rot4 rot = Rot4.FromAngleFlat((map.Center - result).AngleFlat);
-            GenSpawn.Spawn(PawnGenerator.GeneratePawn(new PawnGenerationRequest(KindDef.MeatLanternEscaped, Faction.OfEntities, PawnGenerationContext.NonPlayer, map.Tile)), result, map, rot);
+            GenSpawn.Spawn(PawnGenerator.GeneratePawn(new PawnGenerationRequest(KindDefOf.MeatLanternEscaped, Faction.OfEntities, PawnGenerationContext.NonPlayer, map.Tile)), result, map, rot);
             return true;
         }
     }

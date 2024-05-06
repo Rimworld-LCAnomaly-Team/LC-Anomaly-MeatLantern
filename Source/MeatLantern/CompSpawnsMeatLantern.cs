@@ -16,7 +16,7 @@ namespace MeatLantern
         {
             if (spawnTick > 0 && Find.TickManager.TicksGame > spawnTick && parent.MapHeld != null)
             {
-                Pawn pawn = PawnGenerator.GeneratePawn(KindDef.MeatLanternEscaped, Faction.OfEntities);
+                Pawn pawn = PawnGenerator.GeneratePawn(KindDefOf.MeatLanternEscaped, Faction.OfEntities);
                 GenSpawn.Spawn(pawn, parent.PositionHeld, parent.MapHeld);
                 CompMeatLantern compMeatLantern = pawn.TryGetComp<CompMeatLantern>();
                 compMeatLantern.Invisibility.BecomeInvisible(true);

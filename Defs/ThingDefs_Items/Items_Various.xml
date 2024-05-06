@@ -26,10 +26,10 @@
     </thingCategories>
     <hiddenWhileUndiscovered>true</hiddenWhileUndiscovered>
     <comps>
-      <li Class="CompProperties_HoldingPlatformTarget">
+      <li Class="LCAnomalyLibrary.Comp.CompProperties_LC_ContainingUnitTarget">
         <heldPawnKind>MeatLanternContained</heldPawnKind>
         <capturedLetterLabel>Meatlantern preformed</capturedLetterLabel>
-        <capturedLetterText>After {PAWN_nameDef} chained the meatlantern egg to a holding platform.</capturedLetterText>
+        <capturedLetterText>After {PAWN_nameDef} chained the revenant spine to a holding platform, the revenant re-emerged.\n\nWhen killed, a revenant's body dissolves, leaving behind only its archotechnological spine. This cage of slick iron waits for a chance to grow a new body.</capturedLetterText>
       </li>
       <li Class="CompProperties_AttachPoints">
         <points>
