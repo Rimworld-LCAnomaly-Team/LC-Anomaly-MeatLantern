@@ -15,8 +15,8 @@ namespace MeatLantern
     [DefOf]
     public static class KindDefOf
     {
-        public static LC_EggedEntityDef MeatLanternEscaped;
-        public static LC_EggedEntityDef MeatLanternContained;
+        public static PawnKindDef MeatLanternEscaped;
+        public static PawnKindDef MeatLanternContained;
     }
 
     [DefOf]
