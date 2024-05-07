@@ -1,17 +1,8 @@
 ﻿using RimWorld;
 using Verse;
-using LCAnomalyLibrary.Defs;
 
 namespace MeatLantern
 {
-
-    [DefOf]
-    public static class HediffDefOf
-    {
-        [MayRequireAnomaly]
-        public static HediffDef MeatLanternInvisibility;
-    }
-
     [DefOf]
     public static class KindDefOf
     {

@@ -26,16 +26,11 @@
     </thingCategories>
     <hiddenWhileUndiscovered>true</hiddenWhileUndiscovered>
     <comps>
-      <li Class="LCAnomalyLibrary.Comp.CompProperties_LC_ContainingUnitTarget">
+      <li Class="CompProperties_HoldingPlatformTarget">
         <heldPawnKind>MeatLanternContained</heldPawnKind>
         <capturedLetterLabel>Meatlantern preformed</capturedLetterLabel>
         <capturedLetterText>After {PAWN_nameDef} chained the revenant spine to a holding platform, the revenant re-emerged.\n\nWhen killed, a revenant's body dissolves, leaving behind only its archotechnological spine. This cage of slick iron waits for a chance to grow a new body.</capturedLetterText>
       </li>
-      <!-- <li Class="CompProperties_HoldingPlatformTarget">
-        <heldPawnKind>Revenant</heldPawnKind>
-        <capturedLetterLabel>Revenant reformed</capturedLetterLabel>
-        <capturedLetterText>After {PAWN_nameDef} chained the revenant spine to a holding platform, the revenant re-emerged.\n\nWhen killed, a revenant's body dissolves, leaving behind only its archotechnological spine. This cage of slick iron waits for a chance to grow a new body.</capturedLetterText>
-      </li> -->
       <li Class="CompProperties_AttachPoints">
         <points>
           <li>
@@ -72,7 +67,7 @@
         </leavings>
       </li>
       <li Class="CompProperties_BiosignatureOwner"/>
-      <li Class="CompProperties_Interactable">
+      <li Class="LCAnomalyLibrary.Comp.LC_CompProperties_InteractableEgg">
         <compClass>MeatLantern.CompMeatLanternEgg</compClass>
         <ticksToActivate>0</ticksToActivate>
         <activateTexPath>UI/Commands/SmashMeatLanternEgg</activateTexPath>
@@ -81,6 +76,7 @@
         <activatingStringPending>smashing meatlantern egg</activatingStringPending>
         <guiLabelString>Choose who should do this</guiLabelString>
         <showMustBeActivatedByColonist>false</showMustBeActivatedByColonist>
+        <shouldTransferBioSignature>true</shouldTransferBioSignature>
         <targetingParameters>
           <canTargetBuildings>false</canTargetBuildings>
           <canTargetAnimals>false</canTargetAnimals>

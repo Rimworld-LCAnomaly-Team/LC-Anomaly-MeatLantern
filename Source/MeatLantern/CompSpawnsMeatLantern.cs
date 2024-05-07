@@ -1,17 +1,11 @@
-﻿using RimWorld;
+﻿using LCAnomalyLibrary.Comp;
+using RimWorld;
 using Verse;
 
 namespace MeatLantern
 {
-    public class CompSpawnsMeatLantern : ThingComp
+    public class CompSpawnsMeatLantern : LC_CompSpawns
     {
-        public int spawnTick = -1;
-
-        public override void PostExposeData()
-        {
-            Scribe_Values.Look(ref spawnTick, "spawnTick", 0);
-        }
-
         public override void CompTickRare()
         {
             if (spawnTick > 0 && Find.TickManager.TicksGame > spawnTick && parent.MapHeld != null)

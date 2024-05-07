@@ -82,8 +82,8 @@
     </race>
 
     <comps>
-      <!--收容强度-->
-      <li Class="LCAnomalyLibrary.Comp.CompProperties_LC_ContainingUnitTarget">
+      <!--收容targets-->
+      <li Class="CompProperties_HoldingPlatformTarget">
         <baseEscapeIntervalMtbDays>45</baseEscapeIntervalMtbDays>
         <lookForTargetOnEscape>false</lookForTargetOnEscape>
       </li>
@@ -113,7 +113,7 @@
         <bioferriteDensity>4</bioferriteDensity>
       </li>
       <!--研究学习-->
-      <li Class="LCAnomalyLibrary.Comp.CompProperties_LC_Studiable">
+      <li Class="CompProperties_Studiable">
         <!--学习间隔-->
         <frequencyTicks>120000</frequencyTicks>
         <!--知识等级-->

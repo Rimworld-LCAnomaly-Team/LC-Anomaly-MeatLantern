@@ -1,17 +1,14 @@
 ﻿using RimWorld;
 using Verse;
+using LCAnomalyLibrary.Misc;
 
 namespace MeatLantern
 {
     /// <summary>
     /// 肉食提灯死亡特效对象（有传参和生成蛋对象的职能）
     /// </summary>
-    public class DyingMeatLantern : Thing
+    public class DyingMeatLantern : LC_FX_Dying
     {
-        private int bioSignature;
-
-        private int completeTick;
-
         public override void Tick()
         {
             //动画播完就执行操作
@@ -21,7 +18,7 @@ namespace MeatLantern
             }
         }
 
-        public void InitWith(Pawn meatLantern)
+        public override void InitWith(Pawn meatLantern)
         {
             //传递生物特征，播放effecter特效，记录动画播放完的时间
             bioSignature = meatLantern.TryGetComp<CompMeatLantern>().biosignature;
@@ -30,7 +27,7 @@ namespace MeatLantern
             completeTick = base.TickSpawned + effecter.ticksLeft;
         }
 
-        public void Complete()
+        public override void Complete()
         {
             //if (FilthMaker.TryMakeFilth(base.PositionHeld, base.Map, ThingDefOf.Filth_RevenantBloodPool))
             //{
@@ -50,13 +47,6 @@ namespace MeatLantern
             thing.TryGetComp<CompBiosignatureOwner>().biosignature = bioSignature;
             GenSpawn.Spawn(thing, base.PositionHeld, base.Map);
             Destroy();
-        }
-
-        public override void ExposeData()
-        {
-            base.ExposeData();
-            Scribe_Values.Look(ref completeTick, "completeTick", 0);
-            Scribe_Values.Look(ref bioSignature, "bioSignature", 0);
         }
     }
 }
