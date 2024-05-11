@@ -8,8 +8,8 @@
     <tab>LCAnomaly</tab>
     <knowledgeCost>20</knowledgeCost>
     <knowledgeCategory>Basic</knowledgeCategory>
-    <researchViewX>1.00</researchViewX>
-    <researchViewY>0.70</researchViewY>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>0.00</researchViewY>
     <prerequisites>
       <li>BasicPsychicRituals</li>
     </prerequisites>
@@ -23,6 +23,32 @@
         <li>subject_story->empty</li>
 
         <li>subject_gerund->Now Extracting MeatLantern</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>MeatLanternImplant</defName>
+    <label>MeatLantern Implant</label>
+    <description>MeatLantern Implant.</description>
+    <tab>LCAnomaly</tab>
+    <knowledgeCost>80</knowledgeCost>
+    <knowledgeCategory>Basic</knowledgeCategory>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>0.00</researchViewY>
+    <prerequisites>
+      <li>ExtractMeatLantern</li>
+    </prerequisites>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->MeatLanternImplant</li>
+
+        <li>subject_story->empty</li>
+        <li>subject_story->empty</li>
+        <li>subject_story->empty</li>
+        <li>subject_story->empty</li>
+
+        <li>subject_gerund->Now Getting MeatLantern Implant</li>
       </rulesStrings>
     </generalRules>
   </ResearchProjectDef>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <InstallMeatLanternImplant.label>安装肉食提灯植入物</InstallMeatLanternImplant.label>
+  <InstallMeatLanternImplant.description>安装肉食提灯植入物</InstallMeatLanternImplant.description>
+  <InstallMeatLanternImplant.jobString>正在安装肉食提灯植入物。</InstallMeatLanternImplant.jobString>
+
+  <RemoveMeatLanternImplant.label>移除肉食提灯植入物</RemoveMeatLanternImplant.label>
+  <RemoveMeatLanternImplant.description>移除肉食提灯植入物</RemoveMeatLanternImplant.description>
+  <RemoveMeatLanternImplant.jobString>正在移除肉食提灯植入物。</RemoveMeatLanternImplant.jobString>
+
+</LanguageData>

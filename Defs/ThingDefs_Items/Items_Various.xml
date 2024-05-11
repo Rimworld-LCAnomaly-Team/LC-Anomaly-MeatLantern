@@ -24,6 +24,13 @@
     <thingCategories>
       <li>ItemsMisc</li>
     </thingCategories>
+    <researchPrerequisites>
+      <li>ExtractMeatLantern</li>
+    </researchPrerequisites>
+    <descriptionHyperlinks>
+      <PawnKindDef>MeatLanternContained</PawnKindDef>
+      <PawnKindDef>MeatLanternEscaped</PawnKindDef>
+    </descriptionHyperlinks>
     <hiddenWhileUndiscovered>true</hiddenWhileUndiscovered>
     <comps>
       <li Class="CompProperties_HoldingPlatformTarget">

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- MeatLantern Implant -->
+
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>MeatLanternImplant</defName>
+    <label>MeatLantern Implant</label>
+    <labelNoun>a MeatLantern Implant</labelNoun>
+    <description>An installed MeatLantern Implant.</description>
+    <descriptionHyperlinks>
+      <ThingDef>MeatLanternImplant</ThingDef>
+    </descriptionHyperlinks>
+    <spawnThingOnRemoved>MeatLanternImplant</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>0.85</postFactor>
+          </li>
+        </capMods>
+        <statOffsets>
+          <ArmorRating_Sharp>0.70</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.5</ArmorRating_Heat>
+          <PawnBeauty>-2</PawnBeauty>
+        </statOffsets>
+      </li>
+    </stages>
+    <tags>
+      <li>MeatLanternImplant</li>
+    </tags>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartBionicLCAnomalyBase">
+    <defName>MeatLanternImplant</defName>
+    <label>MeatLantern Implant</label>
+    <description>MeatLanternImplant.</description>
+    <descriptionHyperlinks>
+      <RecipeDef>InstallMeatLanternImplant</RecipeDef>
+    </descriptionHyperlinks>
+    <thingSetMakerTags>
+      <li>RewardStandardMidFreq</li>
+    </thingSetMakerTags>
+    <graphicData>
+      <texPath>Things/Item/Bionic/MeatLanternImplant</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.80</drawSize>
+      <color>(189,169,118)</color>
+    </graphicData>
+    <costList>
+      <Plasteel>25</Plasteel>
+      <ComponentSpacer>8</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>MeatLanternImplant</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>InstallMeatLanternImplant</defName>
+    <label>install MeatLantern Implant</label>
+    <description>Install a MeatLantern Implant.</description>
+    <descriptionHyperlinks>
+      <ThingDef>MeatLanternImplant</ThingDef>
+      <HediffDef>MeatLanternImplant</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing MeatLantern Implant.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MeatLanternImplant</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MeatLanternImplant</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Torso</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>MeatLanternImplant</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>MeatLanternImplant</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>RemoveMeatLanternImplant</defName>
+    <label>remove MeatLantern Implant</label>
+    <description>Remove MeatLantern Implant.</description>
+    <descriptionHyperlinks>
+      <ThingDef>MeatLanternImplant</ThingDef>
+    </descriptionHyperlinks>
+    <jobString>Removing MeatLantern Implant.</jobString>
+    <removesHediff>MeatLanternImplant</removesHediff>
+  </RecipeDef>
+
+</Defs>

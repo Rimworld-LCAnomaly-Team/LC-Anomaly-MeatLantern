@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
   
-  <ExtractMeatLantern.label>提取肉食提灯<ExtractMeatLantern.label>
+  <ExtractMeatLantern.label>提取肉食提灯</ExtractMeatLantern.label>
   <ExtractMeatLantern.description>研究如何提取肉食提灯。</ExtractMeatLantern.description>
-
   <ExtractMeatLantern.generalRules.rulesStrings>
     <li>subject->提取肉食提灯</li>
     <li>subject_story->被介绍加入了L公司</li>
@@ -12,5 +11,15 @@
     <li>subject_story->成为了培训部的高级员工</li>
     <li>subject_gerund->正在举行提取肉食提灯的仪式</li>
   </ExtractMeatLantern.generalRules.rulesStrings>
+
+  <MeatLanternImplant.label>肉食提灯植入物</MeatLanternImplant.label>
+  <MeatLanternImplant.description>研究如何制作肉食提灯植入物。</MeatLanternImplant.description>
+  <MeatLanternImplant.generalRules.rulesStrings>
+    <li>subject->肉食提灯植入物</li>
+    <li>subject_story->“肉食提灯”正一动不动地盯着员工，那像小花一样的物体闪着神秘的亮光</li>
+    <li>subject_story->还没有人看到过“肉食提灯”的全貌</li>
+    <li>subject_story->如果“肉食提灯”成功突破了收容，那我们的公司很可能会崩溃</li>
+    <li>subject_gerund->完成了对肉食提灯植入物的研究</li>
+  </MeatLanternImplant.generalRules.rulesStrings>
   
 </LanguageData>
