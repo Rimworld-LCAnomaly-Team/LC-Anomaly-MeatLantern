@@ -13,10 +13,10 @@ namespace MeatLantern
 
         public static List<Pawn> ScanForTargets(Pawn pawn, float radius)
         {
-            return ScanForTarget_NewTemp(pawn,radius);
+            return ScanForTarget_NewTemp(pawn, radius);
         }
 
-        public static List<Pawn> ScanForTarget_NewTemp(Pawn pawn,float radius, bool forced = false)
+        public static List<Pawn> ScanForTarget_NewTemp(Pawn pawn, float radius, bool forced = false)
         {
             tmpTargets.Clear();
             TraverseParms traverseParms = TraverseParms.For(TraverseMode.NoPassClosedDoorsOrWater);
@@ -31,8 +31,8 @@ namespace MeatLantern
                     Pawn pawn2 = (Pawn)list[i];
                     if (ValidTarget(pawn2))
                     {
-                        if(pawn.Position.InHorDistOf(pawn2.Position, radius) && 
-                        (float)pawn2.Position.DistanceToSquared(pawn.Position) < 
+                        if (pawn.Position.InHorDistOf(pawn2.Position, radius) &&
+                        (float)pawn2.Position.DistanceToSquared(pawn.Position) <
                         num && GenSight.LineOfSightToThing(pawn.Position, pawn2, pawn.Map))
                         {
                             tmpTargets.Add(pawn2);
@@ -58,13 +58,15 @@ namespace MeatLantern
         /// <returns>是否合法</returns>
         public static bool ValidTarget(Pawn pawn)
         {
-            //不能吃机械族和异常实体阵营单位
-            if (!pawn.RaceProps.IsMechanoid && pawn.Faction != Faction.OfEntities)
-            {
-                return !pawn.health.hediffSet.HasHediff(RimWorld.HediffDefOf.RevenantHypnosis);
-            }
+            ////不能吃异常实体阵营单位
+            //if (pawn.Faction != Faction.OfEntities)
+            //{
+            //    return !pawn.health.hediffSet.HasHediff(RimWorld.HediffDefOf.RevenantHypnosis);
+            //}
 
-            return false;
+            return ((pawn.kindDef != KindDefOf.MeatLanternEscaped) && (pawn.kindDef != KindDefOf.MeatLanternContained) && !pawn.Downed);
+
+            //return false;
         }
 
         /// <summary>

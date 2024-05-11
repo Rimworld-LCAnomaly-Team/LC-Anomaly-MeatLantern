@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using Verse;
 using LCAnomalyLibrary.Misc;
+using Verse.Sound;
 
 namespace MeatLantern
 {
@@ -9,38 +10,32 @@ namespace MeatLantern
     /// </summary>
     public class DyingMeatLantern : LC_FX_Dying
     {
-        public override void Tick()
-        {
-            //动画播完就执行操作
-            if (Find.TickManager.TicksGame >= completeTick)
-            {
-                Complete();
-            }
-        }
-
         public override void InitWith(Pawn meatLantern)
         {
             //传递生物特征，播放effecter特效，记录动画播放完的时间
             bioSignature = meatLantern.TryGetComp<CompMeatLantern>().biosignature;
             Log.Warning($"bioget={bioSignature}");
             Effecter effecter = EffecterDefOf.MeatExplosionExtraLarge.SpawnMaintained(base.Position, base.Map);
-            completeTick = base.TickSpawned + effecter.ticksLeft;
+            completeTick = base.TickSpawned + effecter.ticksLeft + 60;
+            SoundDefOf.MeatLantern_Defeated.PlayOneShot(new TargetInfo(base.Position, base.Map));
         }
 
         public override void Complete()
         {
-            //if (FilthMaker.TryMakeFilth(base.PositionHeld, base.Map, ThingDefOf.Filth_RevenantBloodPool))
-            //{
-            //    EffecterDefOf.RevenantKilledCompleteBurst.SpawnMaintained(base.PositionHeld, base.Map);
-            //    foreach (IntVec3 item in CellRect.CenteredOn(base.PositionHeld, 2))
-            //    {
-            //        Plant plant = item.GetPlant(base.Map);
-            //        if (plant != null && plant.MaxHitPoints < 100)
-            //        {
-            //            plant.Destroy();
-            //        }
-            //    }
-            //}
+            //生成扭曲血肉脏污
+            if (FilthMaker.TryMakeFilth(base.PositionHeld, base.Map, RimWorld.ThingDefOf.Filth_TwistedFlesh))
+            {
+                //EffecterDefOf.RevenantKilledCompleteBurst.SpawnMaintained(base.PositionHeld, base.Map);
+                //清除1格以内的植物
+                foreach (IntVec3 item in CellRect.CenteredOn(base.PositionHeld, 1))
+                {
+                    Plant plant = item.GetPlant(base.Map);
+                    if (plant != null && plant.MaxHitPoints < 100)
+                    {
+                        plant.Destroy();
+                    }
+                }
+            }
 
             //生成肉食提灯的蛋，销毁自己
             Thing thing = ThingMaker.MakeThing(ThingDefOf.MeatLanternEgg);

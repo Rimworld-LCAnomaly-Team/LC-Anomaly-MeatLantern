@@ -73,7 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnimationWorkers.cs" />
-    <Compile Include="CompHoldingPlatformTargetSpecial.cs" />
     <Compile Include="CompMeatLantern.cs" />
     <Compile Include="CompProperties_SpawnsMeatLantern.cs" />
     <Compile Include="CompSpawnsMeatLantern.cs" />

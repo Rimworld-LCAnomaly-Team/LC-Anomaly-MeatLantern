@@ -43,12 +43,12 @@ namespace MeatLantern
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            Log.Warning($"进入等待行为树");
+            Log.Message($"进入等待行为树");
             Toil toil = ToilMaker.MakeToil("MakeNewToils");
             toil.tickAction = (Action)Delegate.Combine(toil.tickAction, (Action)delegate
             {
                 //TODO 这里的条件可以改成吞噬动画控制
-                if (Find.TickManager.TicksGame >= Comp.nextEat && Rand.MTBEventOccurs(50f, 1f, 1f))
+                if (Find.TickManager.TicksGame >= Comp.nextEat && Rand.MTBEventOccurs(10f, 1f, 1f))
                 {
                     Pawn pawn = MeatLanternUtility.GetClosestTargetInRadius(base.pawn, 1f);
                     if (pawn != null)
@@ -83,7 +83,7 @@ namespace MeatLantern
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            Log.Warning($"进入攻击行为树");
+            Log.Message($"进入攻击行为树");
             //如果这些条件满足就执行失败
             this.FailOnDespawnedOrNull(TargetIndex.A);
             this.FailOnDespawnedOrNull(TargetIndex.B);
@@ -94,15 +94,14 @@ namespace MeatLantern
 
                 if(victims!= null && victims.Count > 1)
                 {
-                    Log.Warning($"准备攻击，受害者为复数单位，数量为：{victims.Count}");
+                    Log.Message($"准备攻击，受害者为复数单位，数量为：{victims.Count}");
                     Comp.Eat(victims);
                 }
                 else
                 {
                     Pawn victim = (Pawn)base.pawn.mindState.enemyTarget;
 
-                    Log.Warning($"准备攻击，受害者为：{victim.Name}");
-                    //Log.Warning($"准备攻击，受害者为：{victim.Name}");
+                    Log.Message($"准备攻击，受害者为：{victim.Name}");
                     Comp.Eat(victim);
                 }
             }

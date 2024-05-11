@@ -6,6 +6,7 @@ using UnityEngine;
 using Verse.Sound;
 using LCAnomalyLibrary.Comp;
 using LCAnomalyLibrary.Defs;
+using System.IO;
 
 namespace MeatLantern
 {
@@ -14,21 +15,9 @@ namespace MeatLantern
 
         #region 变量
 
-        public const int CanHearUnlockIndex = 2;
-
         public MeatLanternState meatLanternState;
 
-        public bool MeatLanternSmearNotified;
-
-        public int MeatLanternLastLeftSmear = -99999;
-
-        public int lastForcedVisibilityMessage = -99999;
-
-        public int escapeSecondStageStartedTick = -99999;
-
         public int nextEat = -99999;
-
-        private int lastHeardMessageTick = -99999;
 
         private int lastSeenLetterTick = -99999;
 
@@ -51,8 +40,8 @@ namespace MeatLantern
                 Hediff hediff = SelfPawn.health.hediffSet.GetFirstHediffOfDef(LC_HediffDefOf.FakeInvisibility);
                 if (hediff == null)
                 {
-                    Log.Warning("Hediff is null");
-                    //hediff = MeatLantern.health.AddHediff(MeatLanternHediffDefOf.MeatLanternInvisibility);
+                    Log.Warning("Hediff is null, prepate to add hediff");
+                    hediff = SelfPawn.health.AddHediff(LC_HediffDefOf.FakeInvisibility);
                 }
                 else
                 {
@@ -70,12 +59,8 @@ namespace MeatLantern
         {
             base.PostExposeData();
             Scribe_Values.Look(ref everRevealed, "everRevealed", defaultValue: false);
-            Scribe_Values.Look(ref MeatLanternSmearNotified, "MeatLanternSmearNotified", defaultValue: false);
-            Scribe_Values.Look(ref lastForcedVisibilityMessage, "lastForcedVisibilityMessage", 0);
-            Scribe_Values.Look(ref escapeSecondStageStartedTick, "escapeSecondStageStartedTick", 0);
             Scribe_Values.Look(ref biosignature, "biosignature", 0);
             Scribe_Values.Look(ref injuredWhileAttacking, "injuredWhileAttacking", defaultValue: false);
-            Scribe_Values.Look(ref lastHeardMessageTick, "lastHeardMessageTick", 0);
             Scribe_Values.Look(ref lastSeenLetterTick, "lastSeenLetterTick", 0);
         }
 
@@ -88,24 +73,24 @@ namespace MeatLantern
         public override void PostPostMake()
         {
             biosignature = Rand.Int;
-            Log.Warning($"biospawn={biosignature}");
         }
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
             SelfPawn.health.GetOrAddHediff(LC_HediffDefOf.FakeInvisibility);
+            CheckSpawnVisible();
         }
 
         public override void CompTick()
         {
-            if (SelfPawn.Spawned)
-            {
-                if (SelfPawn.IsHashIntervalTick(90))
-                {
-                    CheckIfSeen();
-                }
-            }
+            //if (SelfPawn.Spawned)
+            //{
+            //    if (SelfPawn.IsHashIntervalTick(90))
+            //    {
+            //        CheckIfSeen();
+            //    }
+            //}
         }
 
         /// <summary>
@@ -113,45 +98,7 @@ namespace MeatLantern
         /// </summary>
         protected override void CheckIfSeen()
         {
-            //研究3次完毕才能看见幽魂，暂时用不到
-            //if (!Find.AnalysisManager.TryGetAnalysisProgress(biosignature, out var details) || !details.Satisfied)
-            //{
-            //    return;
-            //}
-
-            //获取所有地图上的殖民者集合
-            List<Pawn> freeColonistsSpawned = SelfPawn.Map.mapPawns.FreeColonistsSpawned;
-            bool flag = false;
-
-            //遍历地图殖民者
-            for (int i = 0; i < freeColonistsSpawned.Count; i++)
-            {
-                Pawn pawn = freeColonistsSpawned[i];
-
-                //如果殖民者没有失明，与实体的距离在8.9以内，并且与实体之间的视线没有阻挡，则认为实体被发现
-                if (!PawnUtility.IsBiologicallyOrArtificiallyBlind(pawn) 
-                    && SelfPawn.PositionHeld.InHorDistOf(pawn.PositionHeld, 8.9f) 
-                    && GenSight.LineOfSightToThing(pawn.PositionHeld, SelfPawn, SelfPawn.Map))
-                {
-                    //如果实体没有隐身，并且距离上次被发现已超过1200Tick，则弹出信封
-                    if (!SelfPawn.IsPsychologicallyInvisible() && Find.TickManager.TicksGame > lastSeenLetterTick + 6000)
-                    {
-                        //信封：某Pawn触发了本实体的文本字段，类型为大型威胁
-                        Find.LetterStack.ReceiveLetter("LetterMeatLanternSeenLabel".Translate(),
-                            "LetterMeatLanternSeen".Translate(pawn.Named("PAWN")), LetterDefOf.ThreatBig, pawn);
-                        lastSeenLetterTick = Find.TickManager.TicksGame;
-                    }
-                    flag = true;
-                    break;
-                }
-            }
-
-            //TODO 这是幽魂被发现后的逻辑变化，以flag的值为准，目前暂时用不到
-            if (flag)
-            {
-                //Invisibility.BecomeVisible();
-                //becomeInvisibleTick = Find.TickManager.TicksGame + 140;
-            }
+            Find.LetterStack.ReceiveLetter("LetterMeatLanternSeenLabel".Translate(), "LetterMeatLanternSeen".Translate(), LetterDefOf.ThreatBig, SelfPawn);
         }
 
         /// <summary>
@@ -164,21 +111,18 @@ namespace MeatLantern
             //如果实体没有死亡
             if (!SelfPawn.Dead)
             {
-                //且处于进攻状态，就更新 进攻时受到伤害的状态
+                //且处于进攻状态，就更新进攻时受到伤害的状态
                 if (meatLanternState == MeatLanternState.Attack)
                 {
                     injuredWhileAttacking = true;
                 }
-
-                //且处于休眠状态，就设置其状态为逃窜
-                //TODO 暂时用不着，这是幽魂的内容
-                //if (meatLanternState == MeatLanternState.Sleep)
-                //{
-                //    SetState(MeatLanternState.Escape);
-                //}
             }
         }
-
+        
+        /// <summary>
+        /// 在砂了别的pawn之后调用的方法
+        /// </summary>
+        /// <param name="pawn">受害者</param>
         public override void Notify_KilledPawn(Pawn pawn)
         {
             base.Notify_KilledPawn(pawn);
@@ -192,8 +136,16 @@ namespace MeatLantern
         public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
         {
             //调用死后操作
-            Log.Warning($"bionow={biosignature}");
             MeatLanternUtility.OnMeatLanternDeath(SelfPawn, prevMap);
+        }
+
+        /// <summary>
+        /// 逃脱时执行的操作
+        /// </summary>
+        public override void Escape()
+        {
+            //生成逃脱的肉食提灯
+            MeatLanternUtility.OnMeatLanternEscape(SelfPawn,SelfPawn.Map);
         }
 
         /// <summary>
@@ -204,7 +156,7 @@ namespace MeatLantern
         {
             if (!victim.Dead)
             {
-                DamageInfo dinfo = new DamageInfo(MeatLanternDamageDefOf.MeatLantern_Crush, 500, 0f, -1f, SelfPawn);
+                DamageInfo dinfo = new DamageInfo(MeatLanternDamageDefOf.MeatLantern_Crush, 10, 0, -1f, SelfPawn);
                 dinfo.SetApplyAllDamage(value: true);
                 victim.TakeDamage(dinfo);
                 DoEatEffect();
@@ -217,11 +169,11 @@ namespace MeatLantern
                         Find.LetterStack.ReceiveLetter("LetterLabelPawnMeatLanternEaten".Translate(victim.Named("PAWN")),
                             "LetterPawnMeatLanternEaten".Translate(victim.Named("PAWN")), LetterDefOf.NegativeEvent, victim);
                     }
-                    else
-                    {
-                        Find.LetterStack.ReceiveLetter("LetterLabelPawnMeatLanternAttacked".Translate(victim.Named("PAWN")),
-                            "LetterPawnMeatLanternAttacked".Translate(victim.Named("PAWN")), LetterDefOf.NegativeEvent, victim);
-                    }
+                    //else
+                    //{
+                    //    Find.LetterStack.ReceiveLetter("LetterLabelPawnMeatLanternAttacked".Translate(victim.Named("PAWN")),
+                    //        "LetterPawnMeatLanternAttacked".Translate(victim.Named("PAWN")), LetterDefOf.NegativeEvent, victim);
+                    //}
                 }
             }
 
@@ -234,7 +186,7 @@ namespace MeatLantern
         /// <param name="victims">受害者Lsit</param>
         public void Eat(List<Pawn> victims) 
         {
-            DamageInfo dinfo = new DamageInfo(MeatLanternDamageDefOf.MeatLantern_Crush, 500, 0f, -1f, SelfPawn);
+            DamageInfo dinfo = new DamageInfo(MeatLanternDamageDefOf.MeatLantern_Crush, 10, 0, -1f, SelfPawn);
             dinfo.SetApplyAllDamage(value: true);
 
             DoEatEffect();
@@ -251,11 +203,11 @@ namespace MeatLantern
                             Find.LetterStack.ReceiveLetter("LetterLabelPawnMeatLanternEaten".Translate(p.Named("PAWN")),
                                 "LetterPawnMeatLanternEaten".Translate(p.Named("PAWN")), LetterDefOf.NegativeEvent, p);
                         }
-                        else
-                        {
-                            Find.LetterStack.ReceiveLetter("LetterLabelPawnMeatLanternAttacked".Translate(p.Named("PAWN")),
-                                "LetterPawnMeatLanternAttacked".Translate(p.Named("PAWN")), LetterDefOf.NegativeEvent, p);
-                        }
+                        //else
+                        //{
+                        //    Find.LetterStack.ReceiveLetter("LetterLabelPawnMeatLanternAttacked".Translate(p.Named("PAWN")),
+                        //        "LetterPawnMeatLanternAttacked".Translate(p.Named("PAWN")), LetterDefOf.NegativeEvent, p);
+                        //}
                     }
                 }
 
@@ -265,6 +217,9 @@ namespace MeatLantern
             SelfPawn.mindState.enemyTarget = null;
         }
 
+        /// <summary>
+        /// 生成吞噬特效
+        /// </summary>
         private void DoEatEffect()
         {
             Vector3 temp = SelfPawn.Position.ToVector3();
@@ -285,6 +240,32 @@ namespace MeatLantern
             //FleckMaker.Static(MeatLantern.Position.ToVector3(), MeatLantern.Map, FleckDefOf.MeatLantern_Escaped_Mouth_Eat);
         }
 
+        /// <summary>
+        /// 判断是否应该在生成时隐身
+        /// </summary>
+        /// <returns>该隐身就返回true</returns>
+        /// <exception cref="InvalidDataException">不接受的PawnKindDef</exception>
+        private bool CheckSpawnVisible()
+        {
+            PawnKindDef def = SelfPawn.kindDef;
+
+            if (def == KindDefOf.MeatLanternEscaped)
+            {
+                Log.Warning($"Pawn：{SelfPawn.ThingID} 应该隐身");
+                Invisibility.BecomeInvisible();
+                return true;
+            }
+            else if(def == KindDefOf.MeatLanternContained)
+            {
+                Log.Warning("应该显形");
+                Invisibility.BecomeVisible();
+                return false;
+            }
+            else
+            {
+                throw new InvalidDataException($"Invalid PawnKindDef:{def.defName} Found");
+            }
+        }
 
         public override string CompInspectStringExtra()
         {
@@ -305,7 +286,8 @@ namespace MeatLantern
                 action = delegate
                 {
                     Log.Warning("镇压显形");
-                    Invisibility.BecomeVisible(true);
+                    Invisibility.BecomeVisible();
+                    CheckIfSeen();
                 }
             };
 
@@ -321,7 +303,7 @@ namespace MeatLantern
                 action = delegate
                 {
                     Log.Warning("强制隐形");
-                    Invisibility.BecomeInvisible(true);
+                    Invisibility.BecomeInvisible();
                 }
             };
 

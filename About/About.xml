@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
+
 	<name>LC Anomaly MeatLantern</name>
 	<author>DarthCY</author>
 	<packageId>DarthCY.LC.MeatLantern</packageId>
@@ -7,8 +8,17 @@
 		<li>1.5</li>
 	</supportedVersions>
 	<description>O-04-84</description>
+	<modDependencies>
+		<li>
+			<packageId>DarthCY.LC.AnomalyLibrary</packageId>
+			<displayName>LC Anomaly Library</displayName>
+			<steamWorkshopUrl></steamWorkshopUrl>
+		</li>
+	</modDependencies>
 	<loadAfter>
 		<li>Ludeon.RimWorld</li>
 		<li>Ludeon.RimWorld.Anomaly</li>
+		<li>DarthCY.LC.AnomalyLibrary</li>
 	</loadAfter>
+
 </ModMetaData>
