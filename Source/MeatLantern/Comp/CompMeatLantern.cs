@@ -17,9 +17,10 @@ namespace MeatLantern.Comp
 
         public MeatLanternState meatLanternState;
 
+        /// <summary>
+        /// 下一次吞噬的时间
+        /// </summary>
         public int nextEat = -99999;
-
-        private int lastSeenLetterTick = -99999;
 
         /// <summary>
         /// 吞噬冷却时间
@@ -61,7 +62,6 @@ namespace MeatLantern.Comp
             Scribe_Values.Look(ref everRevealed, "everRevealed", defaultValue: false);
             Scribe_Values.Look(ref biosignature, "biosignature", 0);
             Scribe_Values.Look(ref injuredWhileAttacking, "injuredWhileAttacking", defaultValue: false);
-            Scribe_Values.Look(ref lastSeenLetterTick, "lastSeenLetterTick", 0);
         }
 
         public void SetState(MeatLanternState state)
@@ -75,9 +75,17 @@ namespace MeatLantern.Comp
             biosignature = Rand.Int;
         }
 
+        public override void CompTickLong()
+        {
+            base.CompTickLong();
+
+            CheckIsDiscovered();
+        }
+
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
+
             SelfPawn.health.GetOrAddHediff(LC_HediffDefOf.FakeInvisibility);
             CheckSpawnVisible();
         }
@@ -132,6 +140,14 @@ namespace MeatLantern.Comp
         }
 
         /// <summary>
+        /// 绑到收容平台上后的操作
+        /// </summary>
+        public override void AfterHoldToPlatform()
+        {
+            CheckIsDiscovered();
+        }
+
+        /// <summary>
         /// 吃小人咯
         /// </summary>
         /// <param name="victims">受害者Lsit</param>
@@ -170,6 +186,20 @@ namespace MeatLantern.Comp
             }
         }
 
+        /// <summary>
+        /// 检查是否已在图鉴中被解锁
+        /// </summary>
+        private void CheckIsDiscovered()
+        {
+            Log.Message($"检查图鉴解锁情况，我是 {SelfPawn.def.defName}");
+
+            if (Invisibility.PsychologicallyVisible && AnomalyUtility.ShouldNotifyCodex(SelfPawn, EntityDiscoveryType.Unfog, out var entries))
+            {
+                Find.EntityCodex.SetDiscovered(entries, Def.PawnKindDefOf.MeatLanternContained.race, SelfPawn);
+                Find.EntityCodex.SetDiscovered(entries, Def.PawnKindDefOf.MeatLanternEscaped.race, SelfPawn);
+            }
+        }
+
         public override string CompInspectStringExtra()
         {
             TaggedString taggedString = "Biosignature".Translate() + ": " + BiosignatureName;
@@ -185,21 +215,24 @@ namespace MeatLantern.Comp
         {
             yield return new Command_Action
             {
+
                 defaultLabel = "Suppress Entity",
                 action = delegate
                 {
                     //Log.Warning("supress entity");
 
+                    if (Invisibility.PsychologicallyVisible)
+                        return;
+
                     if (!Invisibility.PsychologicallyVisible)
                         Find.LetterStack.ReceiveLetter("LetterMeatLanternSupressLabel".Translate(), "LetterMeatLanternSupress".Translate(), LetterDefOf.ThreatBig, SelfPawn);
+
                     Invisibility.BecomeVisible();
                 }
             };
 
             if (!DebugSettings.ShowDevGizmos)
-            {
                 yield break;
-            }
 
             yield return new Command_Action
             {

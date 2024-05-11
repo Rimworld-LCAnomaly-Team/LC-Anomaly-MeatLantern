@@ -104,10 +104,10 @@ namespace MeatLantern.Utility
                     result = item;
                 }
             }
-            if(result != null)
-                Log.Warning($"目标：{result.Name} 是最近的目标");
-            else
-                Log.Warning($"目标：null");
+            //if(result != null)
+            //    Log.Warning($"目标：{result.Name} 是最近的目标");
+            //else
+            //    Log.Warning($"目标：null");
 
             return result;
         }
