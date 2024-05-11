@@ -4,14 +4,14 @@
   <!-- MeatLantern -->
   <JobDef>
     <defName>MeatLanternAttack</defName>
-    <driverClass>MeatLantern.JobDriver_MeatLanternAttack</driverClass>
+    <driverClass>MeatLantern.Job.JobDriver_MeatLanternAttack</driverClass>
     <reportString>stalking TargetA.</reportString>
     <checkOverrideOnDamage>Never</checkOverrideOnDamage>
   </JobDef>
 
   <JobDef>
     <defName>MeatLanternWait</defName>
-    <driverClass>MeatLantern.JobDriver_MeatLanternWait</driverClass>
+    <driverClass>MeatLantern.Job.JobDriver_MeatLanternWait</driverClass>
     <reportString>waiting</reportString>
   </JobDef>
 

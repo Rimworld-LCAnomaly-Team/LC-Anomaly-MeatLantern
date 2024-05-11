@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <ExtractMeatLantern.label>提取肉食提灯<ExtractMeatLantern.label>
+  <ExtractMeatLantern.description>研究如何提取肉食提灯。</ExtractMeatLantern.description>
+
+  <ExtractMeatLantern.generalRules.rulesStrings>
+    <li>subject->提取肉食提灯</li>
+    <li>subject_story->被介绍加入了L公司</li>
+    <li>subject_story->在培训部工作了一段时间，期间负责了对O-04-84的工作</li>
+    <li>subject_story->加深了其对肉食提灯的理解</li>
+    <li>subject_story->成为了培训部的高级员工</li>
+    <li>subject_gerund->正在举行提取肉食提灯的仪式</li>
+  </ExtractMeatLantern.generalRules.rulesStrings>
+  
+</LanguageData>

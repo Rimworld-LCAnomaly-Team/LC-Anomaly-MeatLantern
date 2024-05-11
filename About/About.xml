@@ -12,12 +12,11 @@
 		<li>
 			<packageId>DarthCY.LC.AnomalyLibrary</packageId>
 			<displayName>LC Anomaly Library</displayName>
-			<steamWorkshopUrl></steamWorkshopUrl>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/?</steamWorkshopUrl>
+			<downloadUrl>https://github.com/DarthCY-K/LC-Anomaly-Library/releases/latest</downloadUrl>
 		</li>
 	</modDependencies>
 	<loadAfter>
-		<li>Ludeon.RimWorld</li>
-		<li>Ludeon.RimWorld.Anomaly</li>
 		<li>DarthCY.LC.AnomalyLibrary</li>
 	</loadAfter>
 

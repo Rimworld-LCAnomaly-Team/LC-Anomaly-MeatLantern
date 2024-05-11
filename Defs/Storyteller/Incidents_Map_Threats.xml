@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <IncidentDef ParentName="AnomalyIncidentBase">
+  <!-- <IncidentDef ParentName="AnomalyIncidentBase">
     <defName>MeatLantern</defName>
     <label>meatlantern</label>
     <targetTags>
@@ -16,6 +16,6 @@
     <category>ThreatBig</category>
     <minRefireDays>20</minRefireDays>
     <hidden>true</hidden>
-  </IncidentDef>
+  </IncidentDef> -->
 
 </Defs>

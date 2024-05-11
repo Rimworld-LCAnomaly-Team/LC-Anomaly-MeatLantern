@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: executing TargetA. -->
+  <MeatLanternAttack.reportString>正在攻击TargetA。</MeatLanternAttack.reportString>
+  
+  <!-- EN: fleeing. -->
+  <MeatLanternWait.reportString>等待中。</MeatLanternWait.reportString>
+  
+</LanguageData>

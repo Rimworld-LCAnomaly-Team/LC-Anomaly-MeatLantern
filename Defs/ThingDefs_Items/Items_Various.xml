@@ -51,7 +51,6 @@
           </li>
         </points>
       </li>
-      <li Class="MeatLantern.CompProperties_SpawnsMeatLantern"/>
       <li Class="CompProperties_Usable">
         <useJob>SmashThing</useJob>
         <useLabel>Smash {0_label}</useLabel>
@@ -68,7 +67,7 @@
       </li>
       <li Class="CompProperties_BiosignatureOwner"/>
       <li Class="LCAnomalyLibrary.Comp.LC_CompProperties_InteractableEgg">
-        <compClass>MeatLantern.CompMeatLanternEgg</compClass>
+        <compClass>MeatLantern.Comp.CompMeatLanternEgg</compClass>
         <ticksToActivate>0</ticksToActivate>
         <activateTexPath>UI/Commands/SmashMeatLanternEgg</activateTexPath>
         <activateLabelString>Smash...</activateLabelString>

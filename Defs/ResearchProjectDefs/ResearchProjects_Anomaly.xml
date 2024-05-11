@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ResearchProjectDef>
+    <defName>ExtractMeatLantern</defName>
+    <label>extract meatlantern</label>
+    <description>extract meatlantern from well.</description>
+    <tab>LCAnomaly</tab>
+    <knowledgeCost>20</knowledgeCost>
+    <knowledgeCategory>Basic</knowledgeCategory>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>0.70</researchViewY>
+    <prerequisites>
+      <li>BasicPsychicRituals</li>
+    </prerequisites>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->ExtractMeatLantern</li>
+
+        <li>subject_story->empty</li>
+        <li>subject_story->empty</li>
+        <li>subject_story->empty</li>
+        <li>subject_story->empty</li>
+
+        <li>subject_gerund->Now Extracting MeatLantern</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+
+</Defs>

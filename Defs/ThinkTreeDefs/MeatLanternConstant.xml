@@ -15,18 +15,18 @@
         </li>
 
         <!-- Wait -->
-        <li Class="MeatLantern.ThinkNode_ConditionalMeatLanternState">
+        <li Class="MeatLantern.ThinkNode.ThinkNode_ConditionalMeatLanternState">
           <state>Wait</state>
           <subNodes>
-            <li Class="MeatLantern.JobGiver_MeatLanternWait" />
+            <li Class="MeatLantern.Job.JobGiver_MeatLanternWait" />
           </subNodes>
         </li>
 
         <!-- Attack -->
-        <li Class="MeatLantern.ThinkNode_ConditionalMeatLanternState">
+        <li Class="MeatLantern.ThinkNode.ThinkNode_ConditionalMeatLanternState">
           <state>Attack</state>
           <subNodes>
-            <li Class="MeatLantern.JobGiver_MeatLanternAttack" />
+            <li Class="MeatLantern.Job.JobGiver_MeatLanternAttack" />
           </subNodes>
         </li>
       </subNodes>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: blood rain -->
+  <ExtractMeatLantern.label>提取肉食提灯</ExtractMeatLantern.label>
+  <!-- EN: Cast a ritual which causes blood-like psychofluid to fall from the sky. The fluid will slowly drive exposed humans and animals into a berserk frenzy. Traits and psychic sensitivity modulate the effect. -->
+  <ExtractMeatLantern.description>进行一场仪式，从井里提取肉食提灯的异想体蛋。</ExtractMeatLantern.description>
+  <!-- EN: At the current ritual quality, the blood rain will last for {0}. -->
+  <ExtractMeatLantern.outcomeDescription>以当前仪式质量，这里没写完{0}。</ExtractMeatLantern.outcomeDescription>
+  
+</LanguageData>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: chimera -->
+  <MeatLanternContained.label>肉食提灯（收容）</MeatLanternContained.label>
+
+  <!-- EN: chimera -->
+  <MeatLanternEscaped.label>肉食提灯（游荡）</MeatLanternEscaped.label>
+  
+</LanguageData>

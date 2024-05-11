@@ -15,8 +15,11 @@
   <BodyPartDef>
     <defName>MeatLanternLantern</defName>
     <label>lantern</label>
+    <!-- 部位耐久 -->
     <hitPoints>40</hitPoints>
-    <frostbiteVulnerability>0.1</frostbiteVulnerability>
+    <!-- 冻伤概率 -->
+    <frostbiteVulnerability>0</frostbiteVulnerability>
+    <!-- 永久性伤害概率 -->
     <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
     <tags>
       <li>ManipulationLimbCore</li>
@@ -24,7 +27,6 @@
   </BodyPartDef>
 
   <!-- Bodies -->
-
   <BodyDef>
     <defName>MeatLantern</defName>
     <label>meatlantern</label>
@@ -219,5 +221,5 @@
       </parts>
     </corePart>
   </BodyDef>
-  
+
 </Defs>

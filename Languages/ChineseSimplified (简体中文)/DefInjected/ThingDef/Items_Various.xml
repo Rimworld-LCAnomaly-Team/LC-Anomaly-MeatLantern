@@ -1,4 +1,25 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
 
+  <!-- EN: golden cube -->
+  <MeatLanternEgg.label>肉食提灯蛋</MeatLanternEgg.label>
+  <!-- EN: A cube that fits snugly in the hand. Golden in color, it is always invitingly warm to the touch, like a trusted pet or a hug from a good friend. Those that look closely are rewarded for their attention, by the delightful way light plays across its welcoming surface.\n\nThe cube seems impervious to most damage. -->
+  <MeatLanternEgg.description>肉食提灯死亡后的原始形态，呈现出特殊的蛋形</MeatLanternEgg.description>
+  <!-- EN: Revenant reformed -->
+  <MeatLanternEgg.comps.CompHoldingPlatformTarget.capturedLetterLabel>肉食提灯重生</MeatLanternEgg.comps.CompHoldingPlatformTarget.capturedLetterLabel>
+  <!-- EN: After {PAWN_nameDef} chained the revenant spine to a holding platform, the revenant re-emerged.\n\nWhen killed, a revenant's body dissolves, leaving behind only its archotechnological spine. This cage of slick iron waits for a chance to grow a new body. -->
+  <MeatLanternEgg.comps.CompHoldingPlatformTarget.capturedLetterText>在{PAWN_nameDef}将肉食提灯的蛋束缚至收容平台后，里面的肉食提灯重生了。\n\n肉食提灯被镇压时肉体会消散，仅留下肉食提灯的蛋。这颗异想体蛋随时都有可能转变成其本体。</MeatLanternEgg.comps.CompHoldingPlatformTarget.capturedLetterText>
+  <!-- EN: Smash {0_label} -->
+  <MeatLanternEgg.comps.CompUsable.useLabel>砸碎{0_label}</MeatLanternEgg.comps.CompUsable.useLabel>
+  <!-- EN: {PAWN_nameDef} smashed the revenant spine. It dissolved to reveal a shard of dark archotechnology. -->
+  <MeatLanternEgg.comps.CompUsable.useMessage>{PAWN_nameDef}将肉食提灯的蛋砸碎了。它消散后露出了一块暗黑超凡碎片。</MeatLanternEgg.comps.CompUsable.useMessage>
+  <!-- EN: Smash the revenant spine to prevent it reforming into a new revenant. -->
+  <MeatLanternEgg.comps.CompMeatLanternEgg.activateDescString>砸碎肉食提灯的蛋以防止它复活成一只新的肉食提灯。</MeatLanternEgg.comps.CompMeatLanternEgg.activateDescString>
+  <!-- EN: Smash... -->
+  <MeatLanternEgg.comps.CompMeatLanternEgg.activateLabelString>砸碎...</MeatLanternEgg.comps.CompMeatLanternEgg.activateLabelString>
+  <!-- EN: smashing revenant spine -->
+  <MeatLanternEgg.comps.CompMeatLanternEgg.activatingStringPending>正在砸碎肉食提灯的蛋</MeatLanternEgg.comps.CompMeatLanternEgg.activatingStringPending>
+  <!-- EN: Choose who should do this -->
+  <MeatLanternEgg.comps.CompMeatLanternEgg.guiLabelString>选择操作对象</MeatLanternEgg.comps.CompMeatLanternEgg.guiLabelString>
+  
 </LanguageData>

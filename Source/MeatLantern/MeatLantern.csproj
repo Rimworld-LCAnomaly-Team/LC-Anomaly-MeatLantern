@@ -72,20 +72,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnimationWorkers.cs" />
-    <Compile Include="CompMeatLantern.cs" />
-    <Compile Include="CompProperties_SpawnsMeatLantern.cs" />
-    <Compile Include="CompSpawnsMeatLantern.cs" />
-    <Compile Include="EscapingMeatLantern.cs" />
-    <Compile Include="DyingMeatLantern.cs" />
-    <Compile Include="IncidentWorker.cs" />
-    <Compile Include="MeatLanternDefs.cs" />
-    <Compile Include="CompMeatLanternEgg.cs" />
-    <Compile Include="MeatLanternState.cs" />
-    <Compile Include="MeatLanternUtility.cs" />
-    <Compile Include="ML_DamageTypes.cs" />
+    <Compile Include="Comp\CompMeatLantern.cs" />
+    <Compile Include="Def\FleckDefOf.cs" />
+    <Compile Include="Def\JobDefOf.cs" />
+    <Compile Include="Def\SoundDefOf.cs" />
+    <Compile Include="Def\ThingDefOf.cs" />
+    <Compile Include="Effect\EatingMeatLantern.cs" />
+    <Compile Include="Effect\EscapingMeatLantern.cs" />
+    <Compile Include="Effect\DyingMeatLantern.cs" />
+    <Compile Include="Def\PawnKindDefOf.cs" />
+    <Compile Include="Comp\CompMeatLanternEgg.cs" />
+    <Compile Include="Job\JobDriver_MeatLanternAttack.cs" />
+    <Compile Include="Job\JobDriver_MeatLanternWait.cs" />
+    <Compile Include="Job\JobGiver_MeatLanternAttack.cs" />
+    <Compile Include="Job\JobGiver_MeatLanternWait.cs" />
+    <Compile Include="Job\MeatLanternState.cs" />
+    <Compile Include="Utility\MeatLanternUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ThinkNode_ConditionalMeatLanternState.cs" />
+    <Compile Include="PsychicRitual\PsychicRitualDef_ExtractMeatLantern.cs" />
+    <Compile Include="PsychicRitual\PsychicRitualToil_ExtractMeatLantern.cs" />
+    <Compile Include="ThinkNode\ThinkNode_ConditionalMeatLanternState.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

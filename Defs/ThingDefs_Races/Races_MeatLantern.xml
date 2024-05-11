@@ -38,7 +38,7 @@
       <!--基础体型-->
       <baseBodySize>1</baseBodySize>
       <!--？？？-->
-      <baseHealthScale>12</baseHealthScale>
+      <baseHealthScale>1</baseHealthScale>
       <!--？？？-->
       <intelligence>ToolUser</intelligence>
       <!--是否有睡眠需求-->
@@ -55,24 +55,18 @@
       <lifeExpectancy>1000</lifeExpectancy>
       <!--近战声音文件-->
       <soundMeleeDodge>Pawn_MeleeDodge</soundMeleeDodge>
-      <!--？？？-->
-      <startingAnimation>MeatLanternSpasm</startingAnimation>
-      <!--？？？-->
+      <!--Call音效触发周期-->
       <soundCallIntervalRange>120~240</soundCallIntervalRange>
       <!--？？？-->
       <disableIgniteVerb>true</disableIgniteVerb>
-      <!--？？？-->
+      <!--可驯化程度-->
       <trainability>None</trainability>
       <lifeStageAges>
         <li>
           <!--？？？-->
           <def>EntityFullyFormed</def>
-          <!--？？？-->
-          <soundCall>Pawn_MeatLantern_Call</soundCall>
-          <!--受伤声音-->
-          <soundWounded>Pawn_MeatLantern_Wounded</soundWounded>
           <!--死亡声音-->
-          <soundDeath>Pawn_MeatLantern_Death</soundDeath>
+          <soundDeath>MeatLantern_Defeated</soundDeath>
         </li>
       </lifeStageAges>
       <!--？？？-->
@@ -127,21 +121,6 @@
       </li>
     </comps>
 
-    <!-- Never actually used - MeatLantern doesn't attack -->
-    <tools>
-      <li>
-        <label>head</label>
-        <capacities>
-          <li>Blunt</li>
-        </capacities>
-        <power>3</power>
-        <cooldownTime>2</cooldownTime>
-        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
-        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
-        <chanceFactor>0.2</chanceFactor>
-      </li>
-    </tools>
-
   </ThingDef>
 
   <!--陆生鮟鱇 收容形态-->
@@ -165,8 +144,8 @@
 
     <comps>
       <li>
-        <!--？？？-->
-        <compClass>MeatLantern.CompMeatLantern</compClass>
+        <!--Comp-->
+        <compClass>MeatLantern.Comp.CompMeatLantern</compClass>
       </li>
     </comps>
 
@@ -194,8 +173,8 @@
 
     <comps>
       <li>
-        <!--？？？-->
-        <compClass>MeatLantern.CompMeatLantern</compClass>
+        <!--Comp-->
+        <compClass>MeatLantern.Comp.CompMeatLantern</compClass>
       </li>
     </comps>
 
