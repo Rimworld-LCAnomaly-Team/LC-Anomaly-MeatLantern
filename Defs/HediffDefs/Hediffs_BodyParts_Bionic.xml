@@ -31,6 +31,9 @@
     <tags>
       <li>MeatLanternImplant</li>
     </tags>
+    <comps>
+      <li Class="MeatLantern.Comp.HediffCompProperties_MeatLanternImplant"/>
+    </comps>
   </HediffDef>
 
   <ThingDef ParentName="BodyPartBionicLCAnomalyBase">

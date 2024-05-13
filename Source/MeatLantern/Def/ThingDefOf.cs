@@ -17,5 +17,8 @@ namespace MeatLantern.Def
 
         [MayRequireAnomaly]
         public static ThingDef EatingMeatLantern;
+
+        [MayRequireAnomaly]
+        public static ThingDef MeatLanternImplant;
     }
 }
