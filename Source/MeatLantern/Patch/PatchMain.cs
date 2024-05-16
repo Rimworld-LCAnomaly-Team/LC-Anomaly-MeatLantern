@@ -11,8 +11,8 @@ namespace MeatLantern.Patch
 
         static PatchMain()
         {
-            instance = new Harmony("MeatLantern.Patch");
             //对所有特性标签的方法进行patch
+            instance = new Harmony("MeatLantern.Patch");
             instance.PatchAll(Assembly.GetExecutingAssembly());
 
             Log.Message("LC MeatLantern Patched");

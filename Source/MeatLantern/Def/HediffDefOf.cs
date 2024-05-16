@@ -4,7 +4,7 @@ using Verse;
 namespace MeatLantern.Def
 {
     [DefOf]
-    public static class ML_HediffDefOf
+    public static class HediffDefOf
     {
         /// <summary>
         /// 肉食提灯植入物Hediff

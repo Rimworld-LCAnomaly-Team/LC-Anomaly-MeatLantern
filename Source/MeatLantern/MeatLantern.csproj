@@ -84,7 +84,7 @@
     <Compile Include="Comp\HediffCompProperties_MeatLanternImplant.cs" />
     <Compile Include="Comp\HediffComp_MeatLanternImplant.cs" />
     <Compile Include="Def\FleckDefOf.cs" />
-    <Compile Include="Def\ML_HediffDefOf.cs" />
+    <Compile Include="Def\HediffDefOf.cs" />
     <Compile Include="Def\JobDefOf.cs" />
     <Compile Include="Def\SoundDefOf.cs" />
     <Compile Include="Def\ThingDefOf.cs" />
@@ -100,6 +100,8 @@
     <Compile Include="Job\MeatLanternState.cs" />
     <Compile Include="Patch\PatchMain.cs" />
     <Compile Include="Patch\Patch_DamageWorker_AddInjury.cs" />
+    <Compile Include="Setting\Setting_MeatLantern_Main.cs" />
+    <Compile Include="Setting\Setting_MeatLantern.cs" />
     <Compile Include="Utility\MeatLanternUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PsychicRitual\PsychicRitualDef_ExtractMeatLantern.cs" />

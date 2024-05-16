@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using MeatLantern.Setting;
+using RimWorld;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -52,19 +53,27 @@ namespace MeatLantern.Comp
                 Hediff_Injury injury = list.RandomElement();
                 injury.Heal(healAmount * percent);
 
-                //TODO 配置文件：允许显示吸血字样
-                if (true)
+                //是否允许显示吸血字样
+                if (Setting_MeatLantern_Main.Settings.If_ShowVampireText)
                 {
+                    
                     sb_MoteVampire.Clear();
-                    sb_MoteVampire.Append($"吸血：{healAmount * percent}");
+                    sb_MoteVampire.Append(Translator.Translate("LC_MeatLantern_VampireAmountThrowText"));
+                    sb_MoteVampire.Append(healAmount * percent);
 
-                    //TODO 配置文件：允许显示部位
-                    if (true)
-                        sb_MoteVampire.Append($"，部位是：{injury.Part.Label.Translate()}");
+                    //是否允许显示恢复部位
+                    if (Setting_MeatLantern_Main.Settings.If_ShowVampireHealPartText)
+                    {
+                        sb_MoteVampire.Append(Translator.Translate("LC_MeatLantern_VampireBodypartThrowText"));
+                        sb_MoteVampire.Append(injury.Part.Label.Translate());
+                    }
 
                     MoteMaker.ThrowText(selfPawn.Position.ToVector3(), selfPawn.Map, sb_MoteVampire.ToString(), Color.green);
                 }
-                FleckMaker.ThrowMetaIcon(selfPawn.Position, selfPawn.Map, FleckDefOf.HealingCross, 0.42f);
+
+                //是否允许显示治疗特效
+                if (Setting_MeatLantern_Main.Settings.If_ShowVampireHealVFX)
+                    FleckMaker.ThrowMetaIcon(selfPawn.Position, selfPawn.Map, FleckDefOf.HealingCross, 0.42f);
             }
                 
         }

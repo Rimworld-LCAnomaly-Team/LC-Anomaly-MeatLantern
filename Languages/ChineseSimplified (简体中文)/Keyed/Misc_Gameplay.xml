@@ -1,22 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
-  <!-- MeatLantern -->
-  <!-- <LetterLabelMeatLanternRevealed>幽魂突袭</LetterLabelMeatLanternRevealed>
-  <LetterMeatLanternRevealed>幽魂现身了！</LetterMeatLanternRevealed>
-  <LetterMeatLanternRevealedFirst>幽魂现身了并开始猎杀你的一名殖民者！</LetterMeatLanternRevealedFirst> 
-  <LetterLabelMeatLanternSmearDiscovered>发现幽魂污迹</LetterLabelMeatLanternSmearDiscovered>
-  <LetterMeatLanternSmearDiscovered>{0}注意到地面上有一层黑色的污迹。这块污迹看起来极不自然，散发出刺鼻的恶臭。它还很新鲜潮湿。最近这里应该有诡异实体经过。</LetterMeatLanternSmearDiscovered>
-  <LetterLabelMeatLanternKilled>击杀幽魂</LetterLabelMeatLanternKilled>
-  <LetterMeatLanternKilled>幽魂已被击杀！被催眠的人也会恢复过来。\n\n幽魂的躯体已经消散，只留下了脊椎。可收集并研究它的脊椎，或者直接将其摧毁。</LetterMeatLanternKilled>
-  <LetterLabelPawnHypnotized>{PAWN_nameDef}遭到催眠</LetterLabelPawnHypnotized>
-  <LetterPawnHypnotized>{PAWN_nameDef}遭到了幽魂的催眠，当前正语无伦次地描述着噩梦般的画面与想法。\n\n杀死幽魂就能结束催眠。\n\n幽魂利用灵能扭曲周围人的感知，使自己隐身。但可以通过它留下的黑色污迹追踪它的踪迹。幽魂被爆炸性武器、灭火泡沫、电磁脉冲、火焰或干扰照明弹击中后便会现形。\n\n如果没有被击杀，幽魂就会继续催眠新的受害者。</LetterPawnHypnotized>
-  <LetterMeatLanternFleshChunkLabel>幽魂肉块</LetterMeatLanternFleshChunkLabel>
-  <LetterMeatLanternFleshChunkText>受伤的幽魂留下了一块肉。可以通过分析这块肉来学习如何追踪幽魂。</LetterMeatLanternFleshChunkText> -->
   <LetterMeatLanternSeenLabel>目击肉食提灯</LetterMeatLanternSeenLabel>
   <LetterMeatLanternSeen>{PAWN_nameDef}发现了一只潜伏在地下的肉食提灯！</LetterMeatLanternSeen>
-  <!-- <InTrance>恍惚中。</InTrance> -->
   <LetterLabelMeatLanternEmergence>肉食提灯出现</LetterLabelMeatLanternEmergence>
-  <!-- <LetterMeatLanternEmergence>幽魂已从完好的脊椎中重新现身！在其逃跑之前消灭它。\n\n在此过程中，幽魂发生了变异，并拥有了新的生物特征。</LetterMeatLanternEmergence> -->
+
+  <Setting_MeatLantern_Label>异想体-肉食提灯</Setting_MeatLantern_Label>
+
+  <LC_MeatLantern_ShowVampireText>显示吸血数值飘字效果</LC_MeatLantern_ShowVampireText>
+  <LC_MeatLantern_ShowVampireHealPartText>显示吸血恢复部位飘字效果（需要上一项为显示状态）</LC_MeatLantern_ShowVampireHealPartText>
+  <LC_MeatLantern_ShowVampireHealVFX>显示吸血恢复的治疗特效</LC_MeatLantern_ShowVampireHealVFX>
+
+  <LC_MeatLantern_VampireAmountThrowText>吸血：</LC_MeatLantern_VampireAmountThrowText>
+  <LC_MeatLantern_VampireBodypartThrowText>，治疗部位：</LC_MeatLantern_VampireBodypartThrowText>
 
 </LanguageData>

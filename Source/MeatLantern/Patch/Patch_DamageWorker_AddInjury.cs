@@ -17,7 +17,7 @@ namespace MeatLantern.Patch
                 if(victim != null)
                 {
                     Hediff hediff;
-                    attacker.health.hediffSet.TryGetHediff(ML_HediffDefOf.MeatLanternImplant, out hediff);
+                    attacker.health.hediffSet.TryGetHediff(HediffDefOf.MeatLanternImplant, out hediff);
 
                     if (hediff != null)
                     {
