@@ -148,6 +148,14 @@ namespace MeatLantern.Comp
         }
 
         /// <summary>
+        /// 被研究后执行的操作
+        /// </summary>
+        public override void AfterStudy()
+        {
+            Log.Message($"我是：{SelfPawn.Name}，我被研究完了。");
+        }
+
+        /// <summary>
         /// 吃小人咯
         /// </summary>
         /// <param name="victims">受害者Lsit</param>
