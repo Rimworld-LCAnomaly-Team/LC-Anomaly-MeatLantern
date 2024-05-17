@@ -7,6 +7,7 @@ using LCAnomalyLibrary.Defs;
 using System.IO;
 using MeatLantern.Job;
 using MeatLantern.Utility;
+using System.Linq;
 
 namespace MeatLantern.Comp
 {
@@ -150,9 +151,10 @@ namespace MeatLantern.Comp
         /// <summary>
         /// 被研究后执行的操作
         /// </summary>
-        public override void AfterStudy()
+        public override void AfterStudy(Pawn studier)
         {
-            Log.Message($"我是：{SelfPawn.Name}，我被研究完了。");
+            CheckGiveAccessory(studier);
+            Log.Message($"我是：{SelfPawn.def.defName}，我被研究完了。");
         }
 
         /// <summary>
@@ -206,6 +208,72 @@ namespace MeatLantern.Comp
                 Find.EntityCodex.SetDiscovered(entries, Def.PawnKindDefOf.MeatLanternContained.race, SelfPawn);
                 Find.EntityCodex.SetDiscovered(entries, Def.PawnKindDefOf.MeatLanternEscaped.race, SelfPawn);
             }
+        }
+
+        /// <summary>
+        /// 检查是否需要给予饰品
+        /// </summary>
+        private void CheckGiveAccessory(Pawn studier)
+        {
+            //概率排前面是为了减少计算量，避免下面的foreach每次都要触发
+            if (!Rand.Chance(AccessoryChance))
+            {
+                Log.Message($"{studier.Name} 获取饰品失败，概率判定失败");
+                return;
+            }
+
+            if (CheckIfAccessoryConflict(studier))
+            {
+                var bodypart = studier.RaceProps.body.corePart;
+                if (bodypart != null)
+                {
+                    studier.health.AddHediff(Def.HediffDefOf.Accessory_MeatLantern, bodypart);
+                    Log.Message($"{studier.Name} 获取饰品成功");
+                }
+                else
+                {
+                    Log.Message($"{studier.Name} 获取饰品失败，身体核心部位为空");
+                }
+            }
+            else
+            {
+                Log.Message($"{studier.Name} 获取饰品失败，已经拥有相同饰品");
+            }
+        }
+        
+        /// <summary>
+        /// 检查是否可以添加饰品
+        /// </summary>
+        /// <param name="studier">研究者</param>
+        /// <returns>true：可以添加 false：不可以添加</returns>
+        public override bool CheckIfAccessoryConflict(Pawn studier)
+        {
+            //没有相关hediff就不冲突，可添加
+            var hediffs = studier.health.hediffSet.hediffs;
+            List<Hediff> hediffs1 = new List<Hediff>();
+            foreach (var hediff in hediffs)
+            {
+                if ((hediff.def.tags != null) && hediff.def.tags.Contains("LC_Accessory_Mouth"))
+                    hediffs1.Add(hediff);
+            }
+            if (hediffs1.NullOrEmpty())
+            {
+                Log.Message("没有检测到口部hediff");
+                return true;
+            }
+
+            //如果有相同的hediff则不进行添加操作，否则清理重复部位的hediff
+            foreach (var hediff in hediffs1)
+            {
+                if (hediff.def == Def.HediffDefOf.Accessory_MeatLantern)
+                {
+                    Log.Message("检测到相同Hediff");
+                    return false;
+                }
+                else
+                    studier.health.RemoveHediff(hediff);
+            }
+            return true;
         }
 
         public override string CompInspectStringExtra()

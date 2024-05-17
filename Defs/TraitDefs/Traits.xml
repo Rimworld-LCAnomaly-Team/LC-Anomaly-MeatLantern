@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+  <TraitDef>
+    <defName>MeatLantern_Trait_Accessory</defName>
+    <commonality>0</commonality>
+    <degreeDatas>
+      <li>
+        <label>MeatLantern Accessory</label>
+        <description>{PAWN_nameDef} rrrrr.</description>
+        <statFactors>
+          <IncomingDamageFactor>0.95</IncomingDamageFactor>
+        </statFactors>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+  
+</Defs>

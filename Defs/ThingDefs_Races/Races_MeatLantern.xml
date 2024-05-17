@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <ThingDef ParentName="BasePawn" Name="BaseMeatLantern" Abstract="True">
-
     <!--没发现的时候隐藏-->
     <hiddenWhileUndiscovered>true</hiddenWhileUndiscovered>
 
@@ -70,12 +69,18 @@
         </li>
       </lifeStageAges>
       <!--？？？-->
-      <hediffGiverSets>
-        <li>AnomalyEntity</li>
-      </hediffGiverSets>
+      <hediffGiverSets><li>AnomalyEntity</li></hediffGiverSets>
+      <!--主行为树-->
+      <thinkTreeMain>MeatLanternContained</thinkTreeMain>
+      <!--？？？-->
+      <thinkTreeConstant>MeatLanternConstant</thinkTreeConstant>
     </race>
 
     <comps>
+      <li Class="MeatLantern.Comp.CompProperties_MeatLantern">
+        <accessoryChance>1.00</accessoryChance>
+        <shoundNotifyWhenEscape>false</shoundNotifyWhenEscape>
+      </li>
       <!--收容targets-->
       <li Class="CompProperties_HoldingPlatformTarget">
         <baseEscapeIntervalMtbDays>45</baseEscapeIntervalMtbDays>
@@ -136,18 +141,7 @@
     <race>
       <!--渲染树-->
       <renderTree>MeatLanternContained</renderTree>
-      <!--主行为树-->
-      <thinkTreeMain>MeatLanternContained</thinkTreeMain>
-      <!--？？？-->
-      <thinkTreeConstant>MeatLanternConstant</thinkTreeConstant>
     </race>
-
-    <comps>
-      <li>
-        <!--Comp-->
-        <compClass>MeatLantern.Comp.CompMeatLantern</compClass>
-      </li>
-    </comps>
 
   </ThingDef>
 
@@ -161,22 +155,10 @@
     <description>A spindly figure of desiccated skin stretched over an impossibly tall humanoid frame. The MeatLantern's name comes from its pattern of returning to hypnotize new people each night.\n\nOutlander folklore describes an invisible spectre that captures the minds of sinners, placing them in a living hell. In the story, the victims can only be returned to life by hunting the creature as it sleeps and killing it.\n\nA hidden MeatLantern can be revealed with disruptor flares, explosives, EMP, firefoam, or by being lit on fire.</description>
     <!--UI图标路径-->
     <uiIconPath>UI/CodexEntries/MeatLantern_Escaped_MenuIcon</uiIconPath>
-
     <race>
       <!--渲染树-->
       <renderTree>MeatLanternEscaped</renderTree>
-      <!--主行为树-->
-      <thinkTreeMain>MeatLanternContained</thinkTreeMain>
-      <!--？？？-->
-      <thinkTreeConstant>MeatLanternConstant</thinkTreeConstant>
     </race>
-
-    <comps>
-      <li>
-        <!--Comp-->
-        <compClass>MeatLantern.Comp.CompMeatLantern</compClass>
-      </li>
-    </comps>
 
   </ThingDef>
 
