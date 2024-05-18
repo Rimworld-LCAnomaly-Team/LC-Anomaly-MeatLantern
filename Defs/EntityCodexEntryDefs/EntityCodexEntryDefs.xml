@@ -14,8 +14,7 @@
       <li>MeatLanternEscaped</li>
     </linkedThings>
     <discoveredResearchProjects>
-      <li>RevenantInvisibility</li>
-      <li>Brainwipe</li>
+      <li>MeatLanternImplant</li>
     </discoveredResearchProjects>
     <!-- <provocationIncidents>
       <li>MeatLantern</li>
@@ -24,4 +23,3 @@
   </EntityCodexEntryDef>
 
 </Defs>
-

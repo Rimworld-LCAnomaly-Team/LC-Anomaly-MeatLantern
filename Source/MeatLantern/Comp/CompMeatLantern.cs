@@ -7,7 +7,6 @@ using LCAnomalyLibrary.Defs;
 using System.IO;
 using MeatLantern.Job;
 using MeatLantern.Utility;
-using System.Linq;
 
 namespace MeatLantern.Comp
 {
@@ -60,9 +59,6 @@ namespace MeatLantern.Comp
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.Look(ref everRevealed, "everRevealed", defaultValue: false);
-            Scribe_Values.Look(ref biosignature, "biosignature", 0);
-            Scribe_Values.Look(ref injuredWhileAttacking, "injuredWhileAttacking", defaultValue: false);
         }
 
         public void SetState(MeatLanternState state)
@@ -153,8 +149,12 @@ namespace MeatLantern.Comp
         /// </summary>
         public override void AfterStudy(Pawn studier)
         {
-            CheckGiveAccessory(studier);
-            Log.Message($"我是：{SelfPawn.def.defName}，我被研究完了。");
+            if (studier == null)
+                return;
+
+            CheckIfStudySuccess(studier);
+
+            //Log.Message($"我是：{SelfPawn.def.defName}，我被研究完了。");
         }
 
         /// <summary>
@@ -167,6 +167,78 @@ namespace MeatLantern.Comp
 
             nextEat = Find.TickManager.TicksGame + EatCooldownTick;
             SelfPawn.mindState.enemyTarget = null;
+        }
+
+        protected override bool CheckIfStudySuccess(Pawn studier)
+        {
+            if(CheckStudierSkillRequire(studier))
+            {
+                if (CheckIfFinalStudySuccess(studier))
+                {
+                    StudyEvent_Success(studier);
+                    Log.Warning($"{SelfPawn.def.defName} 研究成功");
+                    return true;
+                }
+                else
+                {
+                    StudyEvent_Failure(studier);
+                    Log.Warning($"{SelfPawn.def.defName} 研究失败");
+                    return false;
+                }
+            }
+            else
+            {
+                StudyEvent_Failure(studier);
+                Log.Warning($"{SelfPawn.def.defName} 研究失败");
+                return false;
+            }
+        }
+
+        protected override bool CheckIfFinalStudySuccess(Pawn studier)
+        {
+            //每级智力提供5%成功率，10级智力提供50%成功率
+            float successRate_Intellectual = studier.skills.GetSkill(SkillDefOf.Intellectual).Level * 0.05f;
+            //叠加基础成功率，此处是50%，叠加完应是100%
+            float finalSuccessRate = successRate_Intellectual + StudySucessRateBase;
+
+            return Rand.Chance(finalSuccessRate);
+        }
+
+        //TODO 以后有机会搞一个数据结构类，外部允许输入需要的skilldef+等级，而不是在里面写
+        private bool CheckStudierSkillRequire(Pawn studier)
+        {
+            if(studier.skills.GetSkill(SkillDefOf.Intellectual).Level < 2)
+            {
+                Log.Message($"研究者{studier.Name}的技能{SkillDefOf.Intellectual.defName.Translate()}不足2，研究固定无法成功");
+                return false;
+            }
+
+            return true;
+        }
+
+        protected override void StudyEvent_Failure(Pawn studier)
+        {
+            QliphothCountCurrent--;
+            Log.Message($"{SelfPawn.def.defName} 的逆卡巴拉计数器减少，变为：{QliphothCountCurrent}");
+        }
+
+        protected override void StudyEvent_Success(Pawn studier)
+        {
+            QliphothCountCurrent++;
+            Log.Message($"{SelfPawn.def.defName} 的逆卡巴拉计数器增加，变为：{QliphothCountCurrent}");
+            CheckGiveAccessory(studier);
+        }
+
+        protected override void QliphothMeltdown()
+        {
+            Log.Message($"{SelfPawn.def.defName} 的收容单元发生了熔毁");
+
+            CompHoldingPlatformTarget comp = SelfPawn.TryGetComp<CompHoldingPlatformTarget>();
+            if(comp != null)
+            {
+                Log.Message($"{SelfPawn.def.defName} 因收容单元熔毁而出逃");
+                comp.Escape(initiator: true);
+            }
         }
 
         /// <summary>
@@ -328,6 +400,39 @@ namespace MeatLantern.Comp
                 action = delegate
                 {
                     SelfPawn.Kill(null);
+                }
+            };
+
+            yield return new Command_Action
+            {
+
+                defaultLabel = "Force Meltdown",
+                action = delegate
+                {
+                    Log.Warning($"Dev：{SelfPawn.def.defName} 的收容单元发生了强制熔毁");
+                    ForceQliphothMeltdown();
+                }
+            };
+
+            yield return new Command_Action
+            {
+                
+                defaultLabel = "QliphothCount +1",
+                action = delegate
+                {
+                    Log.Warning($"Dev：{SelfPawn.def.defName} 的逆卡巴拉计数器上升了1点");
+                    QliphothCountCurrent++;
+                }
+            };
+
+            yield return new Command_Action
+            {
+
+                defaultLabel = "QliphothCount -1",
+                action = delegate
+                {
+                    Log.Warning($"Dev：{SelfPawn.def.defName} 的逆卡巴拉计数器下降了1点");
+                    QliphothCountCurrent--;
                 }
             };
         }

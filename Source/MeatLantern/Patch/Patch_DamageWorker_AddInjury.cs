@@ -10,7 +10,7 @@ namespace MeatLantern.Patch
     {
         static void Postfix(DamageInfo dinfo, Thing thing)
         {
-            Pawn attacker = (Pawn)dinfo.Instigator;
+            Pawn attacker = dinfo.Instigator as Pawn;
             if (attacker != null)
             {
                 Pawn victim = thing as Pawn;

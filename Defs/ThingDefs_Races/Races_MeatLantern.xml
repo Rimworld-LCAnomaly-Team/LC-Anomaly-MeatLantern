@@ -74,6 +74,8 @@
 
     <comps>
       <li Class="MeatLantern.Comp.CompProperties_MeatLantern">
+        <qliphothCountMax>4</qliphothCountMax>
+        <studySucessRateBase>0.5</studySucessRateBase>
         <accessoryChance>0.05</accessoryChance>
         <shoundNotifyWhenEscape>false</shoundNotifyWhenEscape>
       </li>
@@ -81,6 +83,7 @@
       <li Class="CompProperties_HoldingPlatformTarget">
         <baseEscapeIntervalMtbDays>45</baseEscapeIntervalMtbDays>
         <lookForTargetOnEscape>false</lookForTargetOnEscape>
+        <hasAnimation>false</hasAnimation>
       </li>
       <!--收容束缚的点位-->
       <li Class="CompProperties_AttachPoints">
@@ -105,12 +108,12 @@
       </li>
       <!--灵铁产量-->
       <li Class="CompProperties_ProducesBioferrite">
-        <bioferriteDensity>4</bioferriteDensity>
+        <bioferriteDensity>0</bioferriteDensity>
       </li>
       <!--研究学习-->
       <li Class="CompProperties_Studiable">
         <!--学习间隔-->
-        <frequencyTicks>120000</frequencyTicks>
+        <frequencyTicks>60000</frequencyTicks>
         <!--知识等级-->
         <knowledgeCategory>Basic</knowledgeCategory>
         <!--知识点数-->
