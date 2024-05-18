@@ -70,15 +70,11 @@
       </lifeStageAges>
       <!--？？？-->
       <hediffGiverSets><li>AnomalyEntity</li></hediffGiverSets>
-      <!--主行为树-->
-      <thinkTreeMain>MeatLanternContained</thinkTreeMain>
-      <!--？？？-->
-      <thinkTreeConstant>MeatLanternConstant</thinkTreeConstant>
     </race>
 
     <comps>
       <li Class="MeatLantern.Comp.CompProperties_MeatLantern">
-        <accessoryChance>1.00</accessoryChance>
+        <accessoryChance>0.05</accessoryChance>
         <shoundNotifyWhenEscape>false</shoundNotifyWhenEscape>
       </li>
       <!--收容targets-->
@@ -141,6 +137,10 @@
     <race>
       <!--渲染树-->
       <renderTree>MeatLanternContained</renderTree>
+      <!--主行为树-->
+      <thinkTreeMain>MeatLanternContained</thinkTreeMain>
+      <!--？？？-->
+      <thinkTreeConstant>MeatLanternConstant</thinkTreeConstant>
     </race>
 
   </ThingDef>
@@ -158,8 +158,11 @@
     <race>
       <!--渲染树-->
       <renderTree>MeatLanternEscaped</renderTree>
+      <!--主行为树-->
+      <thinkTreeMain>MeatLanternContained</thinkTreeMain>
+      <!--？？？-->
+      <thinkTreeConstant>MeatLanternConstant</thinkTreeConstant>
     </race>
-
   </ThingDef>
-
+  
 </Defs>
