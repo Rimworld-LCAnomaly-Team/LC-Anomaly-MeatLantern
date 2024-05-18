@@ -76,6 +76,9 @@
       <li Class="MeatLantern.Comp.CompProperties_MeatLantern">
         <qliphothCountMax>4</qliphothCountMax>
         <studySucessRateBase>0.5</studySucessRateBase>
+        <peBoxDef>PeBoxTETH</peBoxDef>
+        <amountPeBoxStudySuccess>5</amountPeBoxStudySuccess>
+        <amountPeBoxStudyFail>1</amountPeBoxStudyFail> 
         <accessoryChance>0.05</accessoryChance>
         <shoundNotifyWhenEscape>false</shoundNotifyWhenEscape>
       </li>

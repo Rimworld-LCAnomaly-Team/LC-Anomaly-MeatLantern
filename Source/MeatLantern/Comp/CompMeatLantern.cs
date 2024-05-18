@@ -199,7 +199,7 @@ namespace MeatLantern.Comp
             //每级智力提供5%成功率，10级智力提供50%成功率
             float successRate_Intellectual = studier.skills.GetSkill(SkillDefOf.Intellectual).Level * 0.05f;
             //叠加基础成功率，此处是50%，叠加完应是100%
-            float finalSuccessRate = successRate_Intellectual + StudySucessRateBase;
+            float finalSuccessRate = successRate_Intellectual + Props.studySucessRateBase;
 
             return Rand.Chance(finalSuccessRate);
         }
@@ -220,12 +220,14 @@ namespace MeatLantern.Comp
         {
             QliphothCountCurrent--;
             Log.Message($"{SelfPawn.def.defName} 的逆卡巴拉计数器减少，变为：{QliphothCountCurrent}");
+            CheckSpawnPeBox(studier, Props.amountPeBoxStudyFail);
         }
 
         protected override void StudyEvent_Success(Pawn studier)
         {
             QliphothCountCurrent++;
             Log.Message($"{SelfPawn.def.defName} 的逆卡巴拉计数器增加，变为：{QliphothCountCurrent}");
+            CheckSpawnPeBox(studier, Props.amountPeBoxStudySuccess);
             CheckGiveAccessory(studier);
         }
 
@@ -288,7 +290,7 @@ namespace MeatLantern.Comp
         private void CheckGiveAccessory(Pawn studier)
         {
             //概率排前面是为了减少计算量，避免下面的foreach每次都要触发
-            if (!Rand.Chance(AccessoryChance))
+            if (!Rand.Chance(Props.accessoryChance))
             {
                 Log.Message($"{studier.Name} 获取饰品失败，概率判定失败");
                 return;
@@ -310,6 +312,28 @@ namespace MeatLantern.Comp
             else
             {
                 Log.Message($"{studier.Name} 获取饰品失败，已经拥有相同饰品");
+            }
+        }
+
+        /// <summary>
+        /// 检查是否生成Pebox
+        /// </summary>
+        /// <param name="studier">研究者</param>
+        /// <param name="amount">生成数量</param>
+        private void CheckSpawnPeBox(Pawn studier, int amount)
+        {
+            if (amount <= 0)
+                return;
+
+            if(studier!= null)
+            {
+                if(Props.peBoxDef != null) 
+                {
+                    Thing thing = ThingMaker.MakeThing(Props.peBoxDef);
+                    thing.stackCount = amount;
+                    GenSpawn.Spawn(thing, studier.Position, studier.Map);
+                    Log.Message($"{SelfPawn.def.defName}生成了{amount}单位的{Props.peBoxDef.defName}");
+                }
             }
         }
         
