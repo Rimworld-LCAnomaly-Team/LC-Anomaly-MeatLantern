@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Verse.AI;
 using Verse;
 using LCAnomalyLibrary.Comp;
-using LCAnomalyLibrary.Defs;
 using System.IO;
 using MeatLantern.Job;
 using MeatLantern.Utility;
@@ -38,11 +37,11 @@ namespace MeatLantern.Comp
                     return invisibility;
                 }
 
-                Hediff hediff = SelfPawn.health.hediffSet.GetFirstHediffOfDef(LC_HediffDefOf.FakeInvisibility);
+                Hediff hediff = SelfPawn.health.hediffSet.GetFirstHediffOfDef(LCAnomalyLibrary.Defs.HediffDefOf.FakeInvisibility);
                 if (hediff == null)
                 {
                     Log.Warning("Hediff is null, prepate to add hediff");
-                    hediff = SelfPawn.health.AddHediff(LC_HediffDefOf.FakeInvisibility);
+                    hediff = SelfPawn.health.AddHediff(LCAnomalyLibrary.Defs.HediffDefOf.FakeInvisibility);
                 }
                 else
                 {
@@ -83,7 +82,7 @@ namespace MeatLantern.Comp
         {
             base.PostSpawnSetup(respawningAfterLoad);
 
-            SelfPawn.health.GetOrAddHediff(LC_HediffDefOf.FakeInvisibility);
+            SelfPawn.health.GetOrAddHediff(LCAnomalyLibrary.Defs.HediffDefOf.FakeInvisibility);
             CheckSpawnVisible();
         }
 
@@ -219,14 +218,12 @@ namespace MeatLantern.Comp
         protected override void StudyEvent_Failure(Pawn studier)
         {
             QliphothCountCurrent--;
-            Log.Message($"{SelfPawn.def.defName} 的逆卡巴拉计数器减少，变为：{QliphothCountCurrent}");
             CheckSpawnPeBox(studier, Props.amountPeBoxStudyFail);
         }
 
         protected override void StudyEvent_Success(Pawn studier)
         {
             QliphothCountCurrent++;
-            Log.Message($"{SelfPawn.def.defName} 的逆卡巴拉计数器增加，变为：{QliphothCountCurrent}");
             CheckSpawnPeBox(studier, Props.amountPeBoxStudySuccess);
             CheckGiveAccessory(studier);
         }
