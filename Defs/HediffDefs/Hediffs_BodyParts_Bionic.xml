@@ -12,7 +12,7 @@
       <ThingDef>MeatLanternImplant</ThingDef>
     </descriptionHyperlinks>
     <spawnThingOnRemoved>MeatLanternImplant</spawnThingOnRemoved>
-    <stages>
+    <!-- <stages>
       <li>
         <capMods>
           <li>
@@ -21,13 +21,10 @@
           </li>
         </capMods>
         <statOffsets>
-          <ArmorRating_Sharp>0.70</ArmorRating_Sharp>
-          <ArmorRating_Blunt>0.3</ArmorRating_Blunt>
-          <ArmorRating_Heat>0.5</ArmorRating_Heat>
-          <PawnBeauty>-2</PawnBeauty>
+          <PawnBeauty>1</PawnBeauty>
         </statOffsets>
       </li>
-    </stages>
+    </stages> -->
     <tags>
       <li>MeatLanternImplant</li>
     </tags>
