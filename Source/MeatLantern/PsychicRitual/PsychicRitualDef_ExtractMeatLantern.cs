@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Verse.AI.Group;
 using Verse;
+using LCAnomalyLibrary.Defs;
 
 namespace MeatLantern.PsychicRitual
 {
-    public class PsychicRitualDef_ExtractMeatLantern : PsychicRitualDef_InvocationCircle
+    public class PsychicRitualDef_ExtractMeatLantern : ExtractRitualDef_InvocationCircle
     {
 
         public override List<PsychicRitualToil> CreateToils(Verse.AI.Group.PsychicRitual psychicRitual, PsychicRitualGraph parent)
