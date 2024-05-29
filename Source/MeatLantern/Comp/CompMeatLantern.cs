@@ -55,27 +55,19 @@ namespace MeatLantern.Comp
 
         #endregion
 
+        #region 生命周期
+
         public override void PostExposeData()
         {
             base.PostExposeData();
-        }
 
-        public void SetState(MeatLanternState state)
-        {
-            meatLanternState = state;
-            SelfPawn.jobs.EndCurrentJob(JobCondition.InterruptForced);
+            Scribe_Values.Look(ref nextEat, "nextEat", -99999);
+            Scribe_Values.Look(ref EatCooldownTick, "EatCooldownTick", 500);
         }
 
         public override void PostPostMake()
         {
             biosignature = Rand.Int;
-        }
-
-        public override void CompTickLong()
-        {
-            base.CompTickLong();
-
-            CheckIsDiscovered();
         }
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -86,78 +78,49 @@ namespace MeatLantern.Comp
             CheckSpawnVisible();
         }
 
-        protected override void CheckIfSeen(){}
+        #endregion
 
-        /// <summary>
-        /// 在应用伤害之前的方法
-        /// </summary>
-        /// <param name="dinfo">伤害信息</param>
-        /// <param name="totalDamageDealt">伤害量</param>
-        public override void PostPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
-        {
-            //如果实体没有死亡
-            if (!SelfPawn.Dead)
-            {
-                //且处于进攻状态，就更新进攻时受到伤害的状态
-                if (meatLanternState == MeatLanternState.Attack)
-                {
-                    injuredWhileAttacking = true;
-                }
-            }
-        }
-        
-        /// <summary>
-        /// 在砂了别的pawn之后调用的方法
-        /// </summary>
-        /// <param name="pawn">受害者</param>
-        public override void Notify_KilledPawn(Pawn pawn)
-        {
-            base.Notify_KilledPawn(pawn);
-        }
+        #region 触发事件
 
-        /// <summary>
-        /// 被杀之后触发
-        /// </summary>
-        /// <param name="prevMap"></param>
-        /// <param name="dinfo"></param>
         public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
         {
             //调用死后操作
             MeatLanternUtility.OnMeatLanternDeath(SelfPawn, prevMap);
         }
 
-        /// <summary>
-        /// 逃脱时执行的操作
-        /// </summary>
-        public override void Escape()
+        public override void Notify_Escaped()
         {
             //生成逃脱的肉食提灯
-            MeatLanternUtility.OnMeatLanternEscape(SelfPawn,SelfPawn.Map);
+            MeatLanternUtility.OnMeatLanternEscape(SelfPawn, SelfPawn.Map);
         }
 
         /// <summary>
         /// 绑到收容平台上后的操作
         /// </summary>
-        public override void AfterHoldToPlatform()
+        public override void Notify_Holded()
         {
+            base.Notify_Holded();
+
             CheckIsDiscovered();
         }
 
         /// <summary>
         /// 被研究后执行的操作
         /// </summary>
-        public override void AfterStudy(Pawn studier)
+        public override void Notify_Studied(Pawn studier)
         {
             if (studier == null)
                 return;
 
             CheckIfStudySuccess(studier);
-
-            //Log.Message($"我是：{SelfPawn.def.defName}，我被研究完了。");
         }
 
+        #endregion
+
+        #region 行为逻辑
+
         /// <summary>
-        /// 吃小人咯
+        /// 吞噬攻击单位
         /// </summary>
         /// <param name="victims">受害者Lsit</param>
         public void Eat(List<Pawn> victims)
@@ -168,76 +131,10 @@ namespace MeatLantern.Comp
             SelfPawn.mindState.enemyTarget = null;
         }
 
-        protected override bool CheckIfStudySuccess(Pawn studier)
+        public void SetState(MeatLanternState state)
         {
-            if(CheckStudierSkillRequire(studier))
-            {
-                if (CheckIfFinalStudySuccess(studier))
-                {
-                    StudyEvent_Success(studier);
-                    Log.Warning($"{SelfPawn.def.defName} 研究成功");
-                    return true;
-                }
-                else
-                {
-                    StudyEvent_Failure(studier);
-                    Log.Warning($"{SelfPawn.def.defName} 研究失败");
-                    return false;
-                }
-            }
-            else
-            {
-                StudyEvent_Failure(studier);
-                Log.Warning($"{SelfPawn.def.defName} 研究失败");
-                return false;
-            }
-        }
-
-        protected override bool CheckIfFinalStudySuccess(Pawn studier)
-        {
-            //每级智力提供5%成功率，10级智力提供50%成功率
-            float successRate_Intellectual = studier.skills.GetSkill(SkillDefOf.Intellectual).Level * 0.05f;
-            //叠加基础成功率，此处是50%，叠加完应是100%
-            float finalSuccessRate = successRate_Intellectual + Props.studySucessRateBase;
-
-            return Rand.Chance(finalSuccessRate);
-        }
-
-        //TODO 以后有机会搞一个数据结构类，外部允许输入需要的skilldef+等级，而不是在里面写
-        private bool CheckStudierSkillRequire(Pawn studier)
-        {
-            if(studier.skills.GetSkill(SkillDefOf.Intellectual).Level < 2)
-            {
-                Log.Message($"研究者{studier.Name}的技能{SkillDefOf.Intellectual.defName.Translate()}不足2，研究固定无法成功");
-                return false;
-            }
-
-            return true;
-        }
-
-        protected override void StudyEvent_Failure(Pawn studier)
-        {
-            QliphothCountCurrent--;
-            CheckSpawnPeBox(studier, Props.amountPeBoxStudyFail);
-        }
-
-        protected override void StudyEvent_Success(Pawn studier)
-        {
-            QliphothCountCurrent++;
-            CheckSpawnPeBox(studier, Props.amountPeBoxStudySuccess);
-            CheckGiveAccessory(studier);
-        }
-
-        protected override void QliphothMeltdown()
-        {
-            Log.Message($"{SelfPawn.def.defName} 的收容单元发生了熔毁");
-
-            CompHoldingPlatformTarget comp = SelfPawn.TryGetComp<CompHoldingPlatformTarget>();
-            if(comp != null)
-            {
-                Log.Message($"{SelfPawn.def.defName} 因收容单元熔毁而出逃");
-                comp.Escape(initiator: true);
-            }
+            meatLanternState = state;
+            SelfPawn.jobs.EndCurrentJob(JobCondition.InterruptForced);
         }
 
         /// <summary>
@@ -255,7 +152,7 @@ namespace MeatLantern.Comp
                 Invisibility.BecomeInvisible();
                 return true;
             }
-            else if(def == Def.PawnKindDefOf.MeatLanternContained)
+            else if (def == Def.PawnKindDefOf.MeatLanternContained)
             {
                 //Log.Warning("应该显形");
                 Invisibility.BecomeVisible();
@@ -265,6 +162,43 @@ namespace MeatLantern.Comp
             {
                 throw new InvalidDataException($"Invalid PawnKindDef:{def.defName} Found");
             }
+        }
+
+        #endregion
+
+        #region 研究与图鉴
+
+        protected override bool CheckIfFinalStudySuccess(Pawn studier)
+        {
+            //每级智力提供5%成功率，10级智力提供50%成功率
+            float successRate_Intellectual = studier.skills.GetSkill(SkillDefOf.Intellectual).Level * 0.05f;
+            //叠加基础成功率，此处是50%，叠加完应是100%
+            float finalSuccessRate = successRate_Intellectual + Props.studySucessRateBase;
+
+            return Rand.Chance(finalSuccessRate);
+        }
+
+        protected override bool CheckStudierSkillRequire(Pawn studier)
+        {
+            if (studier.skills.GetSkill(SkillDefOf.Intellectual).Level < 2)
+            {
+                Log.Message($"研究者{studier.Name}的技能{SkillDefOf.Intellectual.defName.Translate()}不足2，研究固定无法成功");
+                return false;
+            }
+
+            return true;
+        }
+
+        protected override void StudyEvent_Failure(Pawn studier)
+        {
+            base.StudyEvent_Failure(studier);
+        }
+
+        protected override void StudyEvent_Success(Pawn studier)
+        {
+            base.StudyEvent_Success(studier);
+
+            CheckGiveAccessory(studier, Def.HediffDefOf.Accessory_MeatLantern, "LC_Accessory_Mouth");
         }
 
         /// <summary>
@@ -281,93 +215,9 @@ namespace MeatLantern.Comp
             }
         }
 
-        /// <summary>
-        /// 检查是否需要给予饰品
-        /// </summary>
-        private void CheckGiveAccessory(Pawn studier)
-        {
-            //概率排前面是为了减少计算量，避免下面的foreach每次都要触发
-            if (!Rand.Chance(Props.accessoryChance))
-            {
-                Log.Message($"{studier.Name} 获取饰品失败，概率判定失败");
-                return;
-            }
+        #endregion
 
-            if (CheckIfAccessoryConflict(studier))
-            {
-                var bodypart = studier.RaceProps.body.corePart;
-                if (bodypart != null)
-                {
-                    studier.health.AddHediff(Def.HediffDefOf.Accessory_MeatLantern, bodypart);
-                    Log.Message($"{studier.Name} 获取饰品成功");
-                }
-                else
-                {
-                    Log.Message($"{studier.Name} 获取饰品失败，身体核心部位为空");
-                }
-            }
-            else
-            {
-                Log.Message($"{studier.Name} 获取饰品失败，已经拥有相同饰品");
-            }
-        }
-
-        /// <summary>
-        /// 检查是否生成Pebox
-        /// </summary>
-        /// <param name="studier">研究者</param>
-        /// <param name="amount">生成数量</param>
-        private void CheckSpawnPeBox(Pawn studier, int amount)
-        {
-            if (amount <= 0)
-                return;
-
-            if(studier!= null)
-            {
-                if(Props.peBoxDef != null) 
-                {
-                    Thing thing = ThingMaker.MakeThing(Props.peBoxDef);
-                    thing.stackCount = amount;
-                    GenSpawn.Spawn(thing, studier.Position, studier.Map);
-                    Log.Message($"{SelfPawn.def.defName}生成了{amount}单位的{Props.peBoxDef.defName}");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// 检查是否可以添加饰品
-        /// </summary>
-        /// <param name="studier">研究者</param>
-        /// <returns>true：可以添加 false：不可以添加</returns>
-        public override bool CheckIfAccessoryConflict(Pawn studier)
-        {
-            //没有相关hediff就不冲突，可添加
-            var hediffs = studier.health.hediffSet.hediffs;
-            List<Hediff> hediffs1 = new List<Hediff>();
-            foreach (var hediff in hediffs)
-            {
-                if ((hediff.def.tags != null) && hediff.def.tags.Contains("LC_Accessory_Mouth"))
-                    hediffs1.Add(hediff);
-            }
-            if (hediffs1.NullOrEmpty())
-            {
-                Log.Message("没有检测到口部hediff");
-                return true;
-            }
-
-            //如果有相同的hediff则不进行添加操作，否则清理重复部位的hediff
-            foreach (var hediff in hediffs1)
-            {
-                if (hediff.def == Def.HediffDefOf.Accessory_MeatLantern)
-                {
-                    Log.Message("检测到相同Hediff");
-                    return false;
-                }
-                else
-                    studier.health.RemoveHediff(hediff);
-            }
-            return true;
-        }
+        #region UI
 
         public override string CompInspectStringExtra()
         {
@@ -382,6 +232,52 @@ namespace MeatLantern.Comp
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
+            if (DebugSettings.ShowDevGizmos)
+            {
+                yield return new Command_Action
+                {
+
+                    defaultLabel = "kill",
+                    action = delegate
+                    {
+                        SelfPawn.Kill(null);
+                    }
+                };
+
+                yield return new Command_Action
+                {
+
+                    defaultLabel = "Force Meltdown",
+                    action = delegate
+                    {
+                        Log.Warning($"Dev：{SelfPawn.def.defName} 的收容单元发生了强制熔毁");
+                        ForceQliphothMeltdown();
+                    }
+                };
+
+                yield return new Command_Action
+                {
+
+                    defaultLabel = "QliphothCount +1",
+                    action = delegate
+                    {
+                        Log.Warning($"Dev：{SelfPawn.def.defName} 的逆卡巴拉计数器上升了1点");
+                        QliphothCountCurrent++;
+                    }
+                };
+
+                yield return new Command_Action
+                {
+
+                    defaultLabel = "QliphothCount -1",
+                    action = delegate
+                    {
+                        Log.Warning($"Dev：{SelfPawn.def.defName} 的逆卡巴拉计数器下降了1点");
+                        QliphothCountCurrent--;
+                    }
+                };
+            }
+
             yield return new Command_Action
             {
 
@@ -399,63 +295,8 @@ namespace MeatLantern.Comp
                     Invisibility.BecomeVisible();
                 }
             };
-
-            if (!DebugSettings.ShowDevGizmos)
-                yield break;
-
-            yield return new Command_Action
-            {
-                
-                defaultLabel = "v",
-                action = delegate
-                {
-                    //Log.Warning("froce visible");
-                    Invisibility.BecomeInvisible();
-                }
-            };
-
-            yield return new Command_Action
-            {
-
-                defaultLabel = "kill",
-                action = delegate
-                {
-                    SelfPawn.Kill(null);
-                }
-            };
-
-            yield return new Command_Action
-            {
-
-                defaultLabel = "Force Meltdown",
-                action = delegate
-                {
-                    Log.Warning($"Dev：{SelfPawn.def.defName} 的收容单元发生了强制熔毁");
-                    ForceQliphothMeltdown();
-                }
-            };
-
-            yield return new Command_Action
-            {
-                
-                defaultLabel = "QliphothCount +1",
-                action = delegate
-                {
-                    Log.Warning($"Dev：{SelfPawn.def.defName} 的逆卡巴拉计数器上升了1点");
-                    QliphothCountCurrent++;
-                }
-            };
-
-            yield return new Command_Action
-            {
-
-                defaultLabel = "QliphothCount -1",
-                action = delegate
-                {
-                    Log.Warning($"Dev：{SelfPawn.def.defName} 的逆卡巴拉计数器下降了1点");
-                    QliphothCountCurrent--;
-                }
-            };
         }
+
+        #endregion
     }
 }
