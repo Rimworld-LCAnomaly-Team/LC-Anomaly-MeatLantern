@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using LCAnomalyLibrary.Defs;
+using RimWorld;
 using Verse;
 
 namespace MeatLantern.Def
@@ -7,7 +8,7 @@ namespace MeatLantern.Def
     public static class ThingDefOf
     {
         [MayRequireAnomaly]
-        public static ThingDef MeatLanternEgg;
+        public static ThingDef_AnomalyEgg MeatLanternEgg;
 
         [MayRequireAnomaly]
         public static ThingDef DyingMeatLantern;
