@@ -131,7 +131,7 @@ namespace MeatLantern.Utility
         /// <param name="map"></param>
         public static void OnMeatLanternEscape(Pawn pawn, Map map)
         {
-            ((EscapingMeatLantern)GenSpawn.Spawn(Def.ThingDefOf.EscapingMeatLantern, pawn.Position, map)).InitWith(pawn);
+            ((EscapingMeatLantern)GenSpawn.Spawn(Def.ThingDefOf.EscapingMeatLantern, pawn.Position, map)).InitWith(pawn, true);
         }
 
         /// <summary>

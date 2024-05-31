@@ -14,7 +14,7 @@ namespace MeatLantern.Def
         public static ThingDef DyingMeatLantern;
 
         [MayRequireAnomaly]
-        public static ThingDef EscapingMeatLantern;
+        public static ThingDef_AnomalyEntity_Spawn EscapingMeatLantern;
 
         [MayRequireAnomaly]
         public static ThingDef EatingMeatLantern;

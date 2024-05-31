@@ -9,13 +9,14 @@
     <drawOffscreen>true</drawOffscreen>
   </ThingDef>
 
-  <ThingDef ParentName="EtherealThingBase">
+  <LCAnomalyLibrary.Defs.ThingDef_AnomalyEntity_Spawn ParentName="EtherealThingBase">
     <defName>EscapingMeatLantern</defName>
+    <anomalyLevelTag>TETH</anomalyLevelTag>
     <selectable>false</selectable>
     <tickerType>Normal</tickerType>
     <thingClass>MeatLantern.Effect.EscapingMeatLantern</thingClass>
     <drawOffscreen>true</drawOffscreen>
-  </ThingDef>
+  </LCAnomalyLibrary.Defs.ThingDef_AnomalyEntity_Spawn>
 
   <ThingDef ParentName="EtherealThingBase">
     <defName>EatingMeatLantern</defName>
