@@ -232,50 +232,9 @@ namespace MeatLantern.Comp
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            if (DebugSettings.ShowDevGizmos)
+            foreach (Verse.Gizmo gizmo in base.CompGetGizmosExtra())
             {
-                yield return new Command_Action
-                {
-
-                    defaultLabel = "kill",
-                    action = delegate
-                    {
-                        SelfPawn.Kill(null);
-                    }
-                };
-
-                yield return new Command_Action
-                {
-
-                    defaultLabel = "Force Meltdown",
-                    action = delegate
-                    {
-                        Log.Warning($"Dev：{SelfPawn.def.defName} 的收容单元发生了强制熔毁");
-                        ForceQliphothMeltdown();
-                    }
-                };
-
-                yield return new Command_Action
-                {
-
-                    defaultLabel = "QliphothCount +1",
-                    action = delegate
-                    {
-                        Log.Warning($"Dev：{SelfPawn.def.defName} 的逆卡巴拉计数器上升了1点");
-                        QliphothCountCurrent++;
-                    }
-                };
-
-                yield return new Command_Action
-                {
-
-                    defaultLabel = "QliphothCount -1",
-                    action = delegate
-                    {
-                        Log.Warning($"Dev：{SelfPawn.def.defName} 的逆卡巴拉计数器下降了1点");
-                        QliphothCountCurrent--;
-                    }
-                };
+                yield return gizmo;
             }
 
             yield return new Command_Action
