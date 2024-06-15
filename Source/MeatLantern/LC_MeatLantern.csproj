@@ -80,12 +80,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comp\CompAbilityEffect_Whirlwind_OmNomNom.cs" />
     <Compile Include="Comp\CompMeatLantern.cs" />
+    <Compile Include="Comp\CompProperties_AbilityWhirlwind_OmNomNom.cs" />
     <Compile Include="Comp\CompProperties_MeatLantern.cs" />
     <Compile Include="Comp\HediffCompProperties_Accessory_MeatLantern.cs" />
-    <Compile Include="Comp\HediffCompProperties_MeatLanternImplant.cs" />
     <Compile Include="Comp\HediffComp_Accessory_MeatLantern.cs" />
-    <Compile Include="Comp\HediffComp_MeatLanternImplant.cs" />
     <Compile Include="Def\FleckDefOf.cs" />
     <Compile Include="Def\HediffDefOf.cs" />
     <Compile Include="Def\JobDefOf.cs" />
@@ -102,8 +102,6 @@
     <Compile Include="Job\JobGiver_MeatLanternAttack.cs" />
     <Compile Include="Job\JobGiver_MeatLanternWait.cs" />
     <Compile Include="Job\MeatLanternState.cs" />
-    <Compile Include="Patch\PatchMain.cs" />
-    <Compile Include="Patch\Patch_DamageWorker_AddInjury.cs" />
     <Compile Include="Setting\Setting_MeatLantern_Main.cs" />
     <Compile Include="Setting\Setting_MeatLantern.cs" />
     <Compile Include="Utility\MeatLanternUtility.cs" />
@@ -112,6 +110,8 @@
     <Compile Include="PsychicRitual\PsychicRitualToil_ExtractMeatLantern.cs" />
     <Compile Include="ThinkNode\ThinkNode_ConditionalMeatLanternState.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Patch\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

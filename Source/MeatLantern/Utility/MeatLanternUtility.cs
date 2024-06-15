@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Verse;
 using MeatLantern.Effect;
+using MeatLantern.Setting;
+using UnityEngine;
+using System.Text;
 
 namespace MeatLantern.Utility
 {
@@ -153,6 +156,58 @@ namespace MeatLantern.Utility
                 if (!p.Dead)
                     p.TakeDamage(dinfo);
 
+            }
+        }
+
+        /// <summary>
+        /// 嚼嚼旋风技能
+        /// </summary>
+        /// <param name="victim">受害者</param>
+        /// <param name="instigator">加害者</param>
+        /// <param name="damageRange">伤害范围</param>
+        /// <param name="armorPenetration">破甲率</param>
+        /// <param name="percent">治愈比率</param>
+        public static void DoBiteOnPawn(Pawn victim, Pawn instigator, FloatRange damageRange, float armorPenetration, float percent)
+        {
+            float damage = damageRange.RandomInRange;
+            DamageInfo dInfo = new DamageInfo(DamageDefOf.Bite, damage, armorPenetration, -1f, instigator, null, Def.ThingDefOf.EgoWeapon_MeatLantern);
+            victim.TakeDamage(dInfo);
+
+            //机械族不吸血，但可以造成伤害
+            if(!victim.def.race.IsMechanoid)
+                DoHeal(instigator, damage, percent);
+        }
+
+        private static void DoHeal(Pawn selfPawn, float healAmount, float percent)
+        {
+            List<Hediff_Injury> list = new List<Hediff_Injury>();
+            selfPawn.health.hediffSet.GetHediffs(ref list);
+
+            if (list.Count > 0)
+            {
+                Hediff_Injury injury = list.RandomElement();
+                injury.Heal(healAmount * percent);
+
+                //是否允许显示吸血字样
+                if (Setting_MeatLantern_Main.Settings.If_ShowVampireText)
+                {
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append(Translator.Translate("LC_MeatLantern_VampireAmountThrowText"));
+                    sb.Append(healAmount * percent);
+
+                    //是否允许显示恢复部位
+                    if (Setting_MeatLantern_Main.Settings.If_ShowVampireHealPartText)
+                    {
+                        sb.Append(Translator.Translate("LC_MeatLantern_VampireBodypartThrowText"));
+                        sb.Append(injury.Part.Label.Translate());
+                    }
+
+                    MoteMaker.ThrowText(selfPawn.Position.ToVector3(), selfPawn.Map, sb.ToString(), Color.green);
+                }
+
+                //是否允许显示治疗特效
+                if (Setting_MeatLantern_Main.Settings.If_ShowVampireHealVFX)
+                    FleckMaker.ThrowMetaIcon(selfPawn.Position, selfPawn.Map, FleckDefOf.HealingCross, 0.42f);
             }
         }
     }

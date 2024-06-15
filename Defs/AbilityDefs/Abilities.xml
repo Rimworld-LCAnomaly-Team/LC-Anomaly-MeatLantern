@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- 嚼嚼旋风 -->
+  <AbilityDef ParentName="AbilityTouchBase">
+    <defName>Whirlwind_OmNomNom</defName>
+    <label>Whirlwind Om-Nom-Nom!</label>
+    <description>.</description>
+    <iconPath>UI/WeaponSkills/MeatLantern/Whirlwind_OmNomNom</iconPath>
+    <cooldownTicksRange>300</cooldownTicksRange>
+    <!-- <category>Sanguophage</category> -->
+    <displayOrder>100</displayOrder>
+    <!-- <warmupEffecter>Bloodfeed_Warmup</warmupEffecter> -->
+    <warmupStartSound>MeatLantern_Eat</warmupStartSound>
+    <hostile>true</hostile>
+    <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <range>-1</range>
+      <requireLineOfSight>true</requireLineOfSight>
+      <warmupTime>0.1</warmupTime>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="MeatLantern.Comp.CompProperties_AbilityWhirlwind_OmNomNom">
+        <damageRange>20~30</damageRange>
+        <suckPercent>0.8</suckPercent>
+        <armorPenetration>0.2</armorPenetration>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>MeatExplosionSplatter</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+</Defs>
