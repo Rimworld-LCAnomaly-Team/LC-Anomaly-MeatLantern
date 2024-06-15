@@ -13,16 +13,6 @@ namespace MeatLantern.Comp
 
         public HediffCompProperties_MeatLanternImplant Props => (HediffCompProperties_MeatLanternImplant)props;
 
-        public override void Notify_SurgicallyRemoved(Pawn surgeon)
-        {
-
-        }
-
-        public override void Notify_SurgicallyReplaced(Pawn surgeon)
-        {
-
-        }
-
         public override void Notify_Spawned()
         {
             base.Notify_Spawned();
