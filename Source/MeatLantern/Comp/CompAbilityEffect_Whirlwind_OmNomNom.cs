@@ -4,16 +4,18 @@ using Verse;
 
 namespace MeatLantern.Comp
 {
-    internal class CompAbilityEffect_Whirlwind_OmNomNom : CompAbilityEffect
+    public class CompAbilityEffect_WhirlwindOmNomNom : CompAbilityEffect
     {
-        public new CompProperties_AbilityWhirlwind_OmNomNom Props => (CompProperties_AbilityWhirlwind_OmNomNom)props;
+
+        public new CompProperties_AbilityWhirlwindOmNomNom Props => (CompProperties_AbilityWhirlwindOmNomNom)props;
 
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
         {
             base.Apply(target, dest);
-            Pawn pawn = target.Pawn;
+            Pawn pawn = target.Cell.GetFirstPawn(parent.pawn.MapHeld);
             if (pawn != null)
             {
+                pawn.needs.food.CurLevel -= Props.foodConsumePercent;
                 MeatLanternUtility.DoBiteOnPawn(pawn, parent.pawn, Props.damageRange, Props.armorPenetration, Props.suckPercent);
             }
         }
@@ -25,52 +27,13 @@ namespace MeatLantern.Comp
 
         public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
         {
-            Pawn pawn = target.Pawn;
+            var pawn = target.Pawn;
+
             if (pawn == null)
             {
                 return false;
             }
 
-            if (pawn.Faction != null && !pawn.IsSlaveOfColony && !pawn.IsPrisonerOfColony)
-            {
-                if (pawn.Faction.HostileTo(parent.pawn.Faction))
-                {
-                    if (!pawn.Downed)
-                    {
-                        if (throwMessages)
-                        {
-                            Messages.Message("MessageCantUseOnResistingPerson".Translate(parent.def.Named("ABILITY")), pawn, MessageTypeDefOf.RejectInput, historical: false);
-                        }
-
-                        return false;
-                    }
-                }
-                else if (pawn.IsQuestLodger() || pawn.Faction != parent.pawn.Faction)
-                {
-                    if (throwMessages)
-                    {
-                        Messages.Message("MessageCannotUseOnOtherFactions".Translate(parent.def.Named("ABILITY")), pawn, MessageTypeDefOf.RejectInput, historical: false);
-                    }
-
-                    return false;
-                }
-            }
-
-            if (ModsConfig.AnomalyActive && pawn.IsMutant && !pawn.mutant.Def.canBleed)
-            {
-                if (throwMessages)
-                {
-                    Messages.Message("MessageCannotUseOnNonBleeder".Translate(parent.def.Named("ABILITY")), pawn, MessageTypeDefOf.RejectInput, historical: false);
-                }
-
-                return false;
-            }
-
-            return true;
-        }
-
-        public override bool AICanTargetNow(LocalTargetInfo target)
-        {
             return true;
         }
     }

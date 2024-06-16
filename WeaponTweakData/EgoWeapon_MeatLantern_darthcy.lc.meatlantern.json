@@ -1,0 +1,13 @@
+{
+  "TextureModID": "darthcy.lc.meatlantern",
+  "ItemDefName": "EgoWeapon_MeatLantern",
+  "ItemType": "ThingDef",
+  "ItemTypeNamespace": "Verse",
+  "OffX": 0.09066667,
+  "OffY": -0.0426666662,
+  "ScaleX": 2.0,
+  "ScaleY": 2.0,
+  "BladeStart": 0.362666667,
+  "BladeEnd": 1.03466666,
+  "MeleeWeaponType": 1
+}

@@ -4,20 +4,22 @@ using Verse;
 
 namespace MeatLantern.Comp
 {
-    public class CompProperties_AbilityWhirlwind_OmNomNom : CompProperties_AbilityEffect
+    public class CompProperties_AbilityWhirlwindOmNomNom : CompProperties_AbilityEffect
     {
         public FloatRange damageRange;
         public float suckPercent;
         public float armorPenetration;
+        public float foodConsumePercent;
 
-        public CompProperties_AbilityWhirlwind_OmNomNom()
+        public CompProperties_AbilityWhirlwindOmNomNom()
         {
-            compClass = typeof(CompAbilityEffect_Whirlwind_OmNomNom);
+            compClass = typeof(CompAbilityEffect_WhirlwindOmNomNom);
         }
 
         public override IEnumerable<string> ExtraStatSummary()
         {
             yield return "AbilityHealthGain".Translate() + ": " + $"({damageRange.min} ~ {damageRange.max}) * {suckPercent}";
+            yield return "ConsumeFood".Translate() + ": " + $"({foodConsumePercent * 100}%";
         }
     }
 }

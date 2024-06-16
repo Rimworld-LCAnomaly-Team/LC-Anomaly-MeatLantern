@@ -31,6 +31,13 @@
     </statBases>
     <relicChance>2</relicChance>
     <equippedAngleOffset>-65</equippedAngleOffset>
+    <recipeMaker>
+      <researchPrerequisite>MeatLanternGears</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+      <displayPriority>420</displayPriority>
+    </recipeMaker>
     <tools>
       <li>
         <label>handle</label>
@@ -50,13 +57,7 @@
         <cooldownTime>2</cooldownTime>
       </li>
     </tools>
-    <recipeMaker>
-      <researchPrerequisite>MeatLanternGears</researchPrerequisite>
-      <skillRequirements>
-        <Crafting>5</Crafting>
-      </skillRequirements>
-      <displayPriority>420</displayPriority>
-    </recipeMaker>
+
     <comps>
       <li Class="CompProperties_EquippableAbility">
         <abilityDef>Whirlwind_OmNomNom</abilityDef>

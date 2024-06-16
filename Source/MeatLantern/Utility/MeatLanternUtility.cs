@@ -6,6 +6,7 @@ using MeatLantern.Effect;
 using MeatLantern.Setting;
 using UnityEngine;
 using System.Text;
+using Verse.Sound;
 
 namespace MeatLantern.Utility
 {
@@ -174,8 +175,17 @@ namespace MeatLantern.Utility
             victim.TakeDamage(dInfo);
 
             //机械族不吸血，但可以造成伤害
-            if(!victim.def.race.IsMechanoid)
+            if (!victim.def.race.IsMechanoid)
+            {
                 DoHeal(instigator, damage, percent);
+                EffecterDefOf.MeatExplosionSmall.SpawnMaintained(victim.Position, victim.MapHeld);
+            }
+            else
+            {
+                EffecterDefOf.MetalhorrorDeath.SpawnMaintained(victim.Position, victim.MapHeld);
+            }
+
+            Def.SoundDefOf.MeatLantern_Eat.PlayOneShot(new TargetInfo(victim.Position, victim.MapHeld));
         }
 
         private static void DoHeal(Pawn selfPawn, float healAmount, float percent)
