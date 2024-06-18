@@ -12,11 +12,10 @@ namespace MeatLantern.Comp
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
         {
             base.Apply(target, dest);
-            Pawn pawn = target.Cell.GetFirstPawn(parent.pawn.MapHeld);
+            Pawn pawn = target.Pawn;
             if (pawn != null)
             {
-                pawn.needs.food.CurLevel -= Props.foodConsumePercent;
-                MeatLanternUtility.DoBiteOnPawn(pawn, parent.pawn, Props.damageRange, Props.armorPenetration, Props.suckPercent);
+                MeatLanternUtility.DoBiteOnPawn(pawn, parent.pawn, Props.damageRange, Props.armorPenetration, Props.suckPercent, Props.stunPercent);
             }
         }
 

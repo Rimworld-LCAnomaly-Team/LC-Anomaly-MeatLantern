@@ -7,9 +7,10 @@ namespace MeatLantern.Comp
     public class CompProperties_AbilityWhirlwindOmNomNom : CompProperties_AbilityEffect
     {
         public FloatRange damageRange;
-        public float suckPercent;
         public float armorPenetration;
-        public float foodConsumePercent;
+        public float suckPercent;
+        public float stunPercent;
+
 
         public CompProperties_AbilityWhirlwindOmNomNom()
         {
@@ -18,8 +19,8 @@ namespace MeatLantern.Comp
 
         public override IEnumerable<string> ExtraStatSummary()
         {
-            yield return "AbilityHealthGain".Translate() + ": " + $"({damageRange.min} ~ {damageRange.max}) * {suckPercent}";
-            yield return "ConsumeFood".Translate() + ": " + $"({foodConsumePercent * 100}%";
+            yield return "SuckAmount".Translate() + ": " + $"{damageRange.min * suckPercent} ~ {damageRange.max * suckPercent}";
+            yield return "StunTime".Translate() + ": " + $"{damageRange.min * stunPercent * 0.5f} ~ {damageRange.max * stunPercent * 0.5f}s";
         }
     }
 }

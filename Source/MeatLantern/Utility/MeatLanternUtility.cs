@@ -167,17 +167,24 @@ namespace MeatLantern.Utility
         /// <param name="instigator">加害者</param>
         /// <param name="damageRange">伤害范围</param>
         /// <param name="armorPenetration">破甲率</param>
-        /// <param name="percent">治愈比率</param>
-        public static void DoBiteOnPawn(Pawn victim, Pawn instigator, FloatRange damageRange, float armorPenetration, float percent)
+        /// <param name="suckPercent">治愈比率</param>
+        /// <param name="suckPercent">击晕比率</param>
+        public static void DoBiteOnPawn(Pawn victim, Pawn instigator, FloatRange damageRange, float armorPenetration, float suckPercent, float stunPercent)
         {
+            //造成伤害
             float damage = damageRange.RandomInRange;
             DamageInfo dInfo = new DamageInfo(DamageDefOf.Bite, damage, armorPenetration, -1f, instigator, null, Def.ThingDefOf.EgoWeapon_MeatLantern);
             victim.TakeDamage(dInfo);
 
-            //机械族不吸血，但可以造成伤害
+            //机械族不可被击晕和吸血
             if (!victim.def.race.IsMechanoid)
             {
-                DoHeal(instigator, damage, percent);
+                DoHeal(instigator, damage, suckPercent);
+
+                //击晕
+                DamageInfo dInfo_Stun = new DamageInfo(DamageDefOf.Stun, 20);
+                victim.TakeDamage(dInfo_Stun);
+
                 EffecterDefOf.MeatExplosionSmall.SpawnMaintained(victim.Position, victim.MapHeld);
             }
             else

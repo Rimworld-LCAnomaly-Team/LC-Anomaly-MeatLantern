@@ -31,9 +31,10 @@
     <comps>
       <li Class="MeatLantern.Comp.CompProperties_AbilityWhirlwindOmNomNom">
         <damageRange>20~30</damageRange>
+        <armorPenetration>0.4</armorPenetration>
         <suckPercent>0.8</suckPercent>
-        <armorPenetration>0.2</armorPenetration>
-        <foodConsumePercent>0.05</foodConsumePercent>
+        <stunPercent>0.4</stunPercent>
+
       </li>
       <li Class="CompProperties_AbilityFleckOnTarget">
         <fleckDef>MeatExplosionSplatter</fleckDef>
