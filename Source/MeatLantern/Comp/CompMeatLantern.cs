@@ -6,12 +6,12 @@ using LCAnomalyLibrary.Comp;
 using System.IO;
 using MeatLantern.Job;
 using MeatLantern.Utility;
+using LCAnomalyLibrary.Util;
 
 namespace MeatLantern.Comp
 {
     public class CompMeatLantern : LC_CompEntity
     {
-
         #region 变量
 
         public MeatLanternState meatLanternState;
@@ -84,13 +84,11 @@ namespace MeatLantern.Comp
 
         public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
         {
-            //调用死后操作
             MeatLanternUtility.OnMeatLanternDeath(SelfPawn, prevMap);
         }
 
         public override void Notify_Escaped()
         {
-            //生成逃脱的肉食提灯
             MeatLanternUtility.OnMeatLanternEscape(SelfPawn, SelfPawn.Map);
         }
 
@@ -168,37 +166,50 @@ namespace MeatLantern.Comp
 
         #region 研究与图鉴
 
-        protected override bool CheckIfFinalStudySuccess(Pawn studier)
+        protected override LC_StudyResult CheckFinalStudyQuality(Pawn studier)
         {
             //每级智力提供5%成功率，10级智力提供50%成功率
             float successRate_Intellectual = studier.skills.GetSkill(SkillDefOf.Intellectual).Level * 0.05f;
             //叠加基础成功率，此处是50%，叠加完应是100%
             float finalSuccessRate = successRate_Intellectual + Props.studySucessRateBase;
+            //成功率不能超过90%
+            if(finalSuccessRate >= 1f)
+                finalSuccessRate = 0.9f;
 
-            return Rand.Chance(finalSuccessRate);
+            return Rand.Chance(finalSuccessRate) ? LC_StudyResult.Good : LC_StudyResult.Normal;
         }
 
         protected override bool CheckStudierSkillRequire(Pawn studier)
         {
             if (studier.skills.GetSkill(SkillDefOf.Intellectual).Level < 2)
             {
-                Log.Message($"研究者{studier.Name}的技能{SkillDefOf.Intellectual.defName.Translate()}不足2，研究固定无法成功");
+                //Log.Message($"研究者{studier.Name}的技能{SkillDefOf.Intellectual.defName.Translate()}不足2，研究固定无法成功");
                 return false;
             }
 
             return true;
         }
 
-        protected override void StudyEvent_Failure(Pawn studier)
+        protected override void StudyEvent_NotBad(Pawn studier, LC_StudyResult result)
         {
-            base.StudyEvent_Failure(studier);
+            switch (result)
+            {
+                case LC_StudyResult.Good:
+                    QliphothCountCurrent++;
+                    CheckGiveAccessory(studier, Def.HediffDefOf.Accessory_MeatLantern, "LC_Accessory_Mouth");
+                    break;
+                case LC_StudyResult.Normal:
+                    break;
+            }
+
+            CheckSpawnPeBox(studier, result);
+            StudyUtil.DoStudyResultEffect(studier, SelfPawn, result);
         }
 
-        protected override void StudyEvent_Success(Pawn studier)
+        protected override void StudyEvent_Bad(Pawn studier)
         {
-            base.StudyEvent_Success(studier);
-
-            CheckGiveAccessory(studier, Def.HediffDefOf.Accessory_MeatLantern, "LC_Accessory_Mouth");
+            base.StudyEvent_Bad(studier);
+            CheckSpawnPeBox(studier, LC_StudyResult.Bad);
         }
 
         /// <summary>
@@ -206,7 +217,7 @@ namespace MeatLantern.Comp
         /// </summary>
         private void CheckIsDiscovered()
         {
-            Log.Message($"检查图鉴解锁情况，我是 {SelfPawn.def.defName}");
+            //Log.Message($"检查图鉴解锁情况，我是 {SelfPawn.def.defName}");
 
             if (Invisibility.PsychologicallyVisible && AnomalyUtility.ShouldNotifyCodex(SelfPawn, EntityDiscoveryType.Unfog, out var entries))
             {

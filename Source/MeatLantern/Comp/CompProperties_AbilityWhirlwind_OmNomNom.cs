@@ -19,6 +19,8 @@ namespace MeatLantern.Comp
 
         public override IEnumerable<string> ExtraStatSummary()
         {
+            yield return "Damage".Translate() + ": " + $"{damageRange.min} ~ {damageRange.max}";
+            yield return "ArmorPenetration".Translate() + ": " + $"{armorPenetration * 100f}%";
             yield return "SuckAmount".Translate() + ": " + $"{damageRange.min * suckPercent} ~ {damageRange.max * suckPercent}";
             yield return "StunTime".Translate() + ": " + $"{damageRange.min * stunPercent * 0.5f} ~ {damageRange.max * stunPercent * 0.5f}s";
         }

@@ -1,74 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <ThingDef ParentName="BasePawn" Name="BaseMeatLantern" Abstract="True">
-    <!--没发现的时候隐藏-->
     <hiddenWhileUndiscovered>true</hiddenWhileUndiscovered>
 
     <statBases>
-      <!--移动速度-->
       <MoveSpeed>0</MoveSpeed>
-      <!--可燃性-->
       <Flammability>0</Flammability>
-      <!--适应温度-->
       <ComfyTemperatureMin>-100</ComfyTemperatureMin>
       <ComfyTemperatureMax>100</ComfyTemperatureMax>
-      <!--心灵敏感度-->
       <PsychicSensitivity>0</PsychicSensitivity>
-      <!--收容最低强度-->
       <MinimumContainmentStrength>40</MinimumContainmentStrength>
-      <!--？？？-->
       <StaggerDurationFactor>0</StaggerDurationFactor>
-      <!--毒素抗性-->
       <ToxicResistance>1</ToxicResistance>
     </statBases>
 
-    <!--是否可交易-->
     <tradeability>None</tradeability>
-    <!--隐藏状态？？？-->
     <hideStats>true</hideStats>
-    <!--？？？-->
     <onlyShowInspectString>true</onlyShowInspectString>
-    <!--？？？-->
     <hideMainDesc>true</hideMainDesc>
 
     <race>
-      <!--？？？-->
       <body>MeatLantern</body>
-      <!--基础体型-->
       <baseBodySize>1</baseBodySize>
-      <!--？？？-->
       <baseHealthScale>1</baseHealthScale>
-      <!--？？？-->
       <intelligence>ToolUser</intelligence>
-      <!--是否有睡眠需求-->
       <needsRest>false</needsRest>
-      <!--是否有性别区分-->
       <hasGenders>false</hasGenders>
-      <!--？？？-->
       <fleshType>EntityMechanical</fleshType>
-      <!--食物类型-->
       <foodType>None</foodType>
-      <!--是否有尸体-->
       <hasCorpse>false</hasCorpse>
-      <!--预期寿命-->
       <lifeExpectancy>1000</lifeExpectancy>
-      <!--近战声音文件-->
       <soundMeleeDodge>Pawn_MeleeDodge</soundMeleeDodge>
-      <!--Call音效触发周期-->
       <soundCallIntervalRange>120~240</soundCallIntervalRange>
-      <!--？？？-->
       <disableIgniteVerb>true</disableIgniteVerb>
-      <!--可驯化程度-->
       <trainability>None</trainability>
       <lifeStageAges>
         <li>
-          <!--？？？-->
           <def>EntityFullyFormed</def>
-          <!--死亡声音-->
           <soundDeath>MeatLantern_Defeated</soundDeath>
         </li>
       </lifeStageAges>
-      <!--？？？-->
       <hediffGiverSets><li>AnomalyEntity</li></hediffGiverSets>
     </race>
 
@@ -77,18 +48,17 @@
         <qliphothCountMax>4</qliphothCountMax>
         <studySucessRateBase>0.5</studySucessRateBase>
         <peBoxDef>PeBoxTETH</peBoxDef>
-        <amountPeBoxStudySuccess>5</amountPeBoxStudySuccess>
-        <amountPeBoxStudyFail>1</amountPeBoxStudyFail> 
+        <amountPeBoxStudyGood>2</amountPeBoxStudyGood>
+        <amountPeBoxStudyNormal>1</amountPeBoxStudyNormal> 
+        <amountPeBoxStudyBad>0</amountPeBoxStudyBad> 
         <accessoryChance>0.05</accessoryChance>
         <shoundNotifyWhenEscape>false</shoundNotifyWhenEscape>
       </li>
-      <!--收容targets-->
       <li Class="CompProperties_HoldingPlatformTarget">
         <baseEscapeIntervalMtbDays>45</baseEscapeIntervalMtbDays>
         <lookForTargetOnEscape>false</lookForTargetOnEscape>
         <hasAnimation>false</hasAnimation>
       </li>
-      <!--收容束缚的点位-->
       <li Class="CompProperties_AttachPoints">
         <points>
           <li>
@@ -109,21 +79,11 @@
           </li>
         </points>
       </li>
-      <!--灵铁产量-->
-      <li Class="CompProperties_ProducesBioferrite">
-        <bioferriteDensity>0</bioferriteDensity>
-      </li>
-      <!--研究学习-->
       <li Class="CompProperties_Studiable">
-        <!--学习间隔-->
-        <frequencyTicks>60000</frequencyTicks>
-        <!--知识等级-->
+        <frequencyTicks>120000</frequencyTicks>
         <knowledgeCategory>Basic</knowledgeCategory>
-        <!--知识点数-->
         <anomalyKnowledge>3</anomalyKnowledge>
-        <!--？？？-->
         <minMonolithLevelForStudy>1</minMonolithLevelForStudy>
-        <!--需要收容平台-->
         <requiresHoldingPlatform>true</requiresHoldingPlatform>
       </li>
     </comps>
@@ -132,20 +92,13 @@
 
   <!--陆生鮟鱇 收容形态-->
   <ThingDef ParentName="BaseMeatLantern">
-    <!--def名称-->
     <defName>MeatLanternContained</defName>
-    <!--显示名称-->
     <label>MeatLantern Contained</label>
-    <!--简介-->
-    <description>A spindly figure of desiccated skin stretched over an impossibly tall humanoid frame. The MeatLantern's name comes from its pattern of returning to hypnotize new people each night.\n\nOutlander folklore describes an invisible spectre that captures the minds of sinners, placing them in a living hell. In the story, the victims can only be returned to life by hunting the creature as it sleeps and killing it.\n\nA hidden MeatLantern can be revealed with disruptor flares, explosives, EMP, firefoam, or by being lit on fire.</description>
-    <!--UI图标路径-->
+    <description>.</description>
     <uiIconPath>UI/CodexEntries/MeatLantern_Contained_MenuIcon</uiIconPath>
     <race>
-      <!--渲染树-->
       <renderTree>MeatLanternContained</renderTree>
-      <!--主行为树-->
       <thinkTreeMain>MeatLanternContained</thinkTreeMain>
-      <!--？？？-->
       <thinkTreeConstant>MeatLanternConstant</thinkTreeConstant>
     </race>
 
@@ -153,20 +106,13 @@
 
   <!--陆生鮟鱇 出逃形态-->
   <ThingDef ParentName="BaseMeatLantern">
-    <!--def名称-->
     <defName>MeatLanternEscaped</defName>
-    <!--显示名称-->
     <label>MeatLantern Escaped</label>
-    <!--简介-->
-    <description>A spindly figure of desiccated skin stretched over an impossibly tall humanoid frame. The MeatLantern's name comes from its pattern of returning to hypnotize new people each night.\n\nOutlander folklore describes an invisible spectre that captures the minds of sinners, placing them in a living hell. In the story, the victims can only be returned to life by hunting the creature as it sleeps and killing it.\n\nA hidden MeatLantern can be revealed with disruptor flares, explosives, EMP, firefoam, or by being lit on fire.</description>
-    <!--UI图标路径-->
+    <description>.</description>
     <uiIconPath>UI/CodexEntries/MeatLantern_Escaped_MenuIcon</uiIconPath>
     <race>
-      <!--渲染树-->
       <renderTree>MeatLanternEscaped</renderTree>
-      <!--主行为树-->
       <thinkTreeMain>MeatLanternContained</thinkTreeMain>
-      <!--？？？-->
       <thinkTreeConstant>MeatLanternConstant</thinkTreeConstant>
     </race>
   </ThingDef>

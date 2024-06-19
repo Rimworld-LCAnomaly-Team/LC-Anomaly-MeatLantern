@@ -36,7 +36,7 @@ namespace MeatLantern.Job
             {
                 List<Pawn> victims = MeatLanternUtility.ScanForTarget_NewTemp(base.pawn, 2);
 
-                if (victims != null && victims.Count > 1)
+                if (victims != null && victims.Count > 0)
                 {
                     Log.Message($"准备攻击，受害者数量为：{victims.Count}");
                     Comp.Eat(victims);

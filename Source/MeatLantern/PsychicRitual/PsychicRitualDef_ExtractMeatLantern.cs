@@ -23,7 +23,6 @@ namespace MeatLantern.PsychicRitual
             return this.outcomeDescription.Formatted(value);
         }
 
-        // Token: 0x04002C7E RID: 11390
         public SimpleCurve comaDurationDaysFromQualityCurve;
     }
 }
