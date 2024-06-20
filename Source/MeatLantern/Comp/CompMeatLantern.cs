@@ -40,12 +40,12 @@ namespace MeatLantern.Comp
                 Hediff hediff = SelfPawn.health.hediffSet.GetFirstHediffOfDef(LCAnomalyLibrary.Defs.HediffDefOf.FakeInvisibility);
                 if (hediff == null)
                 {
-                    Log.Warning("Hediff is null, prepate to add hediff");
+                    Log.Message("肉食提灯：隐形hediff为空，准备添加");
                     hediff = SelfPawn.health.AddHediff(LCAnomalyLibrary.Defs.HediffDefOf.FakeInvisibility);
                 }
                 else
                 {
-                    Log.Warning("Hediff is not null");
+                    Log.Message("肉食提灯：隐形hediff不为空");
                 }
                 invisibility = hediff?.TryGetComp<LC_HediffComp_FakeInvisibility>();
 
@@ -181,9 +181,9 @@ namespace MeatLantern.Comp
 
         protected override bool CheckStudierSkillRequire(Pawn studier)
         {
-            if (studier.skills.GetSkill(SkillDefOf.Intellectual).Level < 2)
+            if (studier.skills.GetSkill(SkillDefOf.Intellectual).Level < 4)
             {
-                //Log.Message($"研究者{studier.Name}的技能{SkillDefOf.Intellectual.defName.Translate()}不足2，研究固定无法成功");
+                Log.Message($"工作：{studier.Name}的技能{SkillDefOf.Intellectual.defName.Translate()}等级不足4，工作固定无法成功");
                 return false;
             }
 

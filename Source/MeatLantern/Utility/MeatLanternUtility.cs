@@ -26,7 +26,8 @@ namespace MeatLantern.Utility
             tmpTargets.Clear();
             TraverseParms traverseParms = TraverseParms.For(TraverseMode.NoPassClosedDoorsOrWater);
 
-            RegionTraverser.BreadthFirstTraverse(pawn.Position, pawn.Map, (Region from, Region to) => to.Allows(traverseParms, isDestination: true), delegate (Region x)
+            RegionTraverser.BreadthFirstTraverse(pawn.Position, pawn.Map, (Region from, Region to) 
+                => to.Allows(traverseParms, isDestination: true), delegate (Region x)
             {
                 List<Thing> list = x.ListerThings.ThingsInGroup(ThingRequestGroup.Pawn);
                 float num = float.MaxValue;
@@ -63,15 +64,10 @@ namespace MeatLantern.Utility
         /// <returns>是否合法</returns>
         public static bool ValidTarget(Pawn pawn)
         {
-            ////不能吃异常实体阵营单位
-            //if (pawn.Faction != Faction.OfEntities)
-            //{
-            //    return !pawn.health.hediffSet.HasHediff(RimWorld.HediffDefOf.RevenantHypnosis);
-            //}
-
-            return ((pawn.kindDef != Def.PawnKindDefOf.MeatLanternEscaped) && (pawn.kindDef != Def.PawnKindDefOf.MeatLanternContained) && !pawn.Downed);
-
-            //return false;
+            //不吃同类和倒地的单位
+            return ((pawn.kindDef != Def.PawnKindDefOf.MeatLanternEscaped) 
+                && (pawn.kindDef != Def.PawnKindDefOf.MeatLanternContained) 
+                && !pawn.Downed);
         }
 
         /// <summary>
@@ -108,10 +104,6 @@ namespace MeatLantern.Utility
                     result = item;
                 }
             }
-            //if(result != null)
-            //    Log.Warning($"目标：{result.Name} 是最近的目标");
-            //else
-            //    Log.Warning($"目标：null");
 
             return result;
         }

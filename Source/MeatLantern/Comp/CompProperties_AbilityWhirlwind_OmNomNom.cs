@@ -11,7 +11,6 @@ namespace MeatLantern.Comp
         public float suckPercent;
         public float stunPercent;
 
-
         public CompProperties_AbilityWhirlwindOmNomNom()
         {
             compClass = typeof(CompAbilityEffect_WhirlwindOmNomNom);

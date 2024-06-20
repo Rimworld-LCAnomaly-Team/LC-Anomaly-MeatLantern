@@ -14,10 +14,8 @@ namespace MeatLantern.Effect
         {
             //传递生物特征，播放effecter特效，记录动画播放完的时间
             bioSignature = meatLantern.TryGetComp<CompMeatLantern>().biosignature;
-            Log.Warning($"bioget={bioSignature}");
             Effecter effecter = EffecterDefOf.MeatExplosionExtraLarge.SpawnMaintained(base.Position, base.Map);
             completeTick = base.TickSpawned + effecter.ticksLeft + 60;
-            //Def.SoundDefOf.MeatLantern_Defeated.PlayOneShot(new TargetInfo(base.Position, base.Map));
         }
 
         public override void Complete()
@@ -25,7 +23,6 @@ namespace MeatLantern.Effect
             //生成扭曲血肉脏污
             if (FilthMaker.TryMakeFilth(base.PositionHeld, base.Map, RimWorld.ThingDefOf.Filth_TwistedFlesh))
             {
-                //EffecterDefOf.RevenantKilledCompleteBurst.SpawnMaintained(base.PositionHeld, base.Map);
                 //清除1格以内的植物
                 foreach (IntVec3 item in CellRect.CenteredOn(base.PositionHeld, 1))
                 {

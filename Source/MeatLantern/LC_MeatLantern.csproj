@@ -110,8 +110,6 @@
     <Compile Include="PsychicRitual\PsychicRitualToil_ExtractMeatLantern.cs" />
     <Compile Include="ThinkNode\ThinkNode_ConditionalMeatLanternState.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Patch\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
