@@ -29,7 +29,6 @@ namespace MeatLantern.Setting
             base.DoSettingsWindowContents(inRect);
         }
 
-        // Token: 0x0400000D RID: 13
         public static Setting_MeatLantern Settings;
     }
 }

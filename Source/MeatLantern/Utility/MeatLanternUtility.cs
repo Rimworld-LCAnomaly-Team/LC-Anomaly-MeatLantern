@@ -1,32 +1,32 @@
-﻿using RimWorld;
+﻿using MeatLantern.Effect;
+using MeatLantern.Setting;
+using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
-using Verse;
-using MeatLantern.Effect;
-using MeatLantern.Setting;
-using UnityEngine;
 using System.Text;
+using UnityEngine;
+using Verse;
 using Verse.Sound;
 
 namespace MeatLantern.Utility
 {
     public static class MeatLanternUtility
     {
-        public static readonly FloatRange SearchForTargetCooldownRangeDays = new FloatRange(1f, 2f);
+        public static readonly FloatRange SearchForTargetCooldownRangeDays = new(1f, 2f);
 
-        private static HashSet<Pawn> tmpTargets = new HashSet<Pawn>();
+        private readonly static HashSet<Pawn> tmpTargets = [];
 
         public static List<Pawn> ScanForTargets(Pawn pawn, float radius)
         {
             return ScanForTarget_NewTemp(pawn, radius);
         }
 
-        public static List<Pawn> ScanForTarget_NewTemp(Pawn pawn, float radius, bool forced = false)
+        public static List<Pawn> ScanForTarget_NewTemp(Pawn pawn, float radius)
         {
             tmpTargets.Clear();
             TraverseParms traverseParms = TraverseParms.For(TraverseMode.NoPassClosedDoorsOrWater);
 
-            RegionTraverser.BreadthFirstTraverse(pawn.Position, pawn.Map, (Region from, Region to) 
+            RegionTraverser.BreadthFirstTraverse(pawn.Position, pawn.Map, (Region from, Region to)
                 => to.Allows(traverseParms, isDestination: true), delegate (Region x)
             {
                 List<Thing> list = x.ListerThings.ThingsInGroup(ThingRequestGroup.Pawn);
@@ -51,7 +51,7 @@ namespace MeatLantern.Utility
 
             if (NearbyHumanlikePawnCount(pawn.Position, pawn.Map, 1f) != 0)
             {
-                return tmpTargets.ToList();
+                return [.. tmpTargets];
             }
 
             return null;
@@ -65,8 +65,8 @@ namespace MeatLantern.Utility
         public static bool ValidTarget(Pawn pawn)
         {
             //不吃同类和倒地的单位
-            return ((pawn.kindDef != Def.PawnKindDefOf.MeatLanternEscaped) 
-                && (pawn.kindDef != Def.PawnKindDefOf.MeatLanternContained) 
+            return ((pawn.kindDef != Def.PawnKindDefOf.MeatLanternEscaped)
+                && (pawn.kindDef != Def.PawnKindDefOf.MeatLanternContained)
                 && !pawn.Downed);
         }
 
@@ -96,9 +96,11 @@ namespace MeatLantern.Utility
             List<Thing> list = pawn.Map.listerThings.ThingsInGroup(ThingRequestGroup.Pawn);
             float num = float.MaxValue;
             Pawn result = null;
-            foreach (Pawn item in list)
+            foreach (Pawn item in list.OfType<Pawn>())
             {
-                if (ValidTarget(item) && pawn.Position.InHorDistOf(item.Position, radius) && (float)item.Position.DistanceToSquared(pawn.Position) < num && GenSight.LineOfSightToThing(pawn.Position, item, pawn.Map))
+                if (ValidTarget(item) && pawn.Position.InHorDistOf(item.Position, radius) 
+                    && item.Position.DistanceToSquared(pawn.Position) < num 
+                    && GenSight.LineOfSightToThing(pawn.Position, item, pawn.Map))
                 {
                     num = item.Position.DistanceToSquared(pawn.Position);
                     result = item;
@@ -142,13 +144,12 @@ namespace MeatLantern.Utility
 
         public static void DoDamageByEat(List<Pawn> victims, Pawn selfPawn)
         {
-            DamageInfo dinfo = new DamageInfo(DamageDefOf.Cut, 100, 25, -1f, selfPawn);
+            DamageInfo dinfo = new(DamageDefOf.Cut, 100, 25, -1f, selfPawn);
 
             foreach (Pawn p in victims)
             {
                 if (!p.Dead)
                     p.TakeDamage(dinfo);
-
             }
         }
 
@@ -165,7 +166,7 @@ namespace MeatLantern.Utility
         {
             //造成伤害
             float damage = damageRange.RandomInRange;
-            DamageInfo dInfo = new DamageInfo(DamageDefOf.Bite, damage, armorPenetration, -1f, instigator, null, Def.ThingDefOf.EgoWeapon_MeatLantern);
+            DamageInfo dInfo = new(DamageDefOf.Bite, damage, armorPenetration, -1f, instigator, null, Def.ThingDefOf.EgoWeapon_MeatLantern);
             victim.TakeDamage(dInfo);
 
             //机械族不可被击晕和吸血
@@ -174,7 +175,7 @@ namespace MeatLantern.Utility
                 DoHeal(instigator, damage, suckPercent);
 
                 //击晕
-                DamageInfo dInfo_Stun = new DamageInfo(DamageDefOf.Stun, 20);
+                DamageInfo dInfo_Stun = new(DamageDefOf.Stun, damage * stunPercent);
                 victim.TakeDamage(dInfo_Stun);
 
                 EffecterDefOf.MeatExplosionSmall.SpawnMaintained(victim.Position, victim.MapHeld);
@@ -189,7 +190,7 @@ namespace MeatLantern.Utility
 
         private static void DoHeal(Pawn selfPawn, float healAmount, float percent)
         {
-            List<Hediff_Injury> list = new List<Hediff_Injury>();
+            List<Hediff_Injury> list = [];
             selfPawn.health.hediffSet.GetHediffs(ref list);
 
             if (list.Count > 0)
@@ -200,7 +201,7 @@ namespace MeatLantern.Utility
                 //是否允许显示吸血字样
                 if (Setting_MeatLantern_Main.Settings.If_ShowVampireText)
                 {
-                    StringBuilder sb = new StringBuilder();
+                    StringBuilder sb = new();
                     sb.Append(Translator.Translate("LC_MeatLantern_VampireAmountThrowText"));
                     sb.Append(healAmount * percent);
 

@@ -12,16 +12,16 @@ namespace MeatLantern.Effect
     /// </summary>
     public class EscapingMeatLantern : LC_FX_Escaping
     {
-        public override void InitWith(Pawn meatLantern, bool isEscaping)
+        public override void InitWith(Pawn targetPawn, bool isEscaping)
         {
             this.isEscaping = isEscaping;
 
-            if(isEscaping)
+            if (isEscaping)
             {
                 //传递生物特征
-                bioSignature = meatLantern.TryGetComp<CompMeatLantern>().biosignature;
+                bioSignature = targetPawn.TryGetComp<CompMeatLantern>().biosignature;
                 //销毁未出逃提灯
-                meatLantern.Destroy();
+                targetPawn.Destroy();
             }
 
             //放血肉特效，记录动画播放完的时间

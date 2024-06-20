@@ -1,10 +1,10 @@
 ﻿using LCAnomalyLibrary.Misc;
-using RimWorld;
-using Verse.Sound;
-using Verse;
-using UnityEngine;
-using System.Collections.Generic;
 using MeatLantern.Utility;
+using RimWorld;
+using System.Collections.Generic;
+using UnityEngine;
+using Verse;
+using Verse.Sound;
 
 namespace MeatLantern.Effect
 {
@@ -44,7 +44,7 @@ namespace MeatLantern.Effect
         {
             Vector3 temp = selfPawn.Position.ToVector3();
 
-            Vector3 loc = new Vector3()
+            Vector3 loc = new()
             {
                 x = temp.x + 0.5f,
                 y = temp.y,

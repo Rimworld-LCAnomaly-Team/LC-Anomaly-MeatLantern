@@ -1,9 +1,9 @@
 ﻿using MeatLantern.Comp;
+using MeatLantern.Utility;
 using RimWorld;
 using System.Collections.Generic;
-using Verse.AI;
 using Verse;
-using MeatLantern.Utility;
+using Verse.AI;
 
 namespace MeatLantern.Job
 {
@@ -13,11 +13,6 @@ namespace MeatLantern.Job
     public class JobDriver_MeatLanternAttack : JobDriver
     {
         private CompMeatLantern Comp => pawn.TryGetComp<CompMeatLantern>();
-
-        public override void ExposeData()
-        {
-            base.ExposeData();
-        }
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {

@@ -1,6 +1,6 @@
-﻿using Verse.AI;
+﻿using MeatLantern.Def;
 using Verse;
-using MeatLantern.Def;
+using Verse.AI;
 
 namespace MeatLantern.Job
 {

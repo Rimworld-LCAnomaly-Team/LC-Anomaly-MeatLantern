@@ -6,7 +6,6 @@ namespace MeatLantern.Comp
 {
     public class CompAbilityEffect_WhirlwindOmNomNom : CompAbilityEffect
     {
-
         public new CompProperties_AbilityWhirlwindOmNomNom Props => (CompProperties_AbilityWhirlwindOmNomNom)props;
 
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)

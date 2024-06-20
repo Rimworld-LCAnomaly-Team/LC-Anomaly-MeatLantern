@@ -1,12 +1,12 @@
-﻿using RimWorld;
-using System.Collections.Generic;
-using Verse.AI;
-using Verse;
-using LCAnomalyLibrary.Comp;
-using System.IO;
+﻿using LCAnomalyLibrary.Comp;
+using LCAnomalyLibrary.Util;
 using MeatLantern.Job;
 using MeatLantern.Utility;
-using LCAnomalyLibrary.Util;
+using RimWorld;
+using System.Collections.Generic;
+using System.IO;
+using Verse;
+using Verse.AI;
 
 namespace MeatLantern.Comp
 {
@@ -28,6 +28,7 @@ namespace MeatLantern.Comp
 
         [Unsaved(false)]
         private LC_HediffComp_FakeInvisibility invisibility;
+
         public LC_HediffComp_FakeInvisibility Invisibility
         {
             get
@@ -53,7 +54,7 @@ namespace MeatLantern.Comp
             }
         }
 
-        #endregion
+        #endregion 变量
 
         #region 生命周期
 
@@ -78,7 +79,7 @@ namespace MeatLantern.Comp
             CheckSpawnVisible();
         }
 
-        #endregion
+        #endregion 生命周期
 
         #region 触发事件
 
@@ -113,7 +114,7 @@ namespace MeatLantern.Comp
             CheckIfStudySuccess(studier);
         }
 
-        #endregion
+        #endregion 触发事件
 
         #region 行为逻辑
 
@@ -140,7 +141,7 @@ namespace MeatLantern.Comp
         /// </summary>
         /// <returns>该隐身就返回true</returns>
         /// <exception cref="InvalidDataException">不接受的PawnKindDef</exception>
-        private bool CheckSpawnVisible()
+        private void CheckSpawnVisible()
         {
             PawnKindDef def = SelfPawn.kindDef;
 
@@ -148,13 +149,11 @@ namespace MeatLantern.Comp
             {
                 //Log.Warning($"Pawn：{SelfPawn.ThingID} 应该隐身");
                 Invisibility.BecomeInvisible();
-                return true;
             }
             else if (def == Def.PawnKindDefOf.MeatLanternContained)
             {
                 //Log.Warning("应该显形");
                 Invisibility.BecomeVisible();
-                return false;
             }
             else
             {
@@ -162,7 +161,7 @@ namespace MeatLantern.Comp
             }
         }
 
-        #endregion
+        #endregion 行为逻辑
 
         #region 研究与图鉴
 
@@ -173,7 +172,7 @@ namespace MeatLantern.Comp
             //叠加基础成功率，此处是50%，叠加完应是100%
             float finalSuccessRate = successRate_Intellectual + Props.studySucessRateBase;
             //成功率不能超过90%
-            if(finalSuccessRate >= 1f)
+            if (finalSuccessRate >= 1f)
                 finalSuccessRate = 0.9f;
 
             return Rand.Chance(finalSuccessRate) ? LC_StudyResult.Good : LC_StudyResult.Normal;
@@ -198,6 +197,7 @@ namespace MeatLantern.Comp
                     QliphothCountCurrent++;
                     CheckGiveAccessory(studier, Def.HediffDefOf.Accessory_MeatLantern, "LC_Accessory_Mouth");
                     break;
+
                 case LC_StudyResult.Normal:
                     break;
             }
@@ -226,7 +226,7 @@ namespace MeatLantern.Comp
             }
         }
 
-        #endregion
+        #endregion 研究与图鉴
 
         #region UI
 
@@ -243,14 +243,13 @@ namespace MeatLantern.Comp
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            foreach (Verse.Gizmo gizmo in base.CompGetGizmosExtra())
+            foreach (Gizmo gizmo in base.CompGetGizmosExtra())
             {
                 yield return gizmo;
             }
 
             yield return new Command_Action
             {
-
                 defaultLabel = "Suppress Entity",
                 action = delegate
                 {
@@ -267,6 +266,6 @@ namespace MeatLantern.Comp
             };
         }
 
-        #endregion
+        #endregion UI
     }
 }

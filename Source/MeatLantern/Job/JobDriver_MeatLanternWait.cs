@@ -1,9 +1,9 @@
 ﻿using MeatLantern.Comp;
+using MeatLantern.Utility;
 using System;
 using System.Collections.Generic;
-using Verse.AI;
 using Verse;
-using MeatLantern.Utility;
+using Verse.AI;
 
 namespace MeatLantern.Job
 {

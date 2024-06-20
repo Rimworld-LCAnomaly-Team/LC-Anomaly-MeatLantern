@@ -1,19 +1,17 @@
 ﻿using RimWorld;
-using Verse.AI.Group;
 using Verse;
+using Verse.AI.Group;
 using Verse.Sound;
 
 namespace MeatLantern.PsychicRitual
 {
     public class PsychicRitualToil_ExtractMeatLantern : PsychicRitualToil
     {
-        private const float ChanceForLeader = 0.08f;
 
-        private const float ChanceForWorldPawn = 0.4f;
+        private PsychicRitualRoleDef invokerRole;
 
-        public PsychicRitualRoleDef invokerRole;
-
-        protected PsychicRitualToil_ExtractMeatLantern(){}
+        protected PsychicRitualToil_ExtractMeatLantern()
+        { }
 
         public PsychicRitualToil_ExtractMeatLantern(PsychicRitualRoleDef invokerRole)
         {

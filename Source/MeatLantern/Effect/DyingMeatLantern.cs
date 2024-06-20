@@ -1,7 +1,7 @@
-﻿using RimWorld;
-using Verse;
-using LCAnomalyLibrary.Misc;
+﻿using LCAnomalyLibrary.Misc;
 using MeatLantern.Comp;
+using RimWorld;
+using Verse;
 
 namespace MeatLantern.Effect
 {
@@ -10,10 +10,10 @@ namespace MeatLantern.Effect
     /// </summary>
     public class DyingMeatLantern : LC_FX_Dying
     {
-        public override void InitWith(Pawn meatLantern)
+        public override void InitWith(Pawn targetPawn)
         {
             //传递生物特征，播放effecter特效，记录动画播放完的时间
-            bioSignature = meatLantern.TryGetComp<CompMeatLantern>().biosignature;
+            bioSignature = targetPawn.TryGetComp<CompMeatLantern>().biosignature;
             Effecter effecter = EffecterDefOf.MeatExplosionExtraLarge.SpawnMaintained(base.Position, base.Map);
             completeTick = base.TickSpawned + effecter.ticksLeft + 60;
         }

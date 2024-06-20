@@ -1,7 +1,7 @@
-﻿using Verse.AI;
-using Verse;
+﻿using MeatLantern.Comp;
 using MeatLantern.Job;
-using MeatLantern.Comp;
+using Verse;
+using Verse.AI;
 
 namespace MeatLantern.ThinkNode
 {

@@ -11,6 +11,5 @@ namespace MeatLantern.Def
         /// </summary>
         [MayRequireAnomaly]
         public static HediffDef Accessory_MeatLantern;
-        
     }
 }
