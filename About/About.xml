@@ -8,11 +8,11 @@
 		<li>1.5</li>
 	</supportedVersions>
 	<description>O-04-84</description>
+	<url>https://github.com/DarthCY-K/LC-Anomaly-MeatLantern</url>
 	<modDependencies>
 		<li>
 			<packageId>DarthCY.LC.AnomalyLibrary</packageId>
 			<displayName>LC Anomaly Library</displayName>
-			<steamWorkshopUrl>steam://url/CommunityFilePage/?</steamWorkshopUrl>
 			<downloadUrl>https://github.com/DarthCY-K/LC-Anomaly-Library/releases/latest</downloadUrl>
 		</li>
 	</modDependencies>
