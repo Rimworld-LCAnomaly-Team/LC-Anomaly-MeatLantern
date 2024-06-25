@@ -10,6 +10,6 @@ namespace MeatLantern.Def
         /// 肉食提灯饰品Hediff
         /// </summary>
         [MayRequireAnomaly]
-        public static HediffDef Accessory_MeatLantern;
+        public static HediffDef AccessoryMeatLantern;
     }
 }

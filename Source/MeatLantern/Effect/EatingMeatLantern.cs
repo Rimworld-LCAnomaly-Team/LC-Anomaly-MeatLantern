@@ -8,7 +8,10 @@ using Verse.Sound;
 
 namespace MeatLantern.Effect
 {
-    public class EatingMeatLantern : LC_FX_Dying
+    /// <summary>
+    /// 肉食提灯吞噬特效对象
+    /// </summary>
+    public class EatingMeatLantern : LC_FX_Standard
     {
         private List<Pawn> victims;
         private Pawn selfPawn;

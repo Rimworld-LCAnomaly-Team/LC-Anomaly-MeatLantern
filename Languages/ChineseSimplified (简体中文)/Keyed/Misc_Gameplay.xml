@@ -1,10 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-
-  <LetterMeatLanternSeenLabel>目击肉食提灯</LetterMeatLanternSeenLabel>
-  <LetterMeatLanternSeen>{PAWN_nameDef}发现了一只潜伏在地下的肉食提灯！</LetterMeatLanternSeen>
-  <LetterLabelMeatLanternEmergence>肉食提灯出现</LetterLabelMeatLanternEmergence>
-
   <Setting_MeatLantern_Label>异想体-肉食提灯</Setting_MeatLantern_Label>
 
   <LC_MeatLantern_ShowVampireText>显示吸血数值飘字效果</LC_MeatLantern_ShowVampireText>
@@ -14,4 +9,15 @@
   <LC_MeatLantern_VampireAmountThrowText>吸血：</LC_MeatLantern_VampireAmountThrowText>
   <LC_MeatLantern_VampireBodypartThrowText>，治疗部位：</LC_MeatLantern_VampireBodypartThrowText>
 
+  <SuckAmount>吸血量：</SuckAmount>
+  <StunTime>眩晕时间：</StunTime>
+
+  <LetterLabelMeatLanternKilled>击杀肉食提灯</LetterLabelMeatLanternKilled>
+  <LetterMeatLanternKilled>肉食提灯已被击杀！\n肉食提灯的躯体已经消散，只留下了异想体蛋。可收集并调查它的蛋，或者直接将其摧毁。</LetterMeatLanternKilled>
+
+  <LetterMeatLanternSupressLabel>镇压肉食提灯</LetterMeatLanternSupressLabel>
+  <LetterMeatLanternSupress>肉食提灯已经完全显形，可以被选中攻击。</LetterMeatLanternSupress>
+
+  <ExtractMeatLanternCompleteText>提取肉食提灯</ExtractMeatLanternCompleteText>
+  <PsychicRitualCompleteLabel>。</PsychicRitualCompleteLabel>
 </LanguageData>

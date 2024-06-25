@@ -2,7 +2,7 @@
 <LanguageData>
   
   <!-- EN: executing TargetA. -->
-  <MeatLanternAttack.reportString>正在攻击TargetA。</MeatLanternAttack.reportString>
+  <MeatLanternAttack.reportString>正在攻击。</MeatLanternAttack.reportString>
   
   <!-- EN: fleeing. -->
   <MeatLanternWait.reportString>等待中。</MeatLanternWait.reportString>

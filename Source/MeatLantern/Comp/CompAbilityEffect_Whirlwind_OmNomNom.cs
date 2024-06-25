@@ -34,5 +34,10 @@ namespace MeatLantern.Comp
 
             return true;
         }
+
+        public override bool AICanTargetNow(LocalTargetInfo target)
+        {
+            return true;
+        }
     }
 }

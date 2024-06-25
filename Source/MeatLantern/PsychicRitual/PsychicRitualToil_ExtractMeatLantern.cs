@@ -35,7 +35,7 @@ namespace MeatLantern.PsychicRitual
 
             if (item == null)
             {
-                Log.Warning("仪式：提灯的蛋不存在");
+                Log.Warning("仪式：肉食提灯的蛋不存在");
                 return;
             }
 

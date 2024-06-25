@@ -9,7 +9,7 @@
     <knowledgeCost>20</knowledgeCost>
     <knowledgeCategory>Basic</knowledgeCategory>
     <researchViewX>0.00</researchViewX>
-    <researchViewY>0.00</researchViewY>
+    <researchViewY>3.60</researchViewY>
     <prerequisites>
       <li>BasicPsychicRituals</li>
     </prerequisites>
@@ -35,7 +35,7 @@
     <knowledgeCost>40</knowledgeCost>
     <knowledgeCategory>Basic</knowledgeCategory>
     <researchViewX>1.00</researchViewX>
-    <researchViewY>0.00</researchViewY>
+    <researchViewY>3.60</researchViewY>
     <prerequisites>
       <li>ExtractMeatLantern</li>
     </prerequisites>

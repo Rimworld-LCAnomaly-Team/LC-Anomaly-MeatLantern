@@ -53,6 +53,7 @@
         <amountPeBoxStudyBad>0</amountPeBoxStudyBad> 
         <accessoryChance>0.05</accessoryChance>
         <shoundNotifyWhenEscape>false</shoundNotifyWhenEscape>
+        <eatCooldownTick>600</eatCooldownTick>
       </li>
       <li Class="CompProperties_HoldingPlatformTarget">
         <baseEscapeIntervalMtbDays>45</baseEscapeIntervalMtbDays>

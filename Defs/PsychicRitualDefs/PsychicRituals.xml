@@ -11,10 +11,10 @@
     <requiredOffering>
       <filter>
         <thingDefs>
-          <li>Bioferrite</li>
+          <li>Cogito</li>
         </thingDefs>
       </filter>
-      <count>30</count>
+      <count>10</count>
     </requiredOffering>
     <cooldownHours>240</cooldownHours>
     <iconPath>UI/PsychicRituals/PsychicRitual_ExtractMeatLantern</iconPath>

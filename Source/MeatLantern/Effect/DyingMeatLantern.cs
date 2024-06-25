@@ -6,9 +6,9 @@ using Verse;
 namespace MeatLantern.Effect
 {
     /// <summary>
-    /// 肉食提灯死亡特效对象（有传参和生成蛋对象的职能）
+    /// 肉食提灯死亡特效对象
     /// </summary>
-    public class DyingMeatLantern : LC_FX_Dying
+    public class DyingMeatLantern : LC_FX_Standard
     {
         public override void InitWith(Pawn targetPawn)
         {
@@ -37,7 +37,7 @@ namespace MeatLantern.Effect
             //生成肉食提灯的蛋，销毁自己
             Thing thing = ThingMaker.MakeThing(Def.ThingDefOf.MeatLanternEgg);
             thing.TryGetComp<CompBiosignatureOwner>().biosignature = bioSignature;
-            GenSpawn.Spawn(thing, base.PositionHeld, base.Map);
+            GenSpawn.Spawn(thing, base.PositionHeld, base.MapHeld);
             Destroy();
         }
     }

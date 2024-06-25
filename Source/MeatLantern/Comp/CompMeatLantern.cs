@@ -21,11 +21,6 @@ namespace MeatLantern.Comp
         /// </summary>
         public int nextEat = -99999;
 
-        /// <summary>
-        /// 吞噬冷却时间
-        /// </summary>
-        public int EatCooldownTick = 500;
-
         [Unsaved(false)]
         private LC_HediffComp_FakeInvisibility invisibility;
 
@@ -54,6 +49,8 @@ namespace MeatLantern.Comp
             }
         }
 
+        public new CompProperties_MeatLantern Props => (CompProperties_MeatLantern)props;
+
         #endregion 变量
 
         #region 生命周期
@@ -63,7 +60,6 @@ namespace MeatLantern.Comp
             base.PostExposeData();
 
             Scribe_Values.Look(ref nextEat, "nextEat", -99999);
-            Scribe_Values.Look(ref EatCooldownTick, "EatCooldownTick", 500);
         }
 
         public override void PostPostMake()
@@ -90,7 +86,7 @@ namespace MeatLantern.Comp
 
         public override void Notify_Escaped()
         {
-            MeatLanternUtility.OnMeatLanternEscape(SelfPawn, SelfPawn.Map);
+            MeatLanternUtility.OnMeatLanternEscape(SelfPawn, SelfPawn.MapHeld);
         }
 
         /// <summary>
@@ -124,11 +120,16 @@ namespace MeatLantern.Comp
         /// <param name="victims">受害者Lsit</param>
         public void Eat(List<Pawn> victims)
         {
-            MeatLanternUtility.OnMeatLanternEat(SelfPawn, victims, SelfPawn.Map);
+            MeatLanternUtility.OnMeatLanternEat(SelfPawn, victims);
 
-            nextEat = Find.TickManager.TicksGame + EatCooldownTick;
+            nextEat = Find.TickManager.TicksGame + Props.eatCooldownTick;
             SelfPawn.mindState.enemyTarget = null;
         }
+
+        /// <summary>
+        /// 设置状态
+        /// </summary>
+        /// <param name="state">状态</param>
 
         public void SetState(MeatLanternState state)
         {
@@ -195,7 +196,7 @@ namespace MeatLantern.Comp
             {
                 case LC_StudyResult.Good:
                     QliphothCountCurrent++;
-                    CheckGiveAccessory(studier, Def.HediffDefOf.Accessory_MeatLantern, "LC_Accessory_Mouth");
+                    CheckGiveAccessory(studier, Def.HediffDefOf.AccessoryMeatLantern, "LC_Accessory_Mouth");
                     break;
 
                 case LC_StudyResult.Normal:
@@ -236,6 +237,8 @@ namespace MeatLantern.Comp
             if (DebugSettings.showHiddenInfo)
             {
                 taggedString += "\nState: " + meatLanternState;
+                taggedString += "\nEatDuration：" + Props.eatCooldownTick;
+                taggedString += "\nReadyToEat：" + (Find.TickManager.TicksGame >= nextEat);
             }
 
             return taggedString;
@@ -257,9 +260,11 @@ namespace MeatLantern.Comp
 
                     if (Invisibility.PsychologicallyVisible)
                         return;
-
-                    if (!Invisibility.PsychologicallyVisible)
-                        Find.LetterStack.ReceiveLetter("LetterMeatLanternSupressLabel".Translate(), "LetterMeatLanternSupress".Translate(), LetterDefOf.ThreatBig, SelfPawn);
+                    else
+                        Find.LetterStack.ReceiveLetter(
+                            "LetterMeatLanternSupressLabel".Translate()
+                            , "LetterMeatLanternSupress".Translate()
+                            , LetterDefOf.ThreatBig, SelfPawn);
 
                     Invisibility.BecomeVisible();
                 }

@@ -33,16 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\0Harmony.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="HarmonyMod">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\HarmonyMod.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="LCAnomalyLibrary">
@@ -84,14 +76,13 @@
     <Compile Include="Comp\CompMeatLantern.cs" />
     <Compile Include="Comp\CompProperties_AbilityWhirlwind_OmNomNom.cs" />
     <Compile Include="Comp\CompProperties_MeatLantern.cs" />
-    <Compile Include="Comp\HediffCompProperties_Accessory_MeatLantern.cs" />
-    <Compile Include="Comp\HediffComp_Accessory_MeatLantern.cs" />
+    <Compile Include="Comp\HediffCompProperties_AccessoryMeatLantern.cs" />
+    <Compile Include="Comp\HediffComp_AccessoryMeatLantern.cs" />
     <Compile Include="Def\FleckDefOf.cs" />
     <Compile Include="Def\HediffDefOf.cs" />
     <Compile Include="Def\JobDefOf.cs" />
     <Compile Include="Def\SoundDefOf.cs" />
     <Compile Include="Def\ThingDefOf.cs" />
-    <Compile Include="Def\TraitDefOf.cs" />
     <Compile Include="Effect\EatingMeatLantern.cs" />
     <Compile Include="Effect\EscapingMeatLantern.cs" />
     <Compile Include="Effect\DyingMeatLantern.cs" />

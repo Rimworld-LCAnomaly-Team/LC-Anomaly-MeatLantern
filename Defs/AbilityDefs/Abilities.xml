@@ -34,7 +34,6 @@
         <armorPenetration>0.4</armorPenetration>
         <suckPercent>0.8</suckPercent>
         <stunPercent>0.4</stunPercent>
-
       </li>
       <li Class="CompProperties_AbilityFleckOnTarget">
         <fleckDef>MeatExplosionSplatter</fleckDef>

@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- Basic -->
   <EntityCodexEntryDef>
   	<defName>MeatLantern</defName>
     <label>meat lantern</label>
@@ -16,9 +15,6 @@
     <discoveredResearchProjects>
       <li>ExtractMeatLantern</li>
     </discoveredResearchProjects>
-    <!-- <provocationIncidents>
-      <li>MeatLantern</li>
-    </provocationIncidents> -->
     <orderInCategory>800</orderInCategory>
   </EntityCodexEntryDef>
 

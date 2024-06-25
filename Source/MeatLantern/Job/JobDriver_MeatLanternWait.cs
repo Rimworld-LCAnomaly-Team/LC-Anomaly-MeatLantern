@@ -26,7 +26,7 @@ namespace MeatLantern.Job
             Toil toil = ToilMaker.MakeToil("MakeNewToils");
             toil.tickAction = (Action)Delegate.Combine(toil.tickAction, (Action)delegate
             {
-                if (Find.TickManager.TicksGame >= Comp.nextEat && Rand.MTBEventOccurs(50f, 1f, 1f))
+                if (Find.TickManager.TicksGame >= Comp.nextEat)
                 {
                     Pawn pawn = MeatLanternUtility.GetClosestTargetInRadius(base.pawn, 1f);
                     if (pawn != null)

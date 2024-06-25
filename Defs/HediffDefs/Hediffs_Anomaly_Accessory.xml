@@ -2,9 +2,9 @@
 <Defs>
 
   <HediffDef ParentName="LC_Anomaly_AccessoryBase_Mouth">
-    <defName>Accessory_MeatLantern</defName>
-    <label>口部：诱捕幻灯</label>
-    <description>发光的躯体能够轻而易举地照亮黑暗，\n闪烁着的淡绿色荧光也十分适合诱捕那些可怜的无知者。\n与黑暗中温暖的荧光相反的是那些从护甲上延伸出的，令人恐惧的利齿。</description>
+    <defName>AccessoryMeatLantern</defName>
+    <label>.</label>
+    <description>.</description>
     <descriptionHyperlinks>
       <ThingDef>MeatLanternEscaped</ThingDef>
       <ThingDef>MeatLanternContained</ThingDef>
