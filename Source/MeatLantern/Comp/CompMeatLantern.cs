@@ -5,7 +5,6 @@ using MeatLantern.Utility;
 using RimWorld;
 using System.Collections.Generic;
 using System.IO;
-using System.Security.Cryptography;
 using Verse;
 using Verse.AI;
 
@@ -34,11 +33,11 @@ namespace MeatLantern.Comp
                     return invisibility;
                 }
 
-                Hediff hediff = SelfPawn.health.hediffSet.GetFirstHediffOfDef(LCAnomalyLibrary.Defs.HediffDefOf.FakeInvisibility);
+                Hediff hediff = ((Pawn)parent).health.hediffSet.GetFirstHediffOfDef(LCAnomalyLibrary.Defs.HediffDefOf.FakeInvisibility);
                 if (hediff == null)
                 {
                     Log.Message("肉食提灯：隐形hediff为空，准备添加");
-                    hediff = SelfPawn.health.AddHediff(LCAnomalyLibrary.Defs.HediffDefOf.FakeInvisibility);
+                    hediff = ((Pawn)parent).health.AddHediff(LCAnomalyLibrary.Defs.HediffDefOf.FakeInvisibility);
                 }
                 else
                 {
@@ -72,7 +71,7 @@ namespace MeatLantern.Comp
         {
             base.PostSpawnSetup(respawningAfterLoad);
 
-            SelfPawn.health.GetOrAddHediff(LCAnomalyLibrary.Defs.HediffDefOf.FakeInvisibility);
+            ((Pawn)parent).health.GetOrAddHediff(LCAnomalyLibrary.Defs.HediffDefOf.FakeInvisibility);
             CheckSpawnVisible();
         }
 
@@ -82,12 +81,12 @@ namespace MeatLantern.Comp
 
         public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
         {
-            MeatLanternUtility.OnMeatLanternDeath(SelfPawn, prevMap);
+            MeatLanternUtility.OnMeatLanternDeath((Pawn)parent, prevMap);
         }
 
         public override void Notify_Escaped()
         {
-            MeatLanternUtility.OnMeatLanternEscape(SelfPawn, SelfPawn.MapHeld);
+            MeatLanternUtility.OnMeatLanternEscape((Pawn)parent, parent.MapHeld);
         }
 
         /// <summary>
@@ -121,10 +120,10 @@ namespace MeatLantern.Comp
         /// <param name="victims">受害者Lsit</param>
         public void Eat(List<Pawn> victims)
         {
-            MeatLanternUtility.OnMeatLanternEat(SelfPawn, victims);
+            MeatLanternUtility.OnMeatLanternEat((Pawn)parent, victims);
 
             nextEat = Find.TickManager.TicksGame + Props.eatCooldownTick;
-            SelfPawn.mindState.enemyTarget = null;
+            ((Pawn)parent).mindState.enemyTarget = null;
         }
 
         /// <summary>
@@ -135,9 +134,9 @@ namespace MeatLantern.Comp
         public void SetState(MeatLanternState state)
         {
             meatLanternState = state;
-            SelfPawn.jobs.EndCurrentJob(JobCondition.InterruptForced);
+            ((Pawn)parent).jobs.EndCurrentJob(JobCondition.InterruptForced);
         }
-
+            
         /// <summary>
         /// 判断是否应该在生成时隐身
         /// </summary>
@@ -145,7 +144,7 @@ namespace MeatLantern.Comp
         /// <exception cref="InvalidDataException">不接受的PawnKindDef</exception>
         private void CheckSpawnVisible()
         {
-            PawnKindDef def = SelfPawn.kindDef;
+            PawnKindDef def = ((Pawn)parent).kindDef;
 
             if (def == Def.PawnKindDefOf.MeatLanternEscaped)
             {
@@ -204,19 +203,18 @@ namespace MeatLantern.Comp
                     break;
             }
 
-            CheckSpawnPeBox(studier, result);
-            StudyUtil.DoStudyResultEffect(studier, SelfPawn, result);
+            if(PeboxComp != null)
+                PeboxComp.CheckSpawnPeBox(studier, result);
+
+            StudyUtil.DoStudyResultEffect(studier, (Pawn)parent, result);
         }
 
         protected override void StudyEvent_Bad(Pawn studier)
         {
             base.StudyEvent_Bad(studier);
-            CheckSpawnPeBox(studier, LC_StudyResult.Bad);
-        }
 
-        protected override bool CheckIfEGOTechFinished()
-        {
-            return Def.ResearchProjectDefOf.MeatLanternGears.IsFinished;
+            if (PeboxComp != null)
+                PeboxComp.CheckSpawnPeBox(studier, LC_StudyResult.Bad);
         }
 
         /// <summary>
@@ -226,10 +224,10 @@ namespace MeatLantern.Comp
         {
             //Log.Message($"检查图鉴解锁情况，我是 {SelfPawn.def.defName}");
 
-            if (Invisibility.PsychologicallyVisible && AnomalyUtility.ShouldNotifyCodex(SelfPawn, EntityDiscoveryType.Unfog, out var entries))
+            if (Invisibility.PsychologicallyVisible && AnomalyUtility.ShouldNotifyCodex((Pawn)parent, EntityDiscoveryType.Unfog, out var entries))
             {
-                Find.EntityCodex.SetDiscovered(entries, Def.PawnKindDefOf.MeatLanternContained.race, SelfPawn);
-                Find.EntityCodex.SetDiscovered(entries, Def.PawnKindDefOf.MeatLanternEscaped.race, SelfPawn);
+                Find.EntityCodex.SetDiscovered(entries, Def.PawnKindDefOf.MeatLanternContained.race, (Pawn)parent);
+                Find.EntityCodex.SetDiscovered(entries, Def.PawnKindDefOf.MeatLanternEscaped.race, (Pawn)parent);
             }
         }
 
@@ -270,7 +268,7 @@ namespace MeatLantern.Comp
                         Find.LetterStack.ReceiveLetter(
                             "LetterMeatLanternSupressLabel".Translate()
                             , "LetterMeatLanternSupress".Translate()
-                            , LetterDefOf.ThreatBig, SelfPawn);
+                            , LetterDefOf.ThreatBig, (Pawn)parent);
 
                     Invisibility.BecomeVisible();
                 }

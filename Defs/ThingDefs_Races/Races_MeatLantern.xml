@@ -47,19 +47,24 @@
       <li Class="MeatLantern.Comp.CompProperties_MeatLantern">
         <qliphothCountMax>1</qliphothCountMax>
         <studySucessRateBase>0.5</studySucessRateBase>
-        <peBoxDef>PeBoxTETH</peBoxDef>
-        <amountPeBoxStudyGood>2</amountPeBoxStudyGood>
-        <amountPeBoxStudyNormal>1</amountPeBoxStudyNormal> 
-        <amountPeBoxStudyBad>0</amountPeBoxStudyBad>
+        <accessoryChance>0.05</accessoryChance>
+        <shoundNotifyWhenEscape>false</shoundNotifyWhenEscape>
+        <eatCooldownTick>600</eatCooldownTick>
+      </li>
+      <li Class="LCAnomalyLibrary.Comp.LC_CompProperties_EgoExtractable">
         <weaponExtracted>EgoWeapon_MeatLantern</weaponExtracted>
         <amountMaxWeapon>2</amountMaxWeapon>
         <weaponExtractedNeed>200</weaponExtractedNeed>
         <armorExtracted>Apparel_MeatLanternSuit</armorExtracted>
         <amountMaxArmor>2</amountMaxArmor>
         <armorExtractedNeed>100</armorExtractedNeed>
-        <accessoryChance>0.05</accessoryChance>
-        <shoundNotifyWhenEscape>false</shoundNotifyWhenEscape>
-        <eatCooldownTick>600</eatCooldownTick>
+        <researchProject>MeatLanternGears</researchProject>
+      </li>
+      <li Class="LCAnomalyLibrary.Comp.LC_CompProperties_PeBoxProduce">
+        <peBoxDef>PeBoxTETH</peBoxDef>
+        <amountStudyGood>2</amountStudyGood>
+        <amountStudyNormal>1</amountStudyNormal> 
+        <amountStudyBad>0</amountStudyBad>
       </li>
       <li Class="CompProperties_HoldingPlatformTarget">
         <baseEscapeIntervalMtbDays>45</baseEscapeIntervalMtbDays>
