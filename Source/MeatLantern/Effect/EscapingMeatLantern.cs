@@ -35,10 +35,19 @@ namespace MeatLantern.Effect
             Effecter effecter = EffecterDefOf.MeatExplosionExtraLarge.SpawnMaintained(base.Position, base.Map);
             completeTick = base.TickSpawned + effecter.ticksLeft + 120;
             Def.SoundDefOf.MeatLantern_Escape.PlayOneShot(new TargetInfo(base.Position, base.Map));
+
+            hasInited = true;
         }
 
         public override void Complete()
         {
+            if (!hasInited)
+            {
+                Log.Warning($"特效：在未初始化时尝试生成特效对象{Def.ThingDefOf.EscapingMeatLantern.label.Translate()}，对象即将被销毁以避免错误。");
+                Destroy();
+                return;
+            }
+
             //生成逃脱收容的肉食提灯
             Pawn pawn = PawnGenerator.GeneratePawn(Def.PawnKindDefOf.MeatLanternEscaped, Faction.OfEntities);
             GenSpawn.Spawn(pawn, TryFindTargetCell(50), base.MapHeld);

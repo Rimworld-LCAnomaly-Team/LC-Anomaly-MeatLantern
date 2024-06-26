@@ -20,9 +20,7 @@
       <li>MedievalMeleeAdvanced</li>
     </weaponTags>
     <costList>
-      <PeBoxTETH>50</PeBoxTETH>
-      <Steel>80</Steel>
-      <ComponentIndustrial>2</ComponentIndustrial>
+      <PeBoxTETH>500</PeBoxTETH>
     </costList>
     <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
     <statBases>
@@ -31,13 +29,18 @@
     </statBases>
     <relicChance>2</relicChance>
     <equippedAngleOffset>-65</equippedAngleOffset>
-    <recipeMaker>
+
+    <!-- <recipeMaker>
       <researchPrerequisite>MeatLanternGears</researchPrerequisite>
       <skillRequirements>
         <Crafting>5</Crafting>
       </skillRequirements>
+      <recipeUsers>
+        <li>TableManufacturing_EGO</li>
+      </recipeUsers>
       <displayPriority>420</displayPriority>
-    </recipeMaker>
+    </recipeMaker> -->
+
     <tools>
       <li>
         <label>handle</label>

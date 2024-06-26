@@ -16,10 +16,18 @@ namespace MeatLantern.Effect
             bioSignature = targetPawn.TryGetComp<CompMeatLantern>().biosignature;
             Effecter effecter = EffecterDefOf.MeatExplosionExtraLarge.SpawnMaintained(base.Position, base.Map);
             completeTick = base.TickSpawned + effecter.ticksLeft + 60;
+
+            hasInited = true;
         }
 
         public override void Complete()
         {
+            if (!hasInited)
+            {
+                Log.Warning($"特效：在未初始化时尝试生成特效对象{Def.ThingDefOf.DyingMeatLantern.label.Translate()}，对象即将被销毁以避免错误。");
+                Destroy();
+                return;
+            }
             //生成扭曲血肉脏污
             if (FilthMaker.TryMakeFilth(base.PositionHeld, base.Map, RimWorld.ThingDefOf.Filth_TwistedFlesh))
             {

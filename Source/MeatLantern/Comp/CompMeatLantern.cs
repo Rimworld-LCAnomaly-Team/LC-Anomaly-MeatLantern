@@ -5,6 +5,7 @@ using MeatLantern.Utility;
 using RimWorld;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Cryptography;
 using Verse;
 using Verse.AI;
 
@@ -211,6 +212,11 @@ namespace MeatLantern.Comp
         {
             base.StudyEvent_Bad(studier);
             CheckSpawnPeBox(studier, LC_StudyResult.Bad);
+        }
+
+        protected override bool CheckIfEGOTechFinished()
+        {
+            return Def.ResearchProjectDefOf.MeatLanternGears.IsFinished;
         }
 
         /// <summary>

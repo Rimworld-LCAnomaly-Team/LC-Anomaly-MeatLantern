@@ -16,11 +16,6 @@ namespace MeatLantern.Effect
         private List<Pawn> victims;
         private Pawn selfPawn;
 
-        public override void InitWith(Pawn targetPawn)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void InitWith(Pawn selfPawn, List<Pawn> victims)
         {
             this.selfPawn = selfPawn;
@@ -29,10 +24,19 @@ namespace MeatLantern.Effect
             //播放特效，记录动画播放完的时间
             DoEatEffect(selfPawn);
             completeTick = TickSpawned + 15;
+
+            hasInited = true;
         }
 
         public override void Complete()
         {
+            if (!hasInited)
+            {
+                Log.Warning($"特效：在未初始化时尝试生成特效对象{Def.ThingDefOf.EatingMeatLantern.label.Translate()}，对象即将被销毁以避免错误。");
+                Destroy();
+                return;
+            }
+
             //执行伤害方法
             MeatLanternUtility.DoDamageByEat(this.victims, this.selfPawn);
 

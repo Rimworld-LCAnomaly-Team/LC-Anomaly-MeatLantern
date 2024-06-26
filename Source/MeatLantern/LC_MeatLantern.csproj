@@ -83,6 +83,7 @@
     <Compile Include="Def\FleckDefOf.cs" />
     <Compile Include="Def\HediffDefOf.cs" />
     <Compile Include="Def\JobDefOf.cs" />
+    <Compile Include="Def\ResearchProjectDefOf.cs" />
     <Compile Include="Def\SoundDefOf.cs" />
     <Compile Include="Def\ThingDefOf.cs" />
     <Compile Include="Effect\EatingMeatLantern.cs" />

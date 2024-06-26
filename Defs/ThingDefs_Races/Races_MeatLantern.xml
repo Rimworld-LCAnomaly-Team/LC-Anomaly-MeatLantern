@@ -50,7 +50,13 @@
         <peBoxDef>PeBoxTETH</peBoxDef>
         <amountPeBoxStudyGood>2</amountPeBoxStudyGood>
         <amountPeBoxStudyNormal>1</amountPeBoxStudyNormal> 
-        <amountPeBoxStudyBad>0</amountPeBoxStudyBad> 
+        <amountPeBoxStudyBad>0</amountPeBoxStudyBad>
+        <weaponExtracted>EgoWeapon_MeatLantern</weaponExtracted>
+        <amountMaxWeapon>2</amountMaxWeapon>
+        <weaponExtractedNeed>200</weaponExtractedNeed>
+        <armorExtracted>Apparel_MeatLanternSuit</armorExtracted>
+        <amountMaxArmor>2</amountMaxArmor>
+        <armorExtractedNeed>100</armorExtractedNeed>
         <accessoryChance>0.05</accessoryChance>
         <shoundNotifyWhenEscape>false</shoundNotifyWhenEscape>
         <eatCooldownTick>600</eatCooldownTick>

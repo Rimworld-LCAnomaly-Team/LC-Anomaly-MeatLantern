@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="ApparelBase">
+  <ThingDef ParentName="ApparelNoQualityBase">
     <defName>Apparel_MeatLanternSuit</defName>
     <label>E.G.O.Suit MeatLantern</label>
     <description>.</description>
 
-    <recipeMaker>
+    <!-- <recipeMaker>
       <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
       <workSkill>Crafting</workSkill>
       <effectWorking>Smith</effectWorking>
@@ -15,7 +15,7 @@
         <Crafting>5</Crafting>
       </skillRequirements>
       <recipeUsers>
-        <li>TableMachining</li>
+        <li>TableManufacturing_EGO</li>
       </recipeUsers>
       <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
       <defaultIngredientFilter>
@@ -25,7 +25,7 @@
       </defaultIngredientFilter>
       <researchPrerequisite>MeatLanternGears</researchPrerequisite>
       <displayPriority>530</displayPriority>
-    </recipeMaker>
+    </recipeMaker> -->
 
     <graphicData>
       <texPath>Things/Pawn/Humanlike/Apparel/MeatLanternSuit/MeatLanternSuit</texPath>
@@ -50,20 +50,14 @@
       <li>ApparelArmor</li>
     </thingCategories>
 
-    <!-- <equippedStatOffsets>
-      <MoveSpeed>-0.4</MoveSpeed>
-      <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.3</SlaveSuppressionOffset>
-    </equippedStatOffsets> -->
-    <!-- <equippedStatOffsets>
-      <MechBandwidth>12</MechBandwidth>
-      <ShootingAccuracyPawn>-5</ShootingAccuracyPawn>
-      <MeleeHitChance>-0.5</MeleeHitChance>
-    </equippedStatOffsets> -->
+    <equippedStatOffsets>
+      <MoveSpeed>+0.2</MoveSpeed>
+      <ShootingAccuracyPawn>-1</ShootingAccuracyPawn>
+      <MeleeHitChance>+0.2</MeleeHitChance>
+    </equippedStatOffsets>
 
     <costList>
-      <PeBoxTETH>25</PeBoxTETH>
-      <Steel>80</Steel>
-      <ComponentIndustrial>2</ComponentIndustrial>
+      <PeBoxTETH>200</PeBoxTETH>
     </costList>
 
     <apparel>
@@ -90,7 +84,7 @@
       <soundRemove>Remove_PowerArmor</soundRemove>
     </apparel>
 
-    <colorGenerator Class="ColorGenerator_Options">
+    <!-- <colorGenerator Class="ColorGenerator_Options">
       <options>
         <li>
           <weight>10</weight>
@@ -110,19 +104,18 @@
           <max>(0.5,0.5,0.5)</max>
         </li>
       </options>
-    </colorGenerator>
+    </colorGenerator> -->
 
-    <comps>
+    <!-- <comps>
       <li Class="CompProperties_Biocodable"/>
-    </comps>
+    </comps> -->
 
     <thingSetMakerTags>
       <li>RewardStandardHighFreq</li>
     </thingSetMakerTags>
 
     <tradeability>Sellable</tradeability>
-
-    <tradeTags Inherit="False">
+    <tradeTags>
       <li>HiTechArmor</li>
     </tradeTags>
 
