@@ -1,46 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="BaseMeleeWeapon_Blunt">
+  <ThingDef ParentName="LC_BaseMeleeWeapon_EGO_Blunt">
+
     <defName>EgoWeapon_MeatLantern</defName>
     <label>E.G.O.Weapon MeatLantern</label>
     <description>.</description>
+
     <descriptionHyperlinks>
       <AbilityDef>Whirlwind_OmNomNom</AbilityDef>
     </descriptionHyperlinks>
+
     <thingClass>ThingWithComps</thingClass>
     <possessionCount>1</possessionCount>
+
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponMelee/EgoWeapon_Lantern</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(2, 2)</drawSize>
     </graphicData>
-    <techLevel>Medieval</techLevel>
-    <weaponTags>
-      <li>MedievalMeleeAdvanced</li>
-    </weaponTags>
-    <costList>
-      <PeBoxTETH>500</PeBoxTETH>
-    </costList>
-    <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+
     <statBases>
-      <WorkToMake>1000</WorkToMake>
       <Mass>2</Mass>
     </statBases>
-    <relicChance>2</relicChance>
-    <equippedAngleOffset>-65</equippedAngleOffset>
-
-    <!-- <recipeMaker>
-      <researchPrerequisite>MeatLanternGears</researchPrerequisite>
-      <skillRequirements>
-        <Crafting>5</Crafting>
-      </skillRequirements>
-      <recipeUsers>
-        <li>TableManufacturing_EGO</li>
-      </recipeUsers>
-      <displayPriority>420</displayPriority>
-    </recipeMaker> -->
-
+    
     <tools>
       <li>
         <label>handle</label>
@@ -66,7 +49,7 @@
         <abilityDef>Whirlwind_OmNomNom</abilityDef>
       </li>
     </comps>
+
   </ThingDef>
 
-  
 </Defs>

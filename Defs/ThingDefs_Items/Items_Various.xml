@@ -23,7 +23,7 @@
       <MinimumContainmentStrength>40</MinimumContainmentStrength> <!-- Must match MeatLantern's minimum containment strength value -->
     </statBases>
     <thingCategories>
-      <li>ItemsMisc</li>
+      <li>LC_Entity_Egg</li>
     </thingCategories>
     <researchPrerequisites>
       <li>ExtractMeatLantern</li>
