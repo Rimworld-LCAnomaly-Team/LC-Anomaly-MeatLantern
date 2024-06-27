@@ -62,11 +62,6 @@ namespace MeatLantern.Comp
             Scribe_Values.Look(ref nextEat, "nextEat", -99999);
         }
 
-        public override void PostPostMake()
-        {
-            biosignature = Rand.Int;
-        }
-
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
@@ -94,8 +89,6 @@ namespace MeatLantern.Comp
         /// </summary>
         public override void Notify_Holded()
         {
-            base.Notify_Holded();
-
             CheckIsDiscovered();
         }
 

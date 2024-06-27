@@ -2,7 +2,6 @@
 <Defs>
   <ThingDef ParentName="BasePawn" Name="BaseMeatLantern" Abstract="True">
     <hiddenWhileUndiscovered>true</hiddenWhileUndiscovered>
-
     <statBases>
       <MoveSpeed>0</MoveSpeed>
       <Flammability>0</Flammability>
@@ -13,12 +12,10 @@
       <StaggerDurationFactor>0</StaggerDurationFactor>
       <ToxicResistance>1</ToxicResistance>
     </statBases>
-
     <tradeability>None</tradeability>
     <hideStats>true</hideStats>
     <onlyShowInspectString>true</onlyShowInspectString>
     <hideMainDesc>true</hideMainDesc>
-
     <race>
       <body>MeatLantern</body>
       <baseBodySize>1</baseBodySize>
@@ -48,6 +45,8 @@
         <qliphothCountMax>1</qliphothCountMax>
         <studySucessRateBase>0.5</studySucessRateBase>
         <accessoryChance>0.05</accessoryChance>
+        <ifProvideWarningPoints>true</ifProvideWarningPoints>
+        <customWarningPoints>-1</customWarningPoints>
         <shoundNotifyWhenEscape>false</shoundNotifyWhenEscape>
         <eatCooldownTick>600</eatCooldownTick>
       </li>
@@ -99,7 +98,6 @@
         <requiresHoldingPlatform>true</requiresHoldingPlatform>
       </li>
     </comps>
-
   </ThingDef>
 
   <!--陆生鮟鱇 收容形态-->
@@ -113,7 +111,6 @@
       <thinkTreeMain>MeatLanternContained</thinkTreeMain>
       <thinkTreeConstant>MeatLanternConstant</thinkTreeConstant>
     </race>
-
   </ThingDef>
 
   <!--陆生鮟鱇 出逃形态-->
