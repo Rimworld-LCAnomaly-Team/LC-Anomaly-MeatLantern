@@ -81,6 +81,8 @@ namespace MeatLantern.Comp
 
         public override void Notify_Escaped()
         {
+            base.Notify_Escaped();
+
             MeatLanternUtility.OnMeatLanternEscape((Pawn)parent, parent.MapHeld);
         }
 
