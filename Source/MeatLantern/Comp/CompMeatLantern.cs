@@ -191,15 +191,14 @@ namespace MeatLantern.Comp
             {
                 case LC_StudyResult.Good:
                     QliphothCountCurrent++;
-                    CheckGiveAccessory(studier, Def.HediffDefOf.AccessoryMeatLantern, "LC_Accessory_Mouth");
+                    AccessoryableComp?.CheckGiveAccessory(studier);
                     break;
 
                 case LC_StudyResult.Normal:
                     break;
             }
-
-            if(PeboxComp != null)
-                PeboxComp.CheckSpawnPeBox(studier, result);
+            
+            PeboxComp?.CheckSpawnPeBox(studier, result);
 
             StudyUtil.DoStudyResultEffect(studier, (Pawn)parent, result);
         }
@@ -208,8 +207,7 @@ namespace MeatLantern.Comp
         {
             base.StudyEvent_Bad(studier);
 
-            if (PeboxComp != null)
-                PeboxComp.CheckSpawnPeBox(studier, LC_StudyResult.Bad);
+            PeboxComp?.CheckSpawnPeBox(studier, LC_StudyResult.Bad);
         }
 
         /// <summary>

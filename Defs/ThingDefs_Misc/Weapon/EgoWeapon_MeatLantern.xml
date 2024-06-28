@@ -2,28 +2,21 @@
 <Defs>
 
   <ThingDef ParentName="LC_BaseMeleeWeapon_EGO_Blunt">
-
     <defName>EgoWeapon_MeatLantern</defName>
     <label>E.G.O.Weapon MeatLantern</label>
     <description>.</description>
-
     <descriptionHyperlinks>
       <AbilityDef>Whirlwind_OmNomNom</AbilityDef>
     </descriptionHyperlinks>
-
     <thingClass>ThingWithComps</thingClass>
-    <possessionCount>1</possessionCount>
-
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponMelee/EgoWeapon_Lantern</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(2, 2)</drawSize>
     </graphicData>
-
     <statBases>
       <Mass>2</Mass>
     </statBases>
-    
     <tools>
       <li>
         <label>handle</label>
@@ -43,13 +36,11 @@
         <cooldownTime>2</cooldownTime>
       </li>
     </tools>
-
     <comps>
       <li Class="CompProperties_EquippableAbility">
         <abilityDef>Whirlwind_OmNomNom</abilityDef>
       </li>
     </comps>
-
   </ThingDef>
-
+  
 </Defs>
