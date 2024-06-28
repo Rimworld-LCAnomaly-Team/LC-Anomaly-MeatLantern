@@ -3,7 +3,7 @@
   <Setting_MeatLantern_Label>异想体-肉食提灯</Setting_MeatLantern_Label>
 
   <LC_MeatLantern_ShowVampireText>显示吸血数值飘字效果</LC_MeatLantern_ShowVampireText>
-  <LC_MeatLantern_ShowVampireHealPartText>显示吸血恢复部位飘字效果（需要上一项为显示状态）</LC_MeatLantern_ShowVampireHealPartText>
+  <LC_MeatLantern_ShowVampireHealPartText>显示吸血恢复部位飘字效果</LC_MeatLantern_ShowVampireHealPartText>
   <LC_MeatLantern_ShowVampireHealVFX>显示吸血恢复的治疗特效</LC_MeatLantern_ShowVampireHealVFX>
 
   <LC_MeatLantern_VampireAmountThrowText>吸血：</LC_MeatLantern_VampireAmountThrowText>

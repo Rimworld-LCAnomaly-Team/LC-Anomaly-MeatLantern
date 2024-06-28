@@ -4,6 +4,10 @@ namespace MeatLantern.Setting
 {
     public class Setting_MeatLantern : ModSettings
     {
+        public bool If_ShowVampireText = true;
+        public bool If_ShowVampireHealPartText = false;
+        public bool If_ShowVampireHealVFX = true;
+
         public override void ExposeData()
         {
             base.ExposeData();
@@ -11,9 +15,5 @@ namespace MeatLantern.Setting
             Scribe_Values.Look<bool>(ref this.If_ShowVampireHealPartText, "If_ShowVampireHealPartText", false, false);
             Scribe_Values.Look<bool>(ref this.If_ShowVampireHealVFX, "If_ShowVampireHealVFX", true, false);
         }
-
-        public bool If_ShowVampireText = true;
-        public bool If_ShowVampireHealPartText = false;
-        public bool If_ShowVampireHealVFX = true;
     }
 }

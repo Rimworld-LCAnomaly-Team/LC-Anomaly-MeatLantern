@@ -21,34 +21,6 @@ namespace MeatLantern.Comp
         /// </summary>
         public int nextEat = -99999;
 
-        [Unsaved(false)]
-        private LC_HediffComp_FakeInvisibility invisibility;
-
-        public LC_HediffComp_FakeInvisibility Invisibility
-        {
-            get
-            {
-                if (invisibility != null)
-                {
-                    return invisibility;
-                }
-
-                Hediff hediff = ((Pawn)parent).health.hediffSet.GetFirstHediffOfDef(LCAnomalyLibrary.Defs.HediffDefOf.FakeInvisibility);
-                if (hediff == null)
-                {
-                    Log.Message("肉食提灯：隐形hediff为空，准备添加");
-                    hediff = ((Pawn)parent).health.AddHediff(LCAnomalyLibrary.Defs.HediffDefOf.FakeInvisibility);
-                }
-                else
-                {
-                    Log.Message("肉食提灯：隐形hediff不为空");
-                }
-                invisibility = hediff?.TryGetComp<LC_HediffComp_FakeInvisibility>();
-
-                return invisibility;
-            }
-        }
-
         public new CompProperties_MeatLantern Props => (CompProperties_MeatLantern)props;
 
         #endregion 变量
@@ -66,8 +38,7 @@ namespace MeatLantern.Comp
         {
             base.PostSpawnSetup(respawningAfterLoad);
 
-            ((Pawn)parent).health.GetOrAddHediff(LCAnomalyLibrary.Defs.HediffDefOf.FakeInvisibility);
-            CheckSpawnVisible();
+            CheckSpawnHostile();
         }
 
         #endregion 生命周期
@@ -133,27 +104,19 @@ namespace MeatLantern.Comp
         }
             
         /// <summary>
-        /// 判断是否应该在生成时隐身
+        /// 判断是否应该在生成时改变敌对情况（是逃跑状态则派系变空，否则变实体阵营）
         /// </summary>
-        /// <returns>该隐身就返回true</returns>
-        /// <exception cref="InvalidDataException">不接受的PawnKindDef</exception>
-        private void CheckSpawnVisible()
+        private void CheckSpawnHostile()
         {
             PawnKindDef def = ((Pawn)parent).kindDef;
 
             if (def == Def.PawnKindDefOf.MeatLanternEscaped)
             {
-                //Log.Warning($"Pawn：{SelfPawn.ThingID} 应该隐身");
-                Invisibility.BecomeInvisible();
+                parent.SetFaction(null);
             }
             else if (def == Def.PawnKindDefOf.MeatLanternContained)
             {
-                //Log.Warning("应该显形");
-                Invisibility.BecomeVisible();
-            }
-            else
-            {
-                throw new InvalidDataException($"Invalid PawnKindDef:{def.defName} Found");
+                parent.SetFaction(Faction.OfEntities);
             }
         }
 
@@ -217,7 +180,7 @@ namespace MeatLantern.Comp
         {
             //Log.Message($"检查图鉴解锁情况，我是 {SelfPawn.def.defName}");
 
-            if (Invisibility.PsychologicallyVisible && AnomalyUtility.ShouldNotifyCodex((Pawn)parent, EntityDiscoveryType.Unfog, out var entries))
+            if (AnomalyUtility.ShouldNotifyCodex((Pawn)parent, EntityDiscoveryType.Unfog, out var entries))
             {
                 Find.EntityCodex.SetDiscovered(entries, Def.PawnKindDefOf.MeatLanternContained.race, (Pawn)parent);
                 Find.EntityCodex.SetDiscovered(entries, Def.PawnKindDefOf.MeatLanternEscaped.race, (Pawn)parent);
@@ -247,25 +210,6 @@ namespace MeatLantern.Comp
             {
                 yield return gizmo;
             }
-
-            yield return new Command_Action
-            {
-                defaultLabel = "Suppress Entity",
-                action = delegate
-                {
-                    //Log.Warning("supress entity");
-
-                    if (Invisibility.PsychologicallyVisible)
-                        return;
-                    else
-                        Find.LetterStack.ReceiveLetter(
-                            "LetterMeatLanternSupressLabel".Translate()
-                            , "LetterMeatLanternSupress".Translate()
-                            , LetterDefOf.ThreatBig, (Pawn)parent);
-
-                    Invisibility.BecomeVisible();
-                }
-            };
         }
 
         #endregion UI
