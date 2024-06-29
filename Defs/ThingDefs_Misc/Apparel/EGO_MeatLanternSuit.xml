@@ -23,9 +23,6 @@
       <MeleeHitChance>+0.20</MeleeHitChance>
     </equippedStatOffsets>
     <apparel>
-      <tags>
-        <li>AnomalyApparel</li>
-      </tags>
       <bodyPartGroups>
         <li>Torso</li>
         <li>Neck</li>

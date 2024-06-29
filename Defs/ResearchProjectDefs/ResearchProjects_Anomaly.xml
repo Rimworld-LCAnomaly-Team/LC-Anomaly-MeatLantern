@@ -27,30 +27,4 @@
     </generalRules>
   </ResearchProjectDef>
 
-  <ResearchProjectDef>
-    <defName>MeatLanternGears</defName>
-    <label>MeatLantern Gears</label>
-    <description>MeatLantern Gears.</description>
-    <tab>LCAnomaly</tab>
-    <knowledgeCost>40</knowledgeCost>
-    <knowledgeCategory>Basic</knowledgeCategory>
-    <researchViewX>1.00</researchViewX>
-    <researchViewY>3.60</researchViewY>
-    <prerequisites>
-      <li>ExtractMeatLantern</li>
-    </prerequisites>
-    <generalRules>
-      <rulesStrings>
-        <li>subject->MeatLanternGears</li>
-
-        <li>subject_story->empty</li>
-        <li>subject_story->empty</li>
-        <li>subject_story->empty</li>
-        <li>subject_story->empty</li>
-
-        <li>subject_gerund->Now Getting MeatLantern Gears</li>
-      </rulesStrings>
-    </generalRules>
-  </ResearchProjectDef>
-
 </Defs>

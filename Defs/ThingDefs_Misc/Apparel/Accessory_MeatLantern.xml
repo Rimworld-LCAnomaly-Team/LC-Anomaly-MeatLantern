@@ -18,7 +18,7 @@
       <layers>
         <li>LC_AccessoryMouth</li>
       </layers>
-      <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+      <developmentalStageFilter>Adult</developmentalStageFilter>
       <bodyPartGroups>
         <li>Neck</li>
       </bodyPartGroups>
