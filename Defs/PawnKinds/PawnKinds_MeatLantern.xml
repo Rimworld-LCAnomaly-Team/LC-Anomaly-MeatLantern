@@ -20,7 +20,7 @@
         <bodyGraphicData>
           <texPath>Things/Pawn/MeatLantern/MeatLantern_Contained</texPath>
           <graphicClass>Graphic_Single</graphicClass>
-          <drawSize>2</drawSize>
+          <drawSize>3</drawSize>
         </bodyGraphicData>
         <silhouetteGraphicData>
           <texPath>UI/CodexEntries/MeatLantern_Contained_MenuIcon</texPath>
@@ -41,7 +41,7 @@
         <bodyGraphicData>
           <texPath>Things/Pawn/MeatLantern/MeatLantern_Escape</texPath>
           <graphicClass>Graphic_Single</graphicClass>
-          <drawSize>2</drawSize>
+          <drawSize>3</drawSize>
         </bodyGraphicData>
         <silhouetteGraphicData>
           <texPath>UI/CodexEntries/MeatLantern_Escaped_MenuIcon</texPath>

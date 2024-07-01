@@ -24,7 +24,7 @@
               <rotationRange>-10~5</rotationRange>
               <durationTicksRange>30~60</durationTicksRange>
               <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
-              <drawSize>1.4</drawSize>
+              <drawSize>1.8</drawSize>
               <baseLayer>10</baseLayer>
               <useRottenColor>true</useRottenColor>
               <drawData>
@@ -64,7 +64,7 @@
               <rotationRange>-10~5</rotationRange>
               <durationTicksRange>30~60</durationTicksRange>
               <nextSpasmTicksRange>10~50</nextSpasmTicksRange>
-              <drawSize>1.4</drawSize>
+              <drawSize>1.8</drawSize>
               <baseLayer>10</baseLayer>
               <useRottenColor>true</useRottenColor>
               <drawData>
