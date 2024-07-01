@@ -3,11 +3,11 @@
   "ItemDefName": "EgoWeapon_MeatLantern",
   "ItemType": "ThingDef",
   "ItemTypeNamespace": "Verse",
-  "OffX": 0.09066667,
-  "OffY": -0.0426666662,
+  "OffX": 0.3074485,
+  "OffY": -0.06656101,
   "ScaleX": 2.0,
   "ScaleY": 2.0,
-  "BladeStart": 0.362666667,
-  "BladeEnd": 1.03466666,
+  "BladeStart": 0.440570533,
+  "BladeEnd": 1.340729,
   "MeleeWeaponType": 1
 }

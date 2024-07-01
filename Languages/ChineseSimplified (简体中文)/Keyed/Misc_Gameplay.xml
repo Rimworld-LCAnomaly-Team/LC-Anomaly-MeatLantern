@@ -18,6 +18,6 @@
   <LetterMeatLanternSupressLabel>镇压肉食提灯</LetterMeatLanternSupressLabel>
   <LetterMeatLanternSupress>肉食提灯已经完全显形，可以被选中攻击。</LetterMeatLanternSupress>
 
-  <ExtractMeatLanternCompleteText>提取肉食提灯</ExtractMeatLanternCompleteText>
-  <PsychicRitualCompleteLabel>。</PsychicRitualCompleteLabel>
+  <ExtractMeatLanternCompleteLabel>提取肉食提灯</ExtractMeatLanternCompleteLabel>
+  <ExtractMeatLanternCompleteText>。</ExtractMeatLanternCompleteText>
 </LanguageData>

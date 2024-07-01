@@ -31,7 +31,7 @@ namespace MeatLantern.PsychicRitual
         {
             IntVec3 cell = psychicRitual.assignments.Target.Cell;
 
-            Thing item = GenSpawn.Spawn(Def.ThingDefOf.DyingMeatLantern, cell, psychicRitual.Map);
+            Thing item = GenSpawn.Spawn(Def.ThingDefOf.MeatLanternEgg, cell, psychicRitual.Map);
 
             if (item == null)
             {
@@ -42,8 +42,8 @@ namespace MeatLantern.PsychicRitual
             psychicRitual.Map.effecterMaintainer.AddEffecterToMaintain(EffecterDefOf.Skip_ExitNoDelay.Spawn(cell, psychicRitual.Map), cell, 60);
             RimWorld.SoundDefOf.Psycast_Skip_Exit.PlayOneShot(new TargetInfo(cell, psychicRitual.Map));
 
-            TaggedString text = "ExtractMeatLanternCompleteText".Translate(invoker.Named("INVOKER"), psychicRitual.def.Named("RITUAL"), item.Named("TARGET"), Faction.OfEntities);
-            Find.LetterStack.ReceiveLetter("PsychicRitualCompleteLabel".Translate(psychicRitual.def.label), text, LetterDefOf.NeutralEvent, new LookTargets(item));
+            TaggedString text = "ExtractMeatLanternCompleteText".Translate();
+            Find.LetterStack.ReceiveLetter("ExtractMeatLanternCompleteLabel".Translate(), text, LetterDefOf.NeutralEvent);
         }
 
         public override void ExposeData()
