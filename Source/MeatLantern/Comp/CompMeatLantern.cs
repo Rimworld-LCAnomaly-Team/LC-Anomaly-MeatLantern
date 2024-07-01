@@ -112,11 +112,13 @@ namespace MeatLantern.Comp
 
             if (def == Def.PawnKindDefOf.MeatLanternEscaped)
             {
-                parent.SetFaction(null);
+                if(parent.Faction != null)
+                    parent.SetFaction(null);
             }
             else if (def == Def.PawnKindDefOf.MeatLanternContained)
             {
-                parent.SetFaction(Faction.OfEntities);
+                if (parent.Faction != Faction.OfEntities)
+                    parent.SetFaction(Faction.OfEntities);
             }
         }
 
