@@ -78,6 +78,7 @@
     <Compile Include="Comp\CompMeatLantern.cs" />
     <Compile Include="Comp\CompProperties_AbilityWhirlwind_OmNomNom.cs" />
     <Compile Include="Comp\CompProperties_MeatLantern.cs" />
+    <Compile Include="Comp\CompProperties_MeatLanternEgg.cs" />
     <Compile Include="Def\FleckDefOf.cs" />
     <Compile Include="Def\JobDefOf.cs" />
     <Compile Include="Def\SoundDefOf.cs" />

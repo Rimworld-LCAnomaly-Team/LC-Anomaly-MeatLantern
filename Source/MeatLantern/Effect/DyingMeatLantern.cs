@@ -1,4 +1,5 @@
-﻿using LCAnomalyLibrary.Misc;
+﻿using LCAnomalyLibrary.Comp;
+using LCAnomalyLibrary.Misc;
 using MeatLantern.Comp;
 using RimWorld;
 using Verse;
@@ -12,8 +13,27 @@ namespace MeatLantern.Effect
     {
         public override void InitWith(Pawn targetPawn)
         {
+            var comp = targetPawn.TryGetComp<CompMeatLantern>();
+
             //传递生物特征，播放effecter特效，记录动画播放完的时间
-            bioSignature = targetPawn.TryGetComp<CompMeatLantern>().biosignature;
+            bioSignature = comp.biosignature;
+
+            //传递EGO已提取数量
+            if (comp.Props.shouldTransferEgoExtractAmount)
+            {
+
+                var egoComp = targetPawn.TryGetComp<LC_CompEgoExtractable>();
+                this.curEgoWeaponExtractAmount = egoComp.CurAmountWeapon;
+                this.curEgoArmorExtractAmount = egoComp.CurAmountArmor;
+            }
+
+            //传递研究进度
+            if (comp.Props.shouldTransferStudyProgress)
+            {
+                var studyUnlockComp = targetPawn.TryGetComp<CompStudyUnlocks>();
+                this.studyProgress = studyUnlockComp.Progress;
+            }
+
             Effecter effecter = EffecterDefOf.MeatExplosionExtraLarge.SpawnMaintained(base.Position, base.Map);
             completeTick = base.TickSpawned + effecter.ticksLeft + 60;
 
@@ -45,6 +65,22 @@ namespace MeatLantern.Effect
             //生成肉食提灯的蛋，销毁自己
             Thing thing = ThingMaker.MakeThing(Def.ThingDefOf.MeatLanternEgg);
             thing.TryGetComp<CompBiosignatureOwner>().biosignature = bioSignature;
+
+            var compEgg = thing.TryGetComp<CompMeatLanternEgg>();
+
+            //传递EGO已提取数量
+            if (compEgg.Props.shouldTransferEgoExtractAmount)
+            {
+                compEgg.CurEgoWeaponExtractAmount = this.curEgoWeaponExtractAmount;
+                compEgg.CurEgoArmorExtractAmount = this.curEgoArmorExtractAmount;
+            }
+
+            //传递研究进度
+            if (compEgg.Props.shouldTransferStudyProgress)
+            {
+                compEgg.StudyProgress = this.studyProgress;
+            }
+
             GenSpawn.Spawn(thing, base.PositionHeld, base.MapHeld);
             Destroy();
         }

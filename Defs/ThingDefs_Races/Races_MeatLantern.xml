@@ -44,15 +44,17 @@
       <li Class="MeatLantern.Comp.CompProperties_MeatLantern">
         <qliphothCountMax>1</qliphothCountMax>
         <studySucessRateBase>0.5</studySucessRateBase>
-        <shoundNotifyWhenEscape>false</shoundNotifyWhenEscape>
+        <shouldNotifyWhenEscape>false</shouldNotifyWhenEscape>
+        <shouldTransferStudyProgress>true</shouldTransferStudyProgress>
+        <shouldTransferEgoExtractAmount>true</shouldTransferEgoExtractAmount>
         <ifProvideWarningPoints>true</ifProvideWarningPoints>
         <customWarningPoints>-1</customWarningPoints>
         <eatCooldownTick>600</eatCooldownTick>
       </li>
       <li Class="LCAnomalyLibrary.Comp.LC_CompProperties_PeBoxProduce">
         <peBoxDef>PeBoxTETH</peBoxDef>
-        <amountStudyGood>2</amountStudyGood>
-        <amountStudyNormal>1</amountStudyNormal> 
+        <amountStudyGood>10</amountStudyGood>
+        <amountStudyNormal>6</amountStudyNormal> 
         <amountStudyBad>0</amountStudyBad>
       </li>
       <li Class="LCAnomalyLibrary.Comp.LC_CompProperties_Accessoryable">
@@ -64,11 +66,11 @@
         <weaponExtracted>EgoWeapon_MeatLantern</weaponExtracted>
         <weaponIconPath>UI/Commands/ExtractEGO_MeatLantern_Weapon</weaponIconPath>
         <amountMaxWeapon>2</amountMaxWeapon>
-        <weaponExtractedNeed>200</weaponExtractedNeed>
+        <weaponExtractedNeed>100</weaponExtractedNeed>
         <armorExtracted>Apparel_MeatLanternSuit</armorExtracted>
         <armorIconPath>UI/Commands/ExtractEGO_MeatLantern_Armor</armorIconPath>
         <amountMaxArmor>2</amountMaxArmor>
-        <armorExtractedNeed>100</armorExtractedNeed>
+        <armorExtractedNeed>50</armorExtractedNeed>
         <unlockLevel>3</unlockLevel>
       </li>
       <li Class="CompProperties_HoldingPlatformTarget">
@@ -97,13 +99,45 @@
         </points>
       </li>
       <li Class="CompProperties_Studiable">
-        <frequencyTicks>120000</frequencyTicks>
+        <frequencyTicks>60000</frequencyTicks>
         <knowledgeCategory>Basic</knowledgeCategory>
         <anomalyKnowledge>3</anomalyKnowledge>
         <minMonolithLevelForStudy>1</minMonolithLevelForStudy>
         <requiresHoldingPlatform>true</requiresHoldingPlatform>
       </li>
+      <li Class="LCAnomalyLibrary.Comp.LC_CompProperties_StudyUnlocks">
+        <studyNotes>
+          <li>
+            <threshold>3</threshold>
+            <label>观察等级：I</label>
+            <text>肉食提灯（O-04-84）是一只毛绒绒的白色生物，它有着两颗小小的黑眼睛。\n肉食提灯一直待在收容单元的地板下，平时只露出眼睛和一颗散发着荧光的物体，类似安康鱼的灯笼饵。\n工作成功率 +6%</text>
+          </li>
+          <li>
+            <threshold>5</threshold>
+            <label>观察等级：II</label>
+            <text>当工作结果为差时，“肉食提灯”的逆卡巴拉计数器会立刻减少。\nE.G.O饰品已解锁。</text>
+          </li>
+          <li>
+            <threshold>10</threshold>
+            <label>观察等级：III</label>
+            <text>如果工作时间少于40秒，“肉食提灯”的逆卡巴拉计数器会立刻减少。\n工作成功率 +6%\nE.G.O武器与护甲已解锁。</text>
+          </li>
+          <li>
+            <threshold>12</threshold>
+            <label>观察等级：IV</label>
+            <text>突破收容后，所有员工与设备都无法感知到“肉食提灯”。因此主管必须亲自找到该异想体并下令镇压。</text>
+          </li>
+          <li>
+            <threshold>15</threshold>
+            <label>观察等级：V</label>
+            <text>肉食提灯会对近身攻击的员工造成极大的威胁，但任何远程武器都能有效的处理肉食提灯。</text>
+          </li>
+        </studyNotes>
+      </li>
     </comps>
+    <inspectorTabs>
+      <li>ITab_StudyNotes</li>
+    </inspectorTabs>
   </ThingDef>
 
   <!--陆生鮟鱇 收容形态-->
@@ -117,40 +151,6 @@
       <thinkTreeMain>MeatLanternContained</thinkTreeMain>
       <thinkTreeConstant>MeatLanternConstant</thinkTreeConstant>
     </race>
-    <comps>
-      <li Class="CompProperties_StudyUnlocks">
-        <studyNotes>
-          <li>
-            <threshold>1</threshold>
-            <label>观察等级：I</label>
-            <text>肉食提灯（O-04-84）是一只毛绒绒的白色生物，它有着两颗小小的黑眼睛。\n肉食提灯一直待在收容单元的地板下，平时只露出眼睛和一颗散发着荧光的物体，类似安康鱼的灯笼饵。\n工作成功率 +6%</text>
-          </li>
-          <li>
-            <threshold>3</threshold>
-            <label>观察等级：II</label>
-            <text>当工作结果为差时，“肉食提灯”的逆卡巴拉计数器会立刻减少。\nE.G.O饰品已解锁。</text>
-          </li>
-          <li>
-            <threshold>5</threshold>
-            <label>观察等级：III</label>
-            <text>如果工作时间少于40秒，“肉食提灯”的逆卡巴拉计数器会立刻减少。\n工作成功率 +6%\nE.G.O武器与护甲已解锁。</text>
-          </li>
-          <li>
-            <threshold>7</threshold>
-            <label>观察等级：IV</label>
-            <text>突破收容后，所有员工与设备都无法感知到“肉食提灯”。因此主管必须亲自找到该异想体并下令镇压。</text>
-          </li>
-          <li>
-            <threshold>9</threshold>
-            <label>观察等级：V</label>
-            <text>肉食提灯会对近身攻击的员工造成极大的威胁，但任何远程武器都能有效的处理肉食提灯。</text>
-          </li>
-        </studyNotes>
-      </li>
-    </comps>
-    <inspectorTabs>
-      <li>ITab_StudyNotes</li>
-    </inspectorTabs>
   </ThingDef>
 
   <!--陆生鮟鱇 出逃形态-->

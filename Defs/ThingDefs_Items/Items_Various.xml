@@ -16,11 +16,11 @@
     <healthAffectsPrice>false</healthAffectsPrice>
     <genericMarketSellable>false</genericMarketSellable>
     <statBases>
-      <MaxHitPoints>30</MaxHitPoints>
-      <MarketValue>1000</MarketValue>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <MarketValue>0</MarketValue>
       <Mass>5</Mass>
-      <Flammability>0.2</Flammability>
-      <MinimumContainmentStrength>40</MinimumContainmentStrength> <!-- Must match MeatLantern's minimum containment strength value -->
+      <Flammability>0</Flammability>
+      <MinimumContainmentStrength>0</MinimumContainmentStrength> <!-- Must match MeatLantern's minimum containment strength value -->
     </statBases>
     <thingCategories>
       <li>LC_Entity_Egg</li>
@@ -70,11 +70,11 @@
       </li>
       <li Class="CompProperties_UseEffectDestroySelf">
         <leavings>
-          <Shard>1</Shard>
+          <PeBoxTETH>20</PeBoxTETH>
         </leavings>
       </li>
       <li Class="CompProperties_BiosignatureOwner"/>
-      <li Class="LCAnomalyLibrary.Comp.LC_CompProperties_InteractableEgg">
+      <li Class="MeatLantern.Comp.CompProperties_MeatLanternEgg">
         <compClass>MeatLantern.Comp.CompMeatLanternEgg</compClass>
         <ticksToActivate>0</ticksToActivate>
         <activateTexPath>UI/Commands/SmashMeatLanternEgg</activateTexPath>
@@ -84,6 +84,8 @@
         <guiLabelString>Choose who should do this</guiLabelString>
         <showMustBeActivatedByColonist>false</showMustBeActivatedByColonist>
         <shouldTransferBioSignature>true</shouldTransferBioSignature>
+        <shouldTransferStudyProgress>true</shouldTransferStudyProgress>
+        <shouldTransferEgoExtractAmount>true</shouldTransferEgoExtractAmount>
         <targetingParameters>
           <canTargetBuildings>false</canTargetBuildings>
           <canTargetAnimals>false</canTargetAnimals>
