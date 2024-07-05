@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <EntityCodexEntryDef>
+  <LCAnomalyLibrary.Defs.EntityCodexEntryDef>
   	<defName>MeatLantern</defName>
     <label>meat lantern</label>
     <description>Meat Lantern.</description>
@@ -16,6 +16,6 @@
       <li>ExtractMeatLantern</li>
     </discoveredResearchProjects>
     <orderInCategory>800</orderInCategory>
-  </EntityCodexEntryDef>
+  </LCAnomalyLibrary.Defs.EntityCodexEntryDef>
 
 </Defs>
