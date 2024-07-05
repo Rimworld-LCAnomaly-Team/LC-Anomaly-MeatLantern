@@ -38,7 +38,7 @@ namespace MeatLantern.Effect
             //传递研究进度
             if (comp.Props.shouldTransferStudyProgress)
             {
-                var studyUnlockComp = targetPawn.TryGetComp<CompStudyUnlocks>();
+                var studyUnlockComp = targetPawn.TryGetComp<Comp.CompStudyUnlocks>();
                 this.studyProgress = studyUnlockComp.Progress;
             }
 

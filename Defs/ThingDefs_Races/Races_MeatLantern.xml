@@ -105,7 +105,7 @@
         <minMonolithLevelForStudy>1</minMonolithLevelForStudy>
         <requiresHoldingPlatform>true</requiresHoldingPlatform>
       </li>
-      <li Class="LCAnomalyLibrary.Comp.LC_CompProperties_StudyUnlocks">
+      <li Class="MeatLantern.Comp.CompProperties_StudyUnlocks">
         <studyNotes>
           <li>
             <threshold>3</threshold>
