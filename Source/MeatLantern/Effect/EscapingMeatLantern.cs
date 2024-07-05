@@ -26,22 +26,6 @@ namespace MeatLantern.Effect
             //传递生物特征
             bioSignature = comp.biosignature;
 
-            //传递EGO已提取数量
-            if(comp.Props.shouldTransferEgoExtractAmount)
-            {
-
-                var egoComp = targetPawn.TryGetComp<LC_CompEgoExtractable>();
-                this.curEgoWeaponExtractAmount = egoComp.CurAmountWeapon;
-                this.curEgoArmorExtractAmount = egoComp.CurAmountArmor;
-            }
-
-            //传递研究进度
-            if (comp.Props.shouldTransferStudyProgress)
-            {
-                var studyUnlockComp = targetPawn.TryGetComp<Comp.CompStudyUnlocks>();
-                this.studyProgress = studyUnlockComp.Progress;
-            }
-
             //销毁未出逃提灯
             targetPawn.Destroy();
 
@@ -77,23 +61,6 @@ namespace MeatLantern.Effect
             {
                 //传递生物特征
                 compMeatLantern.biosignature = bioSignature;
-
-                //传递EGO已提取数量
-                if (compMeatLantern.Props.shouldTransferEgoExtractAmount)
-                {
-                    var egoComp = pawn.TryGetComp<LC_CompEgoExtractable>();
-                    egoComp.CurAmountWeapon = this.curEgoWeaponExtractAmount;
-                    egoComp.CurAmountArmor = this.curEgoArmorExtractAmount;
-                }
-
-                //传递研究进度
-                if (compMeatLantern.Props.shouldTransferStudyProgress)
-                {
-                    var studyUnlockComp = pawn.TryGetComp<LC_CompStudyUnlocks>();
-                    studyUnlockComp.TransferStudyProgress(this.studyProgress);
-
-                    Log.Warning(studyUnlockComp.Progress.ToString());
-                }
             }
 
             //销毁自己

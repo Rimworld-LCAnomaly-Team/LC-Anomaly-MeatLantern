@@ -70,7 +70,7 @@
       </li>
       <li Class="CompProperties_UseEffectDestroySelf">
         <leavings>
-          <PeBoxTETH>20</PeBoxTETH>
+          <EnkephalinBox>20</EnkephalinBox>
         </leavings>
       </li>
       <li Class="CompProperties_BiosignatureOwner"/>
@@ -84,8 +84,6 @@
         <guiLabelString>Choose who should do this</guiLabelString>
         <showMustBeActivatedByColonist>false</showMustBeActivatedByColonist>
         <shouldTransferBioSignature>true</shouldTransferBioSignature>
-        <shouldTransferStudyProgress>true</shouldTransferStudyProgress>
-        <shouldTransferEgoExtractAmount>true</shouldTransferEgoExtractAmount>
         <targetingParameters>
           <canTargetBuildings>false</canTargetBuildings>
           <canTargetAnimals>false</canTargetAnimals>
