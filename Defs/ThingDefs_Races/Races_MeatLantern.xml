@@ -99,18 +99,18 @@
       <thinkTreeConstant>MeatLanternConstant</thinkTreeConstant>
     </race>
     <comps>
-      <li Class="LCAnomalyLibrary.Comp.LC_CompProperties_PeBoxProduce">
+      <li Class="LCAnomalyCore.Comp.CompProperties_PeBoxProduce">
         <peBoxDef>EnkephalinBox</peBoxDef>
         <amountStudyGood>10</amountStudyGood>
         <amountStudyNormal>6</amountStudyNormal> 
         <amountStudyBad>0</amountStudyBad>
       </li>
-      <li Class="LCAnomalyLibrary.Comp.LC_CompProperties_Accessoryable">
+      <li Class="LCAnomalyLibrary.Comp.CompProperties_Accessoryable">
         <accessoryDef>Accessory_MeatLantern</accessoryDef>
         <accessoryChance>0.05</accessoryChance>
         <unlockLevel>2</unlockLevel>
       </li>
-      <li Class="LCAnomalyLibrary.Comp.LC_CompProperties_EgoExtractable">
+      <li Class="LCAnomalyLibrary.Comp.CompProperties_EgoExtractable">
         <weaponExtracted>EgoWeapon_MeatLantern</weaponExtracted>
         <weaponIconPath>UI/Commands/ExtractEGO_MeatLantern_Weapon</weaponIconPath>
         <amountMaxWeapon>2</amountMaxWeapon>

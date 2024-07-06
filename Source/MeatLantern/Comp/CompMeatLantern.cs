@@ -163,7 +163,7 @@ namespace MeatLantern.Comp
                     break;
             }
             
-            PeboxComp?.CheckSpawnPeBox(studier, result);
+            PeBoxComp?.CheckSpawnPeBox(studier, result);
 
             StudyUtil.DoStudyResultEffect(studier, (Pawn)parent, result);
         }
@@ -172,7 +172,7 @@ namespace MeatLantern.Comp
         {
             base.StudyEvent_Bad(studier);
 
-            PeboxComp?.CheckSpawnPeBox(studier, LC_StudyResult.Bad);
+            PeBoxComp?.CheckSpawnPeBox(studier, LC_StudyResult.Bad);
         }
 
         /// <summary>
