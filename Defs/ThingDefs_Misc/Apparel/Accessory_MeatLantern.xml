@@ -20,8 +20,9 @@
       </layers>
       <developmentalStageFilter>Adult</developmentalStageFilter>
       <bodyPartGroups>
-        <li>Neck</li>
+        <li>Mouth</li>
       </bodyPartGroups>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/Accessory/MeatLanternAccessory</wornGraphicPath>
     </apparel>
     <equippedStatOffsets>
       <MeleeDamageFactor>0.10</MeleeDamageFactor>
