@@ -101,8 +101,8 @@
     <comps>
       <li Class="LCAnomalyCore.Comp.CompProperties_PeBoxProduce">
         <peBoxDef>EnkephalinBox</peBoxDef>
-        <amountStudyGood>10</amountStudyGood>
-        <amountStudyNormal>6</amountStudyNormal> 
+        <amountStudyGood>2</amountStudyGood>
+        <amountStudyNormal>1</amountStudyNormal> 
         <amountStudyBad>0</amountStudyBad>
       </li>
       <li Class="LCAnomalyLibrary.Comp.CompProperties_Accessoryable">
@@ -114,11 +114,11 @@
         <weaponExtracted>EgoWeapon_MeatLantern</weaponExtracted>
         <weaponIconPath>UI/Commands/ExtractEGO_MeatLantern_Weapon</weaponIconPath>
         <amountMaxWeapon>2</amountMaxWeapon>
-        <weaponExtractedNeed>100</weaponExtractedNeed>
+        <weaponExtractedNeed>25</weaponExtractedNeed>
         <armorExtracted>Apparel_MeatLanternSuit</armorExtracted>
         <armorIconPath>UI/Commands/ExtractEGO_MeatLantern_Armor</armorIconPath>
         <amountMaxArmor>2</amountMaxArmor>
-        <armorExtractedNeed>50</armorExtractedNeed>
+        <armorExtractedNeed>25</armorExtractedNeed>
         <unlockLevel>3</unlockLevel>
       </li>
       <li Class="MeatLantern.Comp.CompProperties_StudyUnlocks">
