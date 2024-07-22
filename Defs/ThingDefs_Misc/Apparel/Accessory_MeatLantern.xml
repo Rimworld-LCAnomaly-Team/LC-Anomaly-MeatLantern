@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="LC_Apparel_AccessoryBase">
+  <ThingDef Name="Accessory_MeatLantern" ParentName="LC_Apparel_AccessoryBase">
     <defName>Accessory_MeatLantern</defName>
     <label>Accessory_MeatLantern</label>
     <description>.</description>
