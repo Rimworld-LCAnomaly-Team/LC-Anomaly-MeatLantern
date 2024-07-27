@@ -20,7 +20,8 @@
       </layers>
       <developmentalStageFilter>Adult</developmentalStageFilter>
       <bodyPartGroups>
-        <li>Mouth</li>
+        <!-- <li>Mouth</li> -->
+        <li>FullHead</li>
       </bodyPartGroups>
       <wornGraphicPath>Things/Pawn/Humanlike/Apparel/Accessory/MeatLanternAccessory</wornGraphicPath>
     </apparel>
