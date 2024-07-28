@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <ThingDef ParentName="BasePawn" Name="BaseMeatLantern" Abstract="True">
-    <hiddenWhileUndiscovered>true</hiddenWhileUndiscovered>
+  <ThingDef ParentName="LC_EntityBase" Name="BaseMeatLantern" Abstract="True">
     <statBases>
       <MoveSpeed>0</MoveSpeed>
       <Flammability>0</Flammability>
@@ -12,10 +11,6 @@
       <StaggerDurationFactor>0</StaggerDurationFactor>
       <ToxicResistance>1</ToxicResistance>
     </statBases>
-    <tradeability>None</tradeability>
-    <hideStats>true</hideStats>
-    <onlyShowInspectString>true</onlyShowInspectString>
-    <hideMainDesc>true</hideMainDesc>
     <race>
       <body>MeatLantern</body>
       <baseBodySize>1</baseBodySize>
@@ -39,7 +34,6 @@
       </lifeStageAges>
       <hediffGiverSets><li>AnomalyEntity</li></hediffGiverSets>
     </race>
-
     <comps>
       <li Class="MeatLantern.Comp.CompProperties_MeatLantern">
         <qliphothCountMax>1</qliphothCountMax>
@@ -54,26 +48,6 @@
         <lookForTargetOnEscape>false</lookForTargetOnEscape>
         <hasAnimation>false</hasAnimation>
       </li>
-      <li Class="CompProperties_AttachPoints">
-        <points>
-          <li>
-            <offset>(-.35, 0, .35)</offset>
-            <type>PlatformRestraint0</type>
-          </li>
-          <li>
-            <offset>(.35, 0, .35)</offset>
-            <type>PlatformRestraint1</type>
-          </li>
-          <li>
-            <offset>(.2, 0, -.71)</offset>
-            <type>PlatformRestraint2</type>
-          </li>
-          <li>
-            <offset>(-.2, 0, -.71)</offset>
-            <type>PlatformRestraint3</type>
-          </li>
-        </points>
-      </li>
       <li Class="CompProperties_Studiable">
         <frequencyTicks>60000</frequencyTicks>
         <knowledgeCategory>Basic</knowledgeCategory>
@@ -82,9 +56,6 @@
         <requiresHoldingPlatform>true</requiresHoldingPlatform>
       </li>
     </comps>
-    <inspectorTabs>
-      <li>ITab_StudyNotes</li>
-    </inspectorTabs>
   </ThingDef>
 
   <!--陆生鮟鱇 收容形态-->

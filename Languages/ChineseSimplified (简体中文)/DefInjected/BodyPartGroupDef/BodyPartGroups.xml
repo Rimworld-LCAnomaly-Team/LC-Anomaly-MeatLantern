@@ -1,9 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
   
-  <!-- EN: left fin -->
   <TopLantern.label>顶部提灯</TopLantern.label>
-  <!-- EN: fin -->
   <TopLantern.labelShort>提灯</TopLantern.labelShort>
   
 </LanguageData>
