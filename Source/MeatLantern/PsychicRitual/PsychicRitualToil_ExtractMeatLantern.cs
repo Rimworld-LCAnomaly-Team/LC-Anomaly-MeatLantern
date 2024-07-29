@@ -1,4 +1,6 @@
-﻿using RimWorld;
+﻿using MeatLantern.Things;
+using RimWorld;
+using System.Linq;
 using Verse;
 using Verse.AI.Group;
 using Verse.Sound;
@@ -23,6 +25,31 @@ namespace MeatLantern.PsychicRitual
             Pawn pawn = psychicRitual.assignments.FirstAssignedPawn(invokerRole);
             if (pawn != null)
             {
+                foreach (var thing in pawn.MapHeld.listerThings.AllThings)
+                {
+                    //Log.Warning(thing.def.defName);
+                    //检查地图上是否存在肉食提灯蛋
+                    if (thing.def == Def.ThingDefOf.MeatLanternEgg)
+                    {
+                        Failed();
+                        return;
+                    }
+
+                    //检查地图收容平台内是否存在肉食提灯
+                    if (thing is LCAnomalyCore.Building.Building_HoldingPlatform platform && LCAnomalyLibrary.Util.Types.CheckIfLCEntity(platform.HeldPawn))
+                    {
+                        Failed();
+                        return;
+                    }
+
+                    //检查地图内是否有野生的肉食提灯
+                    if (thing is LC_MeatLanternPawn)
+                    {
+                        Failed();
+                        return;
+                    }
+                }
+
                 ApplyOutcome(psychicRitual, pawn);
             }
         }
@@ -50,6 +77,11 @@ namespace MeatLantern.PsychicRitual
         {
             base.ExposeData();
             Scribe_Defs.Look(ref invokerRole, "invokerRole");
+        }
+
+        protected void Failed()
+        {
+            Log.Warning("检测到地图内有重复的肉食提灯对象/蛋，仪式取消");
         }
     }
 }

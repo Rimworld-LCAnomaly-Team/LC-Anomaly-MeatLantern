@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <ThingDef ParentName="LC_EntityBase" Name="BaseMeatLantern" Abstract="True">
+    <thingClass>MeatLantern.Things.LC_MeatLanternPawn</thingClass>
     <statBases>
       <MoveSpeed>0</MoveSpeed>
       <Flammability>0</Flammability>

@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MeatLantern</RootNamespace>
     <AssemblyName>MeatLantern</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -37,6 +37,10 @@
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LCAnomalyCore">
+      <HintPath>..\..\..\LC Anomaly Core\Assemblies\LCAnomalyCore.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="LCAnomalyLibrary">
@@ -97,6 +101,7 @@
     <Compile Include="Job\MeatLanternState.cs" />
     <Compile Include="Setting\Setting_MeatLantern_Main.cs" />
     <Compile Include="Setting\Setting_MeatLantern.cs" />
+    <Compile Include="Things\LC_MeatLanternPawn.cs" />
     <Compile Include="Utility\MeatLanternUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PsychicRitual\PsychicRitualDef_ExtractMeatLantern.cs" />
