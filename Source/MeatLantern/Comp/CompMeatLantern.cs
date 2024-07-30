@@ -64,17 +64,6 @@ namespace MeatLantern.Comp
             CheckIsDiscovered();
         }
 
-        /// <summary>
-        /// 被研究后执行的操作
-        /// </summary>
-        public override void Notify_Studied(Pawn studier)
-        {
-            if (studier == null)
-                return;
-
-            CheckIfStudySuccess(studier);
-        }
-
         #endregion 触发事件
 
         #region 行为逻辑
@@ -125,12 +114,30 @@ namespace MeatLantern.Comp
 
         #region 研究与图鉴
 
-        protected override LC_StudyResult CheckFinalStudyQuality(Pawn studier)
+        protected override LC_StudyResult CheckFinalStudyQuality(Pawn studier, EAnomalyWorkType workType)
         {
             //每级智力提供5%成功率，10级智力提供50%成功率
             float successRate_Intellectual = studier.skills.GetSkill(SkillDefOf.Intellectual).Level * 0.05f;
             //叠加基础成功率，此处是50%，叠加完应是100%
             float finalSuccessRate = successRate_Intellectual + Props.studySucessRateBase;
+
+            //本能和沟通+10%成功率，洞察+20%成功率，压迫-10%成功率
+            switch (workType)
+            {
+                case EAnomalyWorkType.Instinct:
+                    finalSuccessRate += 0.1f;
+                    break;
+                case EAnomalyWorkType.Insight:
+                    finalSuccessRate += 0.2f;
+                    break;
+                case EAnomalyWorkType.Attachment:
+                    finalSuccessRate += 0.1f;
+                    break;
+                case EAnomalyWorkType.Repression:
+                    finalSuccessRate -= 0.1f;
+                    break;
+            }
+
             //成功率不能超过90%
             if (finalSuccessRate >= 1f)
                 finalSuccessRate = 0.9f;
@@ -142,36 +149,11 @@ namespace MeatLantern.Comp
         {
             if (studier.skills.GetSkill(SkillDefOf.Intellectual).Level < 4)
             {
-                Log.Message($"工作：{studier.Name}的技能{SkillDefOf.Intellectual.defName.Translate()}等级不足4，工作固定无法成功");
+                Log.Message($"工作：{studier.Name}的技能{SkillDefOf.Intellectual.label.Translate()}等级不足4，工作固定无法成功");
                 return false;
             }
 
             return true;
-        }
-
-        protected override void StudyEvent_NotBad(Pawn studier, LC_StudyResult result)
-        {
-            switch (result)
-            {
-                case LC_StudyResult.Good:
-                    QliphothCountCurrent++;
-                    AccessoryableComp?.CheckGiveAccessory(studier);
-                    break;
-
-                case LC_StudyResult.Normal:
-                    break;
-            }
-            
-            PeBoxComp?.CheckSpawnPeBox(studier, result);
-
-            StudyUtil.DoStudyResultEffect(studier, (Pawn)parent, result);
-        }
-
-        protected override void StudyEvent_Bad(Pawn studier)
-        {
-            base.StudyEvent_Bad(studier);
-
-            PeBoxComp?.CheckSpawnPeBox(studier, LC_StudyResult.Bad);
         }
 
         /// <summary>
@@ -203,14 +185,6 @@ namespace MeatLantern.Comp
             }
 
             return taggedString;
-        }
-
-        public override IEnumerable<Gizmo> CompGetGizmosExtra()
-        {
-            foreach (Gizmo gizmo in base.CompGetGizmosExtra())
-            {
-                yield return gizmo;
-            }
         }
 
         #endregion UI
