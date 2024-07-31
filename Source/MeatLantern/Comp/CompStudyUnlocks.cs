@@ -1,5 +1,4 @@
 ﻿using LCAnomalyLibrary.Comp;
-using Verse;
 
 namespace MeatLantern.Comp
 {

@@ -1,5 +1,4 @@
-﻿using LCAnomalyLibrary.Comp;
-using LCAnomalyLibrary.Misc;
+﻿using LCAnomalyLibrary.Misc;
 using MeatLantern.Comp;
 using RimWorld;
 using Verse;

@@ -90,7 +90,7 @@ namespace MeatLantern.Comp
             meatLanternState = state;
             ((Pawn)parent).jobs.EndCurrentJob(JobCondition.InterruptForced);
         }
-            
+
         /// <summary>
         /// 判断是否应该在生成时改变敌对情况（是逃跑状态则派系变空，否则变实体阵营）
         /// </summary>
@@ -100,7 +100,7 @@ namespace MeatLantern.Comp
 
             if (def == Def.PawnKindDefOf.MeatLanternEscaped)
             {
-                if(parent.Faction != null)
+                if (parent.Faction != null)
                     parent.SetFaction(null);
             }
             else if (def == Def.PawnKindDefOf.MeatLanternContained)
@@ -127,12 +127,15 @@ namespace MeatLantern.Comp
                 case EAnomalyWorkType.Instinct:
                     finalSuccessRate += 0.1f;
                     break;
+
                 case EAnomalyWorkType.Insight:
                     finalSuccessRate += 0.2f;
                     break;
+
                 case EAnomalyWorkType.Attachment:
                     finalSuccessRate += 0.1f;
                     break;
+
                 case EAnomalyWorkType.Repression:
                     finalSuccessRate -= 0.1f;
                     break;

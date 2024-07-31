@@ -1,6 +1,5 @@
 ﻿using MeatLantern.Things;
 using RimWorld;
-using System.Linq;
 using Verse;
 using Verse.AI.Group;
 using Verse.Sound;
@@ -9,7 +8,6 @@ namespace MeatLantern.PsychicRitual
 {
     public class PsychicRitualToil_ExtractMeatLantern : PsychicRitualToil
     {
-
         private PsychicRitualRoleDef invokerRole;
 
         protected PsychicRitualToil_ExtractMeatLantern()

@@ -16,9 +16,9 @@ namespace MeatLantern.Utility
 
         public static readonly FloatRange SearchForTargetCooldownRangeDays = new(1f, 2f);
 
-        private readonly static HashSet<Pawn> tmpTargets = [];
+        private static readonly HashSet<Pawn> tmpTargets = [];
 
-        #endregion
+        #endregion 字段
 
         #region 方法
 
@@ -130,7 +130,7 @@ namespace MeatLantern.Utility
         /// </summary>
         /// <param name="pawn">单位</param>
         /// <param name="map">地图</param>
-        public static void OnMeatLanternDeath(Pawn pawn,Map map)
+        public static void OnMeatLanternDeath(Pawn pawn, Map map)
         {
             Find.LetterStack.ReceiveLetter("LetterLabelMeatLanternKilled".Translate()
                 , "LetterMeatLanternKilled".Translate()
@@ -182,7 +182,7 @@ namespace MeatLantern.Utility
             }
         }
 
-        #endregion
+        #endregion 肉食提灯
 
         #region EGO
 
@@ -260,8 +260,8 @@ namespace MeatLantern.Utility
             }
         }
 
-        #endregion
+        #endregion EGO
 
-        #endregion
+        #endregion 方法
     }
 }

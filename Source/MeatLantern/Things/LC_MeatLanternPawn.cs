@@ -6,7 +6,6 @@ namespace MeatLantern.Things
     {
         public LC_MeatLanternPawn()
         {
-
         }
     }
 }
