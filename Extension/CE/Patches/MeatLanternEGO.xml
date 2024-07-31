@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!-- ========== Apparel ========== -->
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/ThingDef[defName="Apparel_MeatLanternSuit"]</xpath>
+        <value>
+            <li Class="CombatExtended.PartialArmorExt">
+                <stats>
+                    <li>
+                        <ArmorRating_Sharp>8000</ArmorRating_Sharp>
+                        <parts>
+                            <li>Torso</li>
+                            <li>Legs</li>
+                            <li>Arms</li>
+                            <li>Neck</li>
+                            <li>Shoulders</li>
+                            <li>Feet</li>
+                            <li>Hands</li>
+                        </parts>
+                    </li>
+                    <li>
+                        <ArmorRating_Blunt>8000</ArmorRating_Blunt>
+                        <parts>
+                            <li>Torso</li>
+                            <li>Legs</li>
+                            <li>Arms</li>
+                            <li>Neck</li>
+                            <li>Shoulders</li>
+                            <li>Feet</li>
+                            <li>Hands</li>
+                        </parts>
+                    </li>
+                </stats>
+            </li>
+        </value>
+    </Operation>
+
+    <!-- ========== Club ========== -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="EgoWeapon_MeatLantern"]/tools</xpath>
+		<value>
+			<tools>
+				<li Class="CombatExtended.ToolCE">
+					<label>handle</label>
+					<capacities>
+						<li>Poke</li>
+					</capacities>
+					<power>4</power>
+					<chanceFactor>0.33</chanceFactor>
+					<cooldownTime>1.78</cooldownTime>
+					<armorPenetrationBlunt>1</armorPenetrationBlunt>
+					<linkedBodyPartsGroup>Handle</linkedBodyPartsGroup>
+				</li>
+				<li Class="CombatExtended.ToolCE">
+					<label>head</label>
+					<capacities>
+						<li>Blunt</li>
+					</capacities>
+					<power>11</power>
+					<cooldownTime>3.48</cooldownTime>
+					<armorPenetrationBlunt>4</armorPenetrationBlunt>
+					<linkedBodyPartsGroup>Head</linkedBodyPartsGroup>
+				</li>
+			</tools>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="EgoWeapon_MeatLantern"]/statBases</xpath>
+		<value>
+			<Bulk>4</Bulk>
+			<MeleeCounterParryBonus>0.15</MeleeCounterParryBonus>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="EgoWeapon_MeatLantern"]</xpath>
+		<value>
+			<equippedStatOffsets>
+				<MeleeCritChance>0.67</MeleeCritChance>
+				<MeleeParryChance>0.15</MeleeParryChance>
+				<MeleeDodgeChance>0.2</MeleeDodgeChance>
+			</equippedStatOffsets>
+		</value>
+	</Operation>
+</Patch>
