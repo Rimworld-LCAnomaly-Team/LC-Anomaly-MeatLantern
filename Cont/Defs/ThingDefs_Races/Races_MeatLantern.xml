@@ -49,8 +49,9 @@
         <lookForTargetOnEscape>false</lookForTargetOnEscape>
         <hasAnimation>false</hasAnimation>
       </li>
-      <li Class="CompProperties_Studiable">
+      <li Class="LCAnomalyLibrary.Comp.LC_CompProperties_Studiable">
         <frequencyTicks>60000</frequencyTicks>
+        <studyTimesPeriod>1</studyTimesPeriod>
         <knowledgeCategory>Basic</knowledgeCategory>
         <anomalyKnowledge>3</anomalyKnowledge>
         <minMonolithLevelForStudy>1</minMonolithLevelForStudy>
