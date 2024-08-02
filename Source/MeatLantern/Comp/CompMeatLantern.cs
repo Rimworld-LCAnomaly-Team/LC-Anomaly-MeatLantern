@@ -40,6 +40,17 @@ namespace MeatLantern.Comp
             CheckSpawnHostile();
         }
 
+        //public override void CompTickRare()
+        //{
+        //    base.CompTickRare();
+
+        //    //转移的时候，若被放下就逃脱
+        //    if (((Pawn)parent).kindDef == Def.PawnKindDefOf.MeatLanternContained)
+        //    {
+        //        Notify_Escaped();
+        //    }
+        //}
+
         #endregion 生命周期
 
         #region 触发事件
