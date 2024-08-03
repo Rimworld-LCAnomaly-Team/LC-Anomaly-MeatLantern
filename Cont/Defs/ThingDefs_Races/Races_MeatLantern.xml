@@ -74,9 +74,9 @@
     <comps>
       <li Class="LCAnomalyCore.Comp.CompProperties_PeBoxProduce">
         <peBoxDef>EnkephalinBox</peBoxDef>
-        <amountStudyGood>2</amountStudyGood>
-        <amountStudyNormal>1</amountStudyNormal> 
-        <amountStudyBad>0</amountStudyBad>
+        <amountStudyGood>14</amountStudyGood>
+        <amountStudyNormal>7</amountStudyNormal> 
+        <amountStudyBad>2</amountStudyBad>
       </li>
       <li Class="LCAnomalyLibrary.Comp.CompProperties_Accessoryable">
         <accessoryDef>Accessory_MeatLantern</accessoryDef>
