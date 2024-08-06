@@ -27,7 +27,7 @@ namespace MeatLantern.Effect
         {
             if (!hasInited)
             {
-                Log.Warning($"特效：在未初始化时尝试生成特效对象{Def.ThingDefOf.DyingMeatLantern.label.Translate()}，对象即将被销毁以避免错误。");
+                //Log.Warning($"特效：在未初始化时尝试生成特效对象{Def.ThingDefOf.DyingMeatLantern.label.Translate()}，对象即将被销毁以避免错误。");
                 Destroy();
                 return;
             }

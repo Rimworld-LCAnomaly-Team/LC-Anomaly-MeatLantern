@@ -163,7 +163,7 @@ namespace MeatLantern.Comp
         {
             if (studier.skills.GetSkill(SkillDefOf.Intellectual).Level < 4)
             {
-                Log.Message($"工作：{studier.Name}的技能{SkillDefOf.Intellectual.label.Translate()}等级不足4，工作固定无法成功");
+                //Log.Message($"工作：{studier.Name}的技能{SkillDefOf.Intellectual.label.Translate()}等级不足4，工作固定无法成功");
                 return false;
             }
 

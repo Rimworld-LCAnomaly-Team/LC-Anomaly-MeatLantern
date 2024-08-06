@@ -60,7 +60,7 @@ namespace MeatLantern.PsychicRitual
 
             if (item == null)
             {
-                Log.Warning("仪式：肉食提灯的蛋不存在");
+                //Log.Warning("仪式：肉食提灯的蛋不存在");
                 return;
             }
 
@@ -79,7 +79,7 @@ namespace MeatLantern.PsychicRitual
 
         protected void Failed()
         {
-            Log.Warning("检测到地图内有重复的肉食提灯对象/蛋，仪式取消");
+            //Log.Warning("检测到地图内有重复的肉食提灯对象/蛋，仪式取消");
         }
     }
 }

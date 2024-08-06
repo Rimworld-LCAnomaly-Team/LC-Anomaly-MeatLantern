@@ -21,7 +21,7 @@ namespace MeatLantern.Job
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            Log.Message($"肉食提灯：进入攻击行为树");
+            //Log.Message($"肉食提灯：进入攻击行为树");
 
             //如果这些条件满足就执行失败
             this.FailOnDespawnedOrNull(TargetIndex.A);
@@ -33,7 +33,7 @@ namespace MeatLantern.Job
 
                 if (victims != null && victims.Count > 0)
                 {
-                    Log.Message($"肉食提灯：准备攻击，受害者数量为：{victims.Count}");
+                    //Log.Message($"肉食提灯：准备攻击，受害者数量为：{victims.Count}");
                     Comp.Eat(victims);
                 }
             }

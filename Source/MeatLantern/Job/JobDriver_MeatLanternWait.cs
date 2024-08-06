@@ -21,7 +21,7 @@ namespace MeatLantern.Job
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            Log.Message($"肉食提灯：进入等待行为树");
+            //Log.Message($"肉食提灯：进入等待行为树");
 
             Toil toil = ToilMaker.MakeToil("MakeNewToils");
             toil.tickAction = (Action)Delegate.Combine(toil.tickAction, (Action)delegate
