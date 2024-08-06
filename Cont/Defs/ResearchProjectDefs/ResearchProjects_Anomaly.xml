@@ -3,8 +3,8 @@
 
   <ResearchProjectDef>
     <defName>ExtractMeatLantern</defName>
-    <label>extract meatlantern</label>
-    <description>extract meatlantern from well.</description>
+    <label>Extract Meat Lantern</label>
+    <description>Extract Meat Lantern from the Well.</description>
     <tab>LCAnomaly</tab>
     <knowledgeCost>20</knowledgeCost>
     <knowledgeCategory>Basic</knowledgeCategory>

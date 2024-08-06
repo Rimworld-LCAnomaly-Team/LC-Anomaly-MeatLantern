@@ -3,7 +3,7 @@
 
   <MeatLantern.PsychicRitual.PsychicRitualDef_ExtractMeatLantern>
     <defName>ExtractMeatLantern</defName>
-    <label>extract meatlantern</label>
+    <label>Extract Meat Lantern</label>
     <description>extract meatlantern from well</description>
     <researchPrerequisite>ExtractMeatLantern</researchPrerequisite>
     <outcomeDescription>outcome</outcomeDescription>

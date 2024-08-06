@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <Setting_MeatLantern_Label>LCAnomaly MeatLantern</Setting_MeatLantern_Label>
+
+  <LC_MeatLantern_ShowVampireText>Show Vampire Amount Text Effect</LC_MeatLantern_ShowVampireText>
+  <LC_MeatLantern_ShowVampireHealPartText>Show Vampire Heal Body Text Effect</LC_MeatLantern_ShowVampireHealPartText>
+  <LC_MeatLantern_ShowVampireHealVFX>Show Vampire Heal Mote Effect</LC_MeatLantern_ShowVampireHealVFX>
+
+  <LC_MeatLantern_VampireAmountThrowText>Vampire: </LC_MeatLantern_VampireAmountThrowText>
+  <LC_MeatLantern_VampireBodypartThrowText>, HealBody: </LC_MeatLantern_VampireBodypartThrowText>
+
+  <SuckAmount>Suck Amount: </SuckAmount>
+  <StunTime>Stun Time: </StunTime>
+
+  <LetterLabelMeatLanternKilled>MeatLantern Killed</LetterLabelMeatLanternKilled>
+  <LetterMeatLanternKilled>MeatLantern has been killed!</LetterMeatLanternKilled>
+
+  <ExtractMeatLanternCompleteLabel>Extract MeatLantern</ExtractMeatLanternCompleteLabel>
+  <ExtractMeatLanternCompleteText>.</ExtractMeatLanternCompleteText>
+
+</LanguageData>

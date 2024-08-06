@@ -15,12 +15,7 @@
   <LetterLabelMeatLanternKilled>击杀肉食提灯</LetterLabelMeatLanternKilled>
   <LetterMeatLanternKilled>肉食提灯已被击杀！\n肉食提灯的躯体已经消散，只留下了异想体蛋。可收集并调查它的蛋，或者直接将其摧毁。</LetterMeatLanternKilled>
 
-  <LetterMeatLanternSupressLabel>镇压肉食提灯</LetterMeatLanternSupressLabel>
-  <LetterMeatLanternSupress>肉食提灯已经完全显形，可以被选中攻击。</LetterMeatLanternSupress>
-
   <ExtractMeatLanternCompleteLabel>提取肉食提灯</ExtractMeatLanternCompleteLabel>
   <ExtractMeatLanternCompleteText>。</ExtractMeatLanternCompleteText>
-
-  <MeatLanternStudyUnlockName1Text>肉食提灯</MeatLanternStudyUnlockName1Text>
-
+  
 </LanguageData>

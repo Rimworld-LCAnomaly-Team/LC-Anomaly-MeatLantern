@@ -7,4 +7,16 @@
   <MeatLanternEscaped.label>肉食提灯</MeatLanternEscaped.label>
   <MeatLanternEscaped.description>它是一只毛绒绒的白色生物，它有着两颗小小的黑眼睛。它会一直待在收容单元的地板下，平时只露出眼睛和一颗散发着荧光的物体，类似安康鱼的灯笼饵。</MeatLanternEscaped.description>
   
+  <MeatLanternContained.comps.CompStudyUnlocks.studyNotes.0.label>观察等级：I</MeatLanternContained.comps.CompStudyUnlocks.studyNotes.0.label>
+  <MeatLanternContained.comps.CompStudyUnlocks.studyNotes.0.text>当工作结果为差时，“肉食提灯”的逆卡巴拉计数器会立刻减少。\n工作成功率 +5%</MeatLanternContained.comps.CompStudyUnlocks.studyNotes.0.text>
+  
+  <MeatLanternContained.comps.CompStudyUnlocks.studyNotes.1.label>观察等级：II</MeatLanternContained.comps.CompStudyUnlocks.studyNotes.1.label>
+  <MeatLanternContained.comps.CompStudyUnlocks.studyNotes.1.text>如果工作时间少于40秒，“肉食提灯”的逆卡巴拉计数器会立刻减少（WIP）。\n工作速度 +5（WIP）\nE.G.O饰品已解锁。</MeatLanternContained.comps.CompStudyUnlocks.studyNotes.1.text>
+  
+  <MeatLanternContained.comps.CompStudyUnlocks.studyNotes.2.label>观察等级：III</MeatLanternContained.comps.CompStudyUnlocks.studyNotes.2.label>
+  <MeatLanternContained.comps.CompStudyUnlocks.studyNotes.2.text>突破收容后，所有员工与设备都无法感知到“肉食提灯”。因此主管必须亲自找到该异想体并下令镇压。\n工作成功率 +5%\nE.G.O武器与护甲已解锁。</MeatLanternContained.comps.CompStudyUnlocks.studyNotes.2.text>
+
+  <MeatLanternContained.comps.CompStudyUnlocks.studyNotes.3.label>观察等级：IV</MeatLanternContained.comps.CompStudyUnlocks.studyNotes.3.label>
+  <MeatLanternContained.comps.CompStudyUnlocks.studyNotes.3.text>工作速度 +5（WIP）</MeatLanternContained.comps.CompStudyUnlocks.studyNotes.3.text>
+  
 </LanguageData>

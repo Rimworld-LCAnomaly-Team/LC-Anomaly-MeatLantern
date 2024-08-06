@@ -8,7 +8,7 @@
   <MeatLanternEgg.comps.CompHoldingPlatformTarget.capturedLetterText>在{PAWN_nameDef}将肉食提灯的蛋束缚至收容平台后，里面的肉食提灯重生了。\n\n肉食提灯被镇压时肉体会消散，仅留下肉食提灯的蛋。这颗异想体蛋随时都有可能转变成其本体。</MeatLanternEgg.comps.CompHoldingPlatformTarget.capturedLetterText>
   
   <MeatLanternEgg.comps.CompUsable.useLabel>砸碎{0_label}</MeatLanternEgg.comps.CompUsable.useLabel>
-  <MeatLanternEgg.comps.CompUsable.useMessage>{PAWN_nameDef}将肉食提灯的蛋砸碎了。它消散后露出了一块暗黑超凡碎片。</MeatLanternEgg.comps.CompUsable.useMessage>
+  <MeatLanternEgg.comps.CompUsable.useMessage>{PAWN_nameDef}将肉食提灯的蛋砸碎了。它消散后露出了一些PeBox。</MeatLanternEgg.comps.CompUsable.useMessage>
   <MeatLanternEgg.comps.CompMeatLanternEgg.activateDescString>砸碎肉食提灯的蛋以防止它复活成一只新的肉食提灯。</MeatLanternEgg.comps.CompMeatLanternEgg.activateDescString>
   <MeatLanternEgg.comps.CompMeatLanternEgg.activateLabelString>砸碎...</MeatLanternEgg.comps.CompMeatLanternEgg.activateLabelString>
   <MeatLanternEgg.comps.CompMeatLanternEgg.activatingStringPending>正在砸碎肉食提灯的蛋</MeatLanternEgg.comps.CompMeatLanternEgg.activatingStringPending>

@@ -3,8 +3,8 @@
   
   <LCAnomalyLibrary.Defs.ThingDef_AnomalyEgg ParentName="ResourceBase">
     <defName>MeatLanternEgg</defName>
-    <label>meat lantern egg</label>
-    <description>meat lantern egg.</description>
+    <label>Meat Lantern Egg</label>
+    <description>.</description>
     <anomalyLevelTag>TETH</anomalyLevelTag>
     <thingClass>ThingWithComps</thingClass>
     <graphicData>
@@ -36,8 +36,8 @@
     <comps>
       <li Class="CompProperties_HoldingPlatformTarget">
         <heldPawnKind>MeatLanternContained</heldPawnKind>
-        <capturedLetterLabel>Meatlantern preformed</capturedLetterLabel>
-        <capturedLetterText>After {PAWN_nameDef} chained the revenant spine to a holding platform, the revenant re-emerged.\n\nWhen killed, a revenant's body dissolves, leaving behind only its archotechnological spine. This cage of slick iron waits for a chance to grow a new body.</capturedLetterText>
+        <capturedLetterLabel>Meat Lantern Preformed</capturedLetterLabel>
+        <capturedLetterText>.</capturedLetterText>
       </li>
       <li Class="CompProperties_AttachPoints">
         <points>
@@ -62,7 +62,7 @@
       <li Class="CompProperties_Usable">
         <useJob>SmashThing</useJob>
         <useLabel>Smash {0_label}</useLabel>
-        <useMessage>{PAWN_nameDef} smashed the meatlantern egg. It dissolved to reveal a shard of dark archotechnology.</useMessage>
+        <useMessage>{PAWN_nameDef} smashed the meat lantern egg. It dissolved to reveal some PeBox.</useMessage>
         <useDuration>300</useDuration>
       </li>
       <li Class="CompProperties_UseEffectPlaySound">
@@ -79,8 +79,8 @@
         <ticksToActivate>0</ticksToActivate>
         <activateTexPath>UI/Commands/SmashMeatLanternEgg</activateTexPath>
         <activateLabelString>Smash...</activateLabelString>
-        <activateDescString>Smash the meatlantern egg to prevent it reforming into a new meatlantern.</activateDescString>
-        <activatingStringPending>smashing meatlantern egg</activatingStringPending>
+        <activateDescString>Smash the meat lantern egg.</activateDescString>
+        <activatingStringPending>smashing meat lantern egg</activatingStringPending>
         <guiLabelString>Choose who should do this</guiLabelString>
         <showMustBeActivatedByColonist>false</showMustBeActivatedByColonist>
         <shouldTransferBioSignature>true</shouldTransferBioSignature>

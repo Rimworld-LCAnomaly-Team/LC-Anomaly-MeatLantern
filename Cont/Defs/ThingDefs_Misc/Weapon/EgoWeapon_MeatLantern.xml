@@ -3,7 +3,7 @@
 
   <ThingDef ParentName="LC_BaseMeleeWeapon_EGO_Blunt">
     <defName>EgoWeapon_MeatLantern</defName>
-    <label>E.G.O.Weapon MeatLantern</label>
+    <label>E.G.O. Weapon (Meat Lantern) </label>
     <description>.</description>
     <descriptionHyperlinks>
       <AbilityDef>Whirlwind_OmNomNom</AbilityDef>

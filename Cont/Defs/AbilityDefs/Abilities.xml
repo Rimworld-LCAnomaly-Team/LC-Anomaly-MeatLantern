@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- 嚼嚼旋风 -->
+  <!-- Whirlwind_OmNomNom -->
   <AbilityDef ParentName="AbilityTouchBase">
-  <!-- <AbilityDef Name="Whirlwind_OmNomNom"> -->
     <defName>Whirlwind_OmNomNom</defName>
     <label>Whirlwind Om-Nom-Nom!</label>
     <description>.</description>
     <iconPath>UI/WeaponSkills/MeatLantern/Whirlwind_OmNomNom</iconPath>
-    <!-- <jobDef>CastJump</jobDef> -->
     <cooldownTicksRange>300</cooldownTicksRange>
-    <!-- <category>Sanguophage</category> -->
     <displayOrder>100</displayOrder>
-    <!-- <warmupEffecter>Bloodfeed_Warmup</warmupEffecter>
-    <warmupStartSound>MeatLantern_Eat</warmupStartSound> -->
     <hostile>true</hostile>
     <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
     <verbProperties>

@@ -3,8 +3,8 @@
 
   <LCAnomalyLibrary.Defs.EntityCodexEntryDef>
   	<defName>MeatLantern</defName>
-    <label>meat lantern</label>
-    <description>Meat Lantern.</description>
+    <label>Meat Lantern</label>
+    <description>Meat Lantern (O-04-84) is a small, fluffy white mound with two round eyes at ground level of its containment room.\nIt has a glowing flower growing from its head and hanging in front of it like the lure of an anglerfish.\nThe rest of the Abnormality is buried underground.</description>
     <uiIconPath>UI/CodexEntries/MeatLantern</uiIconPath>
     <category>TETH</category>
     <discoveryType>BecameVisible</discoveryType>

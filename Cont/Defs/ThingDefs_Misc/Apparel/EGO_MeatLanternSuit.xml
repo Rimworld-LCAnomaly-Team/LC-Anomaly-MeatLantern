@@ -3,7 +3,7 @@
 
   <ThingDef Name="Apparel_MeatLanternSuit" ParentName="LC_Apparel_EGO">
     <defName>Apparel_MeatLanternSuit</defName>
-    <label>E.G.O.Suit MeatLantern</label>
+    <label>E.G.O. Suit (Meat Lantern)</label>
     <description>.</description>
     <graphicData>
       <texPath>Things/Pawn/Humanlike/Apparel/MeatLanternSuit/MeatLanternSuit</texPath>
