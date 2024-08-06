@@ -19,7 +19,7 @@
     <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Cont\Assemblies\</OutputPath>
+    <OutputPath>..\..\1.5\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>none</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -40,11 +40,11 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="LCAnomalyCore">
-      <HintPath>..\..\..\LC Anomaly Core\Cont\Assemblies\LCAnomalyCore.dll</HintPath>
+      <HintPath>..\..\..\LC Anomaly Core\1.5\Assemblies\LCAnomalyCore.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="LCAnomalyLibrary">
-      <HintPath>..\..\..\LC Anomaly Library\Assemblies\LCAnomalyLibrary.dll</HintPath>
+      <HintPath>..\..\..\LC Anomaly Library\1.5\Assemblies\LCAnomalyLibrary.dll</HintPath>
       <Private>False</Private>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
