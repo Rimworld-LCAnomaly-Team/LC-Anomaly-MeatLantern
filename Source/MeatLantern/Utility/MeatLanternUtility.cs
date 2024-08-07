@@ -173,7 +173,7 @@ namespace MeatLantern.Utility
         /// <param name="selfPawn">加害者</param>
         public static void DoDamageByEat(List<Pawn> victims, Pawn instigator)
         {
-            DamageInfo dinfo = new(DamageDefOf.Cut, 100, 25, -1f, instigator);
+            DamageInfo dinfo = new(DamageDefOf.Cut, 100, 0.25f, -1f, instigator);
 
             foreach (Pawn p in victims)
             {
