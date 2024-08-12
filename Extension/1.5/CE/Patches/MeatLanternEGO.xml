@@ -5,17 +5,18 @@
 	<Operation Class="PatchOperationReplace">
 		<xpath>Defs/ThingDef[defName="Apparel_MeatLanternSuit"]/statBases/ArmorRating_Sharp</xpath>
 		<value>
-			<ArmorRating_Sharp>8</ArmorRating_Sharp>
+			<ArmorRating_Sharp>12</ArmorRating_Sharp>
 		</value>
 	</Operation>
 	<Operation Class="PatchOperationReplace">
 		<xpath>Defs/ThingDef[defName="Apparel_MeatLanternSuit"]/statBases/ArmorRating_Blunt</xpath>
 		<value>
-			<ArmorRating_Blunt>12</ArmorRating_Blunt>
+			<ArmorRating_Blunt>24</ArmorRating_Blunt>
 		</value>
 	</Operation>
 
-    <!-- ========== Club ========== -->
+    <!-- ========== Weapon ========== -->
+	 
 	<Operation Class="PatchOperationReplace">
 		<xpath>Defs/ThingDef[defName="EgoWeapon_MeatLantern"]/tools</xpath>
 		<value>
@@ -25,10 +26,10 @@
 					<capacities>
 						<li>Poke</li>
 					</capacities>
-					<power>4</power>
+					<power>8</power>
 					<chanceFactor>0.33</chanceFactor>
 					<cooldownTime>1.78</cooldownTime>
-					<armorPenetrationBlunt>1</armorPenetrationBlunt>
+					<armorPenetrationBlunt>8</armorPenetrationBlunt>
 					<linkedBodyPartsGroup>Handle</linkedBodyPartsGroup>
 				</li>
 				<li Class="CombatExtended.ToolCE">
@@ -36,9 +37,9 @@
 					<capacities>
 						<li>Blunt</li>
 					</capacities>
-					<power>11</power>
+					<power>16</power>
 					<cooldownTime>3.48</cooldownTime>
-					<armorPenetrationBlunt>4</armorPenetrationBlunt>
+					<armorPenetrationBlunt>12</armorPenetrationBlunt>
 					<linkedBodyPartsGroup>Head</linkedBodyPartsGroup>
 				</li>
 			</tools>
