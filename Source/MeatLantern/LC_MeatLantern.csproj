@@ -83,7 +83,9 @@
     <Compile Include="Comp\CompProperties_AbilityWhirlwind_OmNomNom.cs" />
     <Compile Include="Comp\CompProperties_MeatLantern.cs" />
     <Compile Include="Comp\CompProperties_MeatLanternEgg.cs" />
+    <Compile Include="Comp\CompProperties_Studiable_MeatLantern.cs" />
     <Compile Include="Comp\CompProperties_StudyUnlocks.cs" />
+    <Compile Include="Comp\CompStudiable_MeatLantern.cs" />
     <Compile Include="Comp\CompStudyUnlocks.cs" />
     <Compile Include="Def\FleckDefOf.cs" />
     <Compile Include="Def\JobDefOf.cs" />

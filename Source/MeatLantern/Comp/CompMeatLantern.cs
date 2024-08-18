@@ -1,4 +1,5 @@
 ﻿using LCAnomalyLibrary.Comp;
+using LCAnomalyLibrary.Comp.Pawns;
 using LCAnomalyLibrary.Util;
 using MeatLantern.Job;
 using MeatLantern.Utility;
@@ -20,6 +21,8 @@ namespace MeatLantern.Comp
         /// </summary>
         public int nextEat = -99999;
 
+        private int tempStudyTick = 0;
+
         public new CompProperties_MeatLantern Props => (CompProperties_MeatLantern)props;
 
         #endregion 变量
@@ -39,17 +42,6 @@ namespace MeatLantern.Comp
 
             CheckSpawnHostile();
         }
-
-        //public override void CompTickRare()
-        //{
-        //    base.CompTickRare();
-
-        //    //转移的时候，若被放下就逃脱
-        //    if (((Pawn)parent).kindDef == Def.PawnKindDefOf.MeatLanternContained)
-        //    {
-        //        Notify_Escaped();
-        //    }
-        //}
 
         #endregion 生命周期
 
@@ -73,6 +65,23 @@ namespace MeatLantern.Comp
         public override void Notify_Holded()
         {
             CheckIsDiscovered();
+        }
+
+        public override void Notify_Studying(Pawn studier)
+        {
+            tempStudyTick++;
+        }
+
+        public override void Notify_Studied(Pawn studier, bool interrupted = false)
+        {
+            base.Notify_Studied(studier, interrupted);
+
+            int time = tempStudyTick / 60;
+            tempStudyTick = 0;
+
+            //如果肉食提灯研究时间少于40s，逆卡巴拉计数器会立即减少
+            if (time < 40)
+                QliphothCountCurrent--;
         }
 
         #endregion 触发事件
@@ -125,49 +134,66 @@ namespace MeatLantern.Comp
 
         #region 研究与图鉴
 
-        protected override LC_StudyResult CheckFinalStudyQuality(Pawn studier, EAnomalyWorkType workType)
+        protected override float StudySuccessRateCalculate(CompPawnStatus studier, EAnomalyWorkType workType)
         {
-            //每级智力提供5%成功率，10级智力提供50%成功率
-            float successRate_Intellectual = studier.skills.GetSkill(SkillDefOf.Intellectual).Level * 0.05f;
-            //叠加基础成功率，此处是50%，叠加完应是100%
-            float finalSuccessRate = successRate_Intellectual + Props.studySucessRateBase;
+            float baseRate = base.StudySuccessRateCalculate(studier, workType);
+            float workTypeRate = 0;
+            float finalRate = 0;
 
-            //本能和沟通+10%成功率，洞察+20%成功率，压迫-10%成功率
             switch (workType)
             {
                 case EAnomalyWorkType.Instinct:
-                    finalSuccessRate += 0.1f;
+                    //本能：I和II级45%，III级50%，别的55%
+                    switch (studier.GetPawnStatusELevel(EPawnStatus.Fortitude))
+                    {
+                        case EPawnLevel.I:
+                        case EPawnLevel.II:
+                            workTypeRate = 0.45f;
+                            break;
+                        case EPawnLevel.III:
+                            workTypeRate = 0.5f;
+                            break;
+                        default:
+                            workTypeRate = 0.55f;
+                            break;
+                    }
                     break;
-
                 case EAnomalyWorkType.Insight:
-                    finalSuccessRate += 0.2f;
+                    //洞察：60%
+                    switch (studier.GetPawnStatusELevel(EPawnStatus.Prudence))
+                    {
+                        default:
+                            workTypeRate = 0.6f;
+                            break;
+                    }
                     break;
-
                 case EAnomalyWorkType.Attachment:
-                    finalSuccessRate += 0.1f;
+                    //沟通：45%
+                    switch (studier.GetPawnStatusELevel(EPawnStatus.Temperance))
+                    {
+                        default:
+                            workTypeRate = 0.45f;
+                            break;
+                    }
                     break;
-
                 case EAnomalyWorkType.Repression:
-                    finalSuccessRate -= 0.1f;
+                    //压迫：30%
+                    switch (studier.GetPawnStatusELevel(EPawnStatus.Justice))
+                    {
+                        default:
+                            workTypeRate = 0.3f;
+                            break;
+                    }
                     break;
             }
 
-            //成功率不能超过90%
-            if (finalSuccessRate >= 1f)
-                finalSuccessRate = 0.9f;
+            finalRate = baseRate + workTypeRate;
 
-            return Rand.Chance(finalSuccessRate) ? LC_StudyResult.Good : LC_StudyResult.Normal;
-        }
+            //成功率不能超过95%
+            if (finalRate > 0.95f)
+                finalRate = 0.95f;
 
-        public override bool CheckStudierSkillRequire(Pawn studier)
-        {
-            if (studier.skills.GetSkill(SkillDefOf.Intellectual).Level < 4)
-            {
-                //Log.Message($"工作：{studier.Name}的技能{SkillDefOf.Intellectual.label.Translate()}等级不足4，工作固定无法成功");
-                return false;
-            }
-
-            return true;
+            return finalRate;
         }
 
         /// <summary>

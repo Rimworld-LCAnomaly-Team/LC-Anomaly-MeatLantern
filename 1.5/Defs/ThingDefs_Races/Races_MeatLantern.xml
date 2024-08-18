@@ -8,7 +8,7 @@
       <ComfyTemperatureMin>-100</ComfyTemperatureMin>
       <ComfyTemperatureMax>100</ComfyTemperatureMax>
       <PsychicSensitivity>0</PsychicSensitivity>
-      <MinimumContainmentStrength>40</MinimumContainmentStrength>
+      <MinimumContainmentStrength>0</MinimumContainmentStrength>
       <StaggerDurationFactor>0</StaggerDurationFactor>
       <ToxicResistance>1</ToxicResistance>
     </statBases>
@@ -49,7 +49,7 @@
         <lookForTargetOnEscape>false</lookForTargetOnEscape>
         <hasAnimation>false</hasAnimation>
       </li>
-      <li Class="LCAnomalyLibrary.Comp.LC_CompProperties_Studiable">
+      <li Class="MeatLantern.Comp.CompProperties_Studiable_MeatLantern">
         <frequencyTicks>60000</frequencyTicks>
         <studyTimesPeriod>1</studyTimesPeriod>
         <knowledgeCategory>Basic</knowledgeCategory>
@@ -74,9 +74,9 @@
     <comps>
       <li Class="LCAnomalyCore.Comp.CompProperties_PeBoxProduce">
         <peBoxDef>EnkephalinBox</peBoxDef>
-        <amountStudyGood>14</amountStudyGood>
-        <amountStudyNormal>7</amountStudyNormal> 
-        <amountStudyBad>2</amountStudyBad>
+        <amountProdueRangeNormal>7~10</amountProdueRangeNormal>
+        <amountProdueMax>14</amountProdueMax>
+        <boxTexOffsetZ>0.126</boxTexOffsetZ>
       </li>
       <li Class="LCAnomalyLibrary.Comp.CompProperties_Accessoryable">
         <accessoryDef>Accessory_MeatLantern</accessoryDef>
