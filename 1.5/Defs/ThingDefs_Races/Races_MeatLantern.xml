@@ -94,7 +94,7 @@
         <armorExtractedNeed>25</armorExtractedNeed>
         <unlockLevel>3</unlockLevel>
       </li>
-      <li Class="MeatLantern.Comp.CompProperties_StudyUnlocks">
+      <li Class="LCAnomalyLibrary.Comp.LC_CompProperties_StudyUnlocks">
         <studyNotes>
           <li>
             <threshold>3</threshold>
