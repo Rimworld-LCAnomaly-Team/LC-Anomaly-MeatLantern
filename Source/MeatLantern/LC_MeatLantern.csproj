@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0LCAnomalyLibrary">
+      <HintPath>..\..\..\LC Anomaly Core\1.5\Assemblies\0LCAnomalyLibrary.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -42,11 +46,6 @@
     <Reference Include="LCAnomalyCore">
       <HintPath>..\..\..\LC Anomaly Core\1.5\Assemblies\LCAnomalyCore.dll</HintPath>
       <Private>False</Private>
-    </Reference>
-    <Reference Include="LCAnomalyLibrary">
-      <HintPath>..\..\..\LC Anomaly Library\1.5\Assemblies\LCAnomalyLibrary.dll</HintPath>
-      <Private>False</Private>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

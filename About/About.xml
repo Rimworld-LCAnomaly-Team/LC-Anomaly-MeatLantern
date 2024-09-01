@@ -10,18 +10,12 @@
 	<url>https://github.com/DarthCY-K/LC-Anomaly-MeatLantern</url>
 	<modDependencies>
 		<li>
-			<packageId>DarthCY.LC.AnomalyLibrary</packageId>
-			<displayName>LC Anomaly Library</displayName>
-			<downloadUrl>https://github.com/DarthCY-K/LC-Anomaly-Library/releases/latest</downloadUrl>
-		</li>
-		<li>
 			<packageId>DarthCY.LC.AnomalyCore</packageId>
 			<displayName>LC Anomaly Core</displayName>
 			<downloadUrl>https://github.com/DarthCY-K/LC-Anomaly-Core/releases/latest</downloadUrl>
 		</li>
 	</modDependencies>
 	<loadAfter>
-		<li>DarthCY.LC.AnomalyLibrary</li>
 		<li>DarthCY.LC.AnomalyCore</li>
 	</loadAfter>
 </ModMetaData>
