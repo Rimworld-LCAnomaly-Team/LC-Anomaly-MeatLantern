@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   
-  <LCAnomalyLibrary.Defs.ThingDef_AnomalyEgg ParentName="ResourceBase">
+  <LCAnomalyCore.Defs.ThingDef_AnomalyEgg ParentName="ResourceBase">
     <defName>MeatLanternEgg</defName>
     <label>Meat Lantern Egg</label>
     <description>.</description>
@@ -92,6 +92,6 @@
         </targetingParameters>
       </li>
     </comps>
-  </LCAnomalyLibrary.Defs.ThingDef_AnomalyEgg>
+  </LCAnomalyCore.Defs.ThingDef_AnomalyEgg>
 
 </Defs>

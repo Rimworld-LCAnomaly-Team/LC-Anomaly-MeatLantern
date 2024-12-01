@@ -1,4 +1,4 @@
-﻿using LCAnomalyLibrary.Comp;
+﻿using LCAnomalyCore.Comp;
 using MeatLantern.Comp;
 
 namespace MeatLantern.Things

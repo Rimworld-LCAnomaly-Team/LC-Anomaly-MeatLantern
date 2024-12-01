@@ -34,7 +34,7 @@ namespace MeatLantern.PsychicRitual
                     }
 
                     //检查地图收容平台内是否存在肉食提灯
-                    if (thing is LCAnomalyCore.Building.Building_HoldingPlatform platform && LCAnomalyLibrary.Util.Types.CheckIfLCEntity(platform.HeldPawn))
+                    if (thing is LCAnomalyCore.Building.Building_HoldingPlatform platform && LCAnomalyCore.Util.Types.CheckIfLCEntity(platform.HeldPawn))
                     {
                         Failed();
                         return;

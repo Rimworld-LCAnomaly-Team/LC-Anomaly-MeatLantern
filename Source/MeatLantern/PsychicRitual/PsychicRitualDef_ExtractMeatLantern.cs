@@ -1,4 +1,4 @@
-﻿using LCAnomalyLibrary.Defs;
+﻿using LCAnomalyCore.Defs;
 using System.Collections.Generic;
 using Verse.AI.Group;
 

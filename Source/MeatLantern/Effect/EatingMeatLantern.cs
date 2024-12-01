@@ -1,4 +1,4 @@
-﻿using LCAnomalyLibrary.Misc;
+﻿using LCAnomalyCore.Misc;
 using MeatLantern.Utility;
 using RimWorld;
 using System.Collections.Generic;

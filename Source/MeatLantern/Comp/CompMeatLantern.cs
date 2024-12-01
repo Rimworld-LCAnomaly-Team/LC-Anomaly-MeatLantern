@@ -1,6 +1,6 @@
-﻿using LCAnomalyLibrary.Comp;
-using LCAnomalyLibrary.Comp.Pawns;
-using LCAnomalyLibrary.Util;
+﻿using LCAnomalyCore.Comp;
+using LCAnomalyCore.Comp.Pawns;
+using LCAnomalyCore.Util;
 using MeatLantern.Job;
 using MeatLantern.Utility;
 using RimWorld;
@@ -150,14 +150,17 @@ namespace MeatLantern.Comp
                         case EPawnLevel.II:
                             workTypeRate = 0.45f;
                             break;
+
                         case EPawnLevel.III:
                             workTypeRate = 0.5f;
                             break;
+
                         default:
                             workTypeRate = 0.55f;
                             break;
                     }
                     break;
+
                 case EAnomalyWorkType.Insight:
                     //洞察：60%
                     switch (studier.GetPawnStatusELevel(EPawnStatus.Prudence))
@@ -167,6 +170,7 @@ namespace MeatLantern.Comp
                             break;
                     }
                     break;
+
                 case EAnomalyWorkType.Attachment:
                     //沟通：45%
                     switch (studier.GetPawnStatusELevel(EPawnStatus.Temperance))
@@ -176,6 +180,7 @@ namespace MeatLantern.Comp
                             break;
                     }
                     break;
+
                 case EAnomalyWorkType.Repression:
                     //压迫：30%
                     switch (studier.GetPawnStatusELevel(EPawnStatus.Justice))

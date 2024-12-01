@@ -78,12 +78,12 @@
         <amountProdueMax>14</amountProdueMax>
         <boxTexOffsetZ>0.126</boxTexOffsetZ>
       </li>
-      <li Class="LCAnomalyLibrary.Comp.CompProperties_Accessoryable">
+      <li Class="LCAnomalyCore.Comp.CompProperties_Accessoryable">
         <accessoryDef>Accessory_MeatLantern</accessoryDef>
         <accessoryChance>0.05</accessoryChance>
         <unlockLevel>2</unlockLevel>
       </li>
-      <li Class="LCAnomalyLibrary.Comp.CompProperties_EgoExtractable">
+      <li Class="LCAnomalyCore.Comp.CompProperties_EgoExtractable">
         <weaponExtracted>EgoWeapon_MeatLantern</weaponExtracted>
         <weaponIconPath>UI/Commands/ExtractEGO_MeatLantern_Weapon</weaponIconPath>
         <amountMaxWeapon>2</amountMaxWeapon>
@@ -94,7 +94,7 @@
         <armorExtractedNeed>25</armorExtractedNeed>
         <unlockLevel>3</unlockLevel>
       </li>
-      <li Class="LCAnomalyLibrary.Comp.LC_CompProperties_StudyUnlocks">
+      <li Class="LCAnomalyCore.Comp.LC_CompProperties_StudyUnlocks">
         <studyNotes>
           <li>
             <threshold>3</threshold>
