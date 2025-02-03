@@ -103,8 +103,6 @@
     <Compile Include="Things\LC_MeatLanternPawn.cs" />
     <Compile Include="Utility\MeatLanternUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PsychicRitual\PsychicRitualDef_ExtractMeatLantern.cs" />
-    <Compile Include="PsychicRitual\PsychicRitualToil_ExtractMeatLantern.cs" />
     <Compile Include="ThinkNode\ThinkNode_ConditionalMeatLanternState.cs" />
   </ItemGroup>
   <ItemGroup />

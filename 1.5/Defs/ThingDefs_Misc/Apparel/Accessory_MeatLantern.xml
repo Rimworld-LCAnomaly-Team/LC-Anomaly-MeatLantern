@@ -29,7 +29,6 @@
       <MeleeDamageFactor>0.10</MeleeDamageFactor>
       <MeleeHitChance>0.10</MeleeHitChance>
       <IncomingDamageFactor>-0.05</IncomingDamageFactor>
-      <EntityStudyRate>0.10</EntityStudyRate>
     </equippedStatOffsets>
     <tradeTags>
       <li>LC_Apparel_Accessory</li>

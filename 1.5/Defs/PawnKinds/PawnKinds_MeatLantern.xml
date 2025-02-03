@@ -2,11 +2,11 @@
 <Defs>
 
   <PawnKindDef Name="BaseMeatLanternKind" Abstract="True">
-    <defaultFactionType>Entities</defaultFactionType>
+    <defaultFactionType>LC_Entities</defaultFactionType>
     <overrideDebugActionCategory>Entity</overrideDebugActionCategory>
-    <meleeAttackInfectionPathways>
+    <!-- <meleeAttackInfectionPathways>
       <li>EntityAttacked</li>
-    </meleeAttackInfectionPathways>
+    </meleeAttackInfectionPathways> -->
     <forceDeathOnDowned>true</forceDeathOnDowned>
   </PawnKindDef>
 

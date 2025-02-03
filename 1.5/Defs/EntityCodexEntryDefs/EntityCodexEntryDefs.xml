@@ -12,9 +12,6 @@
       <li>MeatLanternContained</li>
       <li>MeatLanternEscaped</li>
     </linkedThings>
-    <discoveredResearchProjects>
-      <li>ExtractMeatLantern</li>
-    </discoveredResearchProjects>
     <orderInCategory>800</orderInCategory>
   </LCAnomalyCore.Defs.EntityCodexEntryDef>
 

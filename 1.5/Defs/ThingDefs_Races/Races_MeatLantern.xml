@@ -8,7 +8,6 @@
       <ComfyTemperatureMin>-100</ComfyTemperatureMin>
       <ComfyTemperatureMax>100</ComfyTemperatureMax>
       <PsychicSensitivity>0</PsychicSensitivity>
-      <MinimumContainmentStrength>0</MinimumContainmentStrength>
       <StaggerDurationFactor>0</StaggerDurationFactor>
       <ToxicResistance>1</ToxicResistance>
     </statBases>
@@ -19,7 +18,7 @@
       <intelligence>ToolUser</intelligence>
       <needsRest>false</needsRest>
       <hasGenders>false</hasGenders>
-      <fleshType>EntityMechanical</fleshType>
+      <!-- <fleshType>None</fleshType> -->
       <foodType>None</foodType>
       <hasCorpse>false</hasCorpse>
       <lifeExpectancy>1000</lifeExpectancy>
@@ -29,11 +28,13 @@
       <trainability>None</trainability>
       <lifeStageAges>
         <li>
-          <def>EntityFullyFormed</def>
+          <def>LC_EntityFullyFormed</def>
+          <minAge>0</minAge>
+          <!-- <soundWounded>Pawn_Mech_Centipede_Wounded</soundWounded> -->
           <soundDeath>MeatLantern_Defeated</soundDeath>
+          <!-- <soundCall>Pawn_Mech_Centipede_Call</soundCall> -->
         </li>
       </lifeStageAges>
-      <hediffGiverSets><li>AnomalyEntity</li></hediffGiverSets>
     </race>
     <comps>
       <li Class="MeatLantern.Comp.CompProperties_MeatLantern">
@@ -52,7 +53,6 @@
       <li Class="MeatLantern.Comp.CompProperties_Studiable_MeatLantern">
         <frequencyTicks>60000</frequencyTicks>
         <studyTimesPeriod>1</studyTimesPeriod>
-        <knowledgeCategory>Basic</knowledgeCategory>
         <anomalyKnowledge>3</anomalyKnowledge>
         <minMonolithLevelForStudy>1</minMonolithLevelForStudy>
         <requiresHoldingPlatform>true</requiresHoldingPlatform>

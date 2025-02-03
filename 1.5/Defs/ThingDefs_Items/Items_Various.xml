@@ -20,14 +20,10 @@
       <MarketValue>0</MarketValue>
       <Mass>5</Mass>
       <Flammability>0</Flammability>
-      <MinimumContainmentStrength>0</MinimumContainmentStrength> <!-- Must match MeatLantern's minimum containment strength value -->
     </statBases>
     <thingCategories>
       <li>LC_Entity_Egg</li>
     </thingCategories>
-    <researchPrerequisites>
-      <li>ExtractMeatLantern</li>
-    </researchPrerequisites>
     <descriptionHyperlinks>
       <PawnKindDef>MeatLanternContained</PawnKindDef>
       <PawnKindDef>MeatLanternEscaped</PawnKindDef>
