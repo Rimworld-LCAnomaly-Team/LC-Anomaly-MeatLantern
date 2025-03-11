@@ -34,7 +34,7 @@ namespace MeatLantern.Effect
         private void DoDefaultFX()
         {
             //播放血肉特效，记录动画播放完的时间
-            Effecter effecter = EffecterDefOf.MeatExplosionExtraLarge.SpawnMaintained(base.Position, base.Map);
+            Effecter effecter = EffecterDefOf.Drill.SpawnMaintained(base.Position, base.Map);
             completeTick = base.TickSpawned + effecter.ticksLeft + 120;
             Def.SoundDefOf.MeatLantern_Escape.PlayOneShot(new TargetInfo(base.Position, base.Map));
 

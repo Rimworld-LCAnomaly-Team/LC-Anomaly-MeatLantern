@@ -26,6 +26,25 @@
     </tags>
   </BodyPartDef>
 
+  <BodyPartDef>
+    <defName>FleshbeastHead</defName>
+    <label>head</label>
+    <hitPoints>25</hitPoints>
+    <canSuggestAmputation>false</canSuggestAmputation>
+    <bleedRate>2</bleedRate>
+    <executionPartPriority>500</executionPartPriority>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>FleshbeastLeg</defName>
+    <label>tentacle</label>
+    <hitPoints>30</hitPoints>
+    <frostbiteVulnerability>0.1</frostbiteVulnerability>
+    <tags>
+      <li>MovingLimbCore</li>
+    </tags>
+  </BodyPartDef>
+
   <!-- Bodies -->
   <BodyDef>
     <defName>MeatLantern</defName>
