@@ -396,3 +396,9 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Local DLL reference paths
+/Source/1.6/MeatLantern/MeatLantern.DllReferences.props
+
+# Generated XML documentation
+/1.6/Assemblies/MeatLantern.xml

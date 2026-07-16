@@ -4,15 +4,15 @@
 	<author>DarthCY</author>
 	<packageId>DarthCY.LC.MeatLantern</packageId>
 	<supportedVersions>
-		<li>1.5</li>
+		<li>1.6</li>
 	</supportedVersions>
 	<description>The MeatLantern Anomaly from LobotomyCorporation.</description>
-	<url>https://github.com/DarthCY-K/LC-Anomaly-MeatLantern</url>
+	<url>https://github.com/Rimworld-LCAnomaly-Team/LC-Anomaly-MeatLantern</url>
 	<modDependencies>
 		<li>
 			<packageId>DarthCY.LC.AnomalyCore</packageId>
 			<displayName>LC Anomaly Core</displayName>
-			<downloadUrl>https://github.com/DarthCY-K/LC-Anomaly-Core/releases/latest</downloadUrl>
+			<downloadUrl>https://github.com/Rimworld-LCAnomaly-Team/LC-Anomaly-Core/releases/latest</downloadUrl>
 		</li>
 	</modDependencies>
 	<loadAfter>

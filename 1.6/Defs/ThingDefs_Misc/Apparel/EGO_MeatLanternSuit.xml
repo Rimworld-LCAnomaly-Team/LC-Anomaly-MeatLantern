@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef Name="Apparel_MeatLanternSuit" ParentName="LC_Apparel_EGO">
+    <defName>Apparel_MeatLanternSuit</defName>
+    <label>E.G.O. Suit (Meat Lantern)</label>
+    <description>.</description>
+    <graphicData>
+      <texPath>Things/Pawn/Humanlike/Apparel/MeatLanternSuit/MeatLanternSuit</texPath>
+    </graphicData>
+    <statBases>
+      <ArmorRating_Sharp>0.85</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.42</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.56</ArmorRating_Heat>
+      <Insulation_Cold>20</Insulation_Cold>
+      <Insulation_Heat>20</Insulation_Heat>
+      <Mass>5</Mass>
+      <EquipDelay>10</EquipDelay>
+    </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.10</MoveSpeed>
+      <MeleeHitChance>+0.20</MeleeHitChance>
+      <ShootingAccuracyPawn>-1.00</ShootingAccuracyPawn>
+    </equippedStatOffsets>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Legs</li>
+        <li>Arms</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Feet</li>
+        <li>Hands</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/MeatLanternSuit/MeatLanternSuit</wornGraphicPath>
+      <layers>
+        <li>Middle</li>
+        <li>Shell</li>
+      </layers>
+      <useDeflectMetalEffect>true</useDeflectMetalEffect>
+      <soundWear>Wear_PowerArmor</soundWear>
+      <soundRemove>Remove_PowerArmor</soundRemove>
+    </apparel>
+    <modExtensions>
+      <li Class="LCAnomalyCore.ModExtensions.FourColorApparelExtension">
+        <riskLevel>TETH</riskLevel>
+        <redResistance>0.8</redResistance>
+        <whiteResistance>0.8</whiteResistance>
+        <blackResistance>0.8</blackResistance>
+        <paleResistance>1.5</paleResistance>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+</Defs>
