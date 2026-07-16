@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <LCAnomalyCore.Defs.ThingDef_AbnormalityEgg ParentName="ResourceBase">
+    <defName>MeatLanternEgg</defName>
+    <label>Meat Lantern Egg</label>
+    <description>.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Special/MeatLanternEgg</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Rare</tickerType>
+    <stackLimit>1</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <genericMarketSellable>false</genericMarketSellable>
+    <statBases>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <MarketValue>0</MarketValue>
+      <Mass>5</Mass>
+      <Flammability>0</Flammability>
+      <LC_MinimumContainmentStrength>0</LC_MinimumContainmentStrength>
+    </statBases>
+    <thingCategories>
+      <li>LC_Entity_Egg</li>
+    </thingCategories>
+    <descriptionHyperlinks>
+      <PawnKindDef>MeatLanternContained</PawnKindDef>
+      <PawnKindDef>MeatLanternEscaped</PawnKindDef>
+    </descriptionHyperlinks>
+    <hiddenWhileUndiscovered>true</hiddenWhileUndiscovered>
+    <comps>
+      <li Class="LCAnomalyCore.Comp.CompProperties_AbnormalityHoldingPlatformTarget">
+        <heldPawnKind>MeatLanternContained</heldPawnKind>
+        <capturedLetterLabel>Meat Lantern Preformed</capturedLetterLabel>
+        <capturedLetterText>.</capturedLetterText>
+      </li>
+      <li Class="CompProperties_AttachPoints">
+        <points>
+          <li>
+            <offset>(-.25, 0, .25)</offset>
+            <type>PlatformRestraint0</type>
+          </li>
+          <li>
+            <offset>(.25, 0, .25)</offset>
+            <type>PlatformRestraint1</type>
+          </li>
+          <li>
+            <offset>(.25, 0, -.25)</offset>
+            <type>PlatformRestraint2</type>
+          </li>
+          <li>
+            <offset>(-.25, 0, -.25)</offset>
+            <type>PlatformRestraint3</type>
+          </li>
+        </points>
+      </li>
+      <li Class="CompProperties_Usable">
+        <useJob>SmashThing</useJob>
+        <useLabel>Smash {0_label}</useLabel>
+        <useMessage>{PAWN_nameDef} smashed the meat lantern egg. It dissolved to reveal some PeBox.</useMessage>
+        <useDuration>300</useDuration>
+      </li>
+      <li Class="CompProperties_UseEffectPlaySound">
+        <soundOnUsed>ChunkRock_Drop</soundOnUsed>
+      </li>
+      <li Class="CompProperties_UseEffectDestroySelf">
+        <leavings>
+          <EnkephalinBox>20</EnkephalinBox>
+        </leavings>
+      </li>
+      <li Class="LCAnomalyCore.Comp.CompProperties_Abnormality"/>
+      <li Class="MeatLantern.Comp.CompProperties_MeatLanternEgg">
+        <compClass>MeatLantern.Comp.CompMeatLanternEgg</compClass>
+        <ticksToActivate>0</ticksToActivate>
+        <activateTexPath>UI/Commands/SmashMeatLanternEgg</activateTexPath>
+        <activateLabelString>Smash...</activateLabelString>
+        <activateDescString>Smash the meat lantern egg.</activateDescString>
+        <activatingStringPending>smashing meat lantern egg</activatingStringPending>
+        <guiLabelString>Choose who should do this</guiLabelString>
+        <showMustBeActivatedByColonist>false</showMustBeActivatedByColonist>
+        <shouldTransferBioSignature>true</shouldTransferBioSignature>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+    </comps>
+  </LCAnomalyCore.Defs.ThingDef_AbnormalityEgg>
+
+</Defs>
