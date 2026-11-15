@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef Name="Accessory_MeatLantern" ParentName="LC_Apparel_AccessoryBase">
+    <defName>Accessory_MeatLantern</defName>
+    <label>Accessory (Meat Lantern)</label>
+    <description>.</description>
+    <thingCategories>
+      <li>LC_Apparel_Accessory_EGO</li>
+    </thingCategories>
+    <graphicData>
+      <texPath>Things/Pawn/Humanlike/Apparel/Accessory/MeatLanternAccessory</texPath>
+    </graphicData>
+    <statBases>
+      <Beauty>5</Beauty>
+    </statBases>
+    <apparel>
+      <layers>
+        <li>LC_AccessoryMouth</li>
+      </layers>
+      <developmentalStageFilter>Adult</developmentalStageFilter>
+      <bodyPartGroups>
+        <!-- <li>Mouth</li> -->
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/Accessory/MeatLanternAccessory</wornGraphicPath>
+    </apparel>
+    <equippedStatOffsets>
+      <MeleeDamageFactor>0.10</MeleeDamageFactor>
+      <MeleeHitChance>0.10</MeleeHitChance>
+      <IncomingDamageFactor>-0.05</IncomingDamageFactor>
+    </equippedStatOffsets>
+    <tradeTags>
+      <li>LC_Apparel_Accessory</li>
+    </tradeTags>
+  </ThingDef>
+
+</Defs>

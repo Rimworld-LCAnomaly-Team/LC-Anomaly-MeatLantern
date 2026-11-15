@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\RimWorld17.props" />
+  <PropertyGroup>
+    <AssemblyName>MeatLantern</AssemblyName>
+    <RootNamespace>MeatLantern</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Comp\CompAbilityEffect_Whirlwind_OmNomNom.cs" />
+    <Compile Include="Comp\CompMeatLantern.cs" />
+    <Compile Include="Comp\CompProperties_AbilityWhirlwind_OmNomNom.cs" />
+    <Compile Include="Comp\CompProperties_MeatLantern.cs" />
+    <Compile Include="Comp\CompProperties_MeatLanternEgg.cs" />
+    <Compile Include="Comp\CompProperties_Studiable_MeatLantern.cs" />
+    <Compile Include="Comp\CompStudiable_MeatLantern.cs" />
+    <Compile Include="Def\FleckDefOf.cs" />
+    <Compile Include="Def\JobDefOf.cs" />
+    <Compile Include="Def\SoundDefOf.cs" />
+    <Compile Include="Def\ThingDefOf.cs" />
+    <Compile Include="Effect\EatingMeatLantern.cs" />
+    <Compile Include="Effect\EscapingMeatLantern.cs" />
+    <Compile Include="Effect\DyingMeatLantern.cs" />
+    <Compile Include="Def\PawnKindDefOf.cs" />
+    <Compile Include="Comp\CompMeatLanternEgg.cs" />
+    <Compile Include="Job\JobDriver_MeatLanternAttack.cs" />
+    <Compile Include="Job\JobDriver_MeatLanternWait.cs" />
+    <Compile Include="Job\JobGiver_MeatLanternAttack.cs" />
+    <Compile Include="Job\JobGiver_MeatLanternWait.cs" />
+    <Compile Include="Job\MeatLanternState.cs" />
+    <Compile Include="Setting\Setting_MeatLantern_Main.cs" />
+    <Compile Include="Setting\Setting_MeatLantern.cs" />
+    <Compile Include="Things\LC_MeatLanternPawn.cs" />
+    <Compile Include="Utility\MeatLanternUtility.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThinkNode\ThinkNode_ConditionalMeatLanternState.cs" />
+    <ProjectReference Include="..\..\..\..\LC Anomaly Core\Source\1.7\LCAnomalyCore\LCAnomalyCore.csproj"><Private>false</Private></ProjectReference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="EtherealThingBase">
+    <defName>DyingMeatLantern</defName>
+    <selectable>false</selectable>
+    <tickerType>Normal</tickerType>
+    <thingClass>MeatLantern.Effect.DyingMeatLantern</thingClass>
+    <drawOffscreen>true</drawOffscreen>
+  </ThingDef>
+
+  <LCAnomalyCore.Defs.ThingDef_AbnormalityEntity_Spawn ParentName="EtherealThingBase">
+    <defName>EscapingMeatLantern</defName>
+    <selectable>false</selectable>
+    <tickerType>Normal</tickerType>
+    <thingClass>MeatLantern.Effect.EscapingMeatLantern</thingClass>
+    <drawOffscreen>true</drawOffscreen>
+  </LCAnomalyCore.Defs.ThingDef_AbnormalityEntity_Spawn>
+
+  <ThingDef ParentName="EtherealThingBase">
+    <defName>EatingMeatLantern</defName>
+    <selectable>false</selectable>
+    <tickerType>Normal</tickerType>
+    <thingClass>MeatLantern.Effect.EatingMeatLantern</thingClass>
+    <drawOffscreen>true</drawOffscreen>
+  </ThingDef>
+
+</Defs>
