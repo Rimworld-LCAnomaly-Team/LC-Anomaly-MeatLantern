@@ -1,4 +1,4 @@
-﻿using MeatLantern.Effect;
+using MeatLantern.Effect;
 using MeatLantern.Setting;
 using RimWorld;
 using System.Collections.Generic;
@@ -211,17 +211,11 @@ namespace MeatLantern.Utility
                 DamageInfo dInfo_Stun = new(DamageDefOf.Stun, damage * stunPercent);
                 victim.TakeDamage(dInfo_Stun);
 
-                if (ModsConfig.AnomalyActive && EffecterDefOf.MeatExplosionSmall != null)
-                {
-                    EffecterDefOf.MeatExplosionSmall.SpawnMaintained(victim.Position, victim.MapHeld);
-                }
+                LCAnomalyCore.Util.AbnormalityUtility.Burst(victim.Position, victim.MapHeld);
             }
             else
             {
-                if (ModsConfig.AnomalyActive && EffecterDefOf.MetalhorrorDeath != null)
-                {
-                    EffecterDefOf.MetalhorrorDeath.SpawnMaintained(victim.Position, victim.MapHeld);
-                }
+                FleckMaker.ThrowMicroSparks(victim.DrawPos, victim.MapHeld);
             }
 
             Def.SoundDefOf.MeatLantern_Eat.PlayOneShot(new TargetInfo(victim.Position, victim.MapHeld));

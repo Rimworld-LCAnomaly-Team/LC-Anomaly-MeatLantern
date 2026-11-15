@@ -12,7 +12,7 @@ namespace MeatLantern.Things
         protected override void Tick()
         {
             //收容状态下丢下就出逃
-            if (CarriedBy == null && kindDef == Def.PawnKindDefOf.MeatLanternContained)
+            if (Spawned && CarriedBy == null && kindDef == Def.PawnKindDefOf.MeatLanternContained && !EntityComp.Escaped)
             {
                 GetComp<CompMeatLantern>()?.Notify_Escaped();
             }

@@ -28,7 +28,7 @@
       <PawnKindDef>MeatLanternContained</PawnKindDef>
       <PawnKindDef>MeatLanternEscaped</PawnKindDef>
     </descriptionHyperlinks>
-    <hiddenWhileUndiscovered>true</hiddenWhileUndiscovered>
+    <hiddenWhileUndiscovered>false</hiddenWhileUndiscovered>
     <comps>
       <li Class="LCAnomalyCore.Comp.CompProperties_AbnormalityHoldingPlatformTarget">
         <heldPawnKind>MeatLanternContained</heldPawnKind>

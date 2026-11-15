@@ -76,12 +76,12 @@ namespace MeatLantern.Effect
         {
             IntVec3 pos = base.Position;
 
-            CellFinder.TryFindRandomReachableNearbyCell(
+            bool found = CellFinder.TryFindRandomReachableNearbyCell(
                 base.Position, base.MapHeld
                 , radius, TraverseParms.For(TraverseMode.PassDoors)
                 , null, null, out pos);
 
-            return pos;
+            return found && pos.InBounds(MapHeld) ? pos : Position;
         }
     }
 }
